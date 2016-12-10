@@ -1,1 +1,52 @@
-Hello, World!
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Text Annotation Viz Test</title>
+
+    <link rel="stylesheet" type="text/css" href="./brat_client/style-vis.css"/>
+    <link rel="stylesheet" type="text/css" href="./main.css"/>
+
+    <script type="text/javascript" src="./brat_client/client/lib/head.load.min.js"></script>
+    <script type="text/javascript">
+        var bratLocation = './brat_client';
+
+        head.js(
+            // External libraries
+            bratLocation + '/client/lib/jquery.min.js',
+            bratLocation + '/client/lib/jquery.svg.min.js',
+            bratLocation + '/client/lib/jquery.svgdom.min.js',
+
+            // brat helper modules
+            bratLocation + '/client/src/configuration.js',
+            bratLocation + '/client/src/util.js',
+            bratLocation + '/client/src/annotation_log.js',
+            bratLocation + '/client/lib/webfont.js',
+
+            // brat modules
+            bratLocation + '/client/src/dispatcher.js',
+            bratLocation + '/client/src/url_monitor.js',
+            bratLocation + '/client/src/visualizer.js'
+        );
+
+        var webFontURLs = [
+            bratLocation + '/static/fonts/Astloch-Bold.ttf',
+            bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+            bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+        ];
+    </script>
+    <script src="/text-viz.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="main-content">
+    <div id="render-area"></div>
+</div>
+
+<script>
+    head.ready(function () {
+        var bratData = textViz.parse();
+        Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
+    });
+</script>
+</body>
+</html>

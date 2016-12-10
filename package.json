@@ -1,6 +1,6 @@
 {
   "name": "illinois-annotation-viz",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Awesome Text Annotation",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,12 @@
   },
   "author": "",
   "license": "NCSA",
-  "dependencies": {
+  "devDependencies": {
     "browserify": "^13.1.1",
     "browserify-middleware": "^7.1.0",
     "express": "^4.14.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2"
   }
 }
