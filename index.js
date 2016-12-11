@@ -5,7 +5,7 @@ var randomColor = require('randomcolor');
 
 var sampleData = require('./public/test.json');
 
-var renderSpanLabelView = function(viewName, spanDataMap) {
+var renderSpanLabelView = function(viewName, spanName, tokenMap) {
     var spanViewOuter = _.filter(sampleData.views, function (view) {
         return view.viewName === viewName;
     });
@@ -27,36 +27,24 @@ var renderSpanLabelView = function(viewName, spanDataMap) {
         }
     });
 
-    var entityList = _.map(spamView.constituents, function (constituent) {
+    var entityList = _.map(spanView.constituents, function (constituent) {
+        var unqiue_id = 'entity_' +  constituent.start + '_' + constituent.end;
 
+        var tokenStart = tokenMap[constituent.start];
+        // var tokenEnd = tokenMap[constituent.end - 1];
+
+        console.log(tokenStart, constituent);
+
+        if (_.isUndefined(tokenStart)) {
+            return false;
+        }
+
+        return [unqiue_id, constituent.label, [[tokenStart.charStart, tokenStart.charEnd - 1]]];
     });
-
-    var docDataOrig = {
-        // Our text of choice
-        text     : "This is the best Hello. \n This is the very best of the best of the ones.",
-        // The entities entry holds all entity annotations
-        entities : [
-            /* Format: [${ID}, ${TYPE}, [[${START}, ${END}]]]
-             note that range of the offsets are [${START},${END}) */
-            ['T1', 'Person', [[0, 11]]],
-            ['T2', 'Person', [[27, 29]]],
-            ['T3', 'Person', [[37, 40]]],
-            ['T4', 'Person', [[50, 61]]],
-        ]
-    };
-
-    var entityList = [
-        /* Format: [${ID}, ${TYPE}, [[${START}, ${END}]]]
-         note that range of the offsets are [${START},${END}) */
-        ['T1', 'Person', [[0, 11]]],
-        ['T2', 'Person', [[27, 29]]],
-        ['T3', 'Person', [[37, 40]]],
-        ['T4', 'Person', [[50, 61]]],
-    ];
 
     return {
         entity_types: entityTypesList,
-        entities: entityList
+        entities: _.compact(entityList)
     };
 };
 
@@ -86,7 +74,14 @@ var parse = function (options) {
     var sentenceResults = _.reduce(_.zip(tokenConstituents, tokensList), function (result, value, index) {
         var sentenceComponent = result.pop();
 
-        var lastToken = _.last(sentenceComponent) || {};
+        var lastToken = _.last(sentenceComponent);
+
+        if (_.isUndefined(lastToken)) {
+            // Get the last token from the previous sentence.
+            var prev = _.last(result) || [];
+            lastToken = _.last(prev) || {};
+        }
+
         var lastTokenCharEnd = lastToken.charEnd || 0;
 
         var constituent = _.head(value);
@@ -114,14 +109,17 @@ var parse = function (options) {
         return result;
     }, [[]]);
 
+    var tokenMap = _.keyBy(_.flatten(sentenceResults), 'start');
     var rawText = _.join(_.map(_.flatten(sentenceResults), function (token) { return token.text; }), '');
 
     var spanOutput = renderSpanLabelView("NER_ACE_COARSE_HEAD",
         "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
-        sentenceResults) || {};
+        tokenMap) || {};
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];
+
+
 
     return {
         collectionData: {
