@@ -1,26 +1,35 @@
 /* eslint no-console:0 */
 
 var _ = require('lodash');
+var randomColor = require('randomcolor');
 
 var sampleData = require('./public/test.json');
 
-var renderSpanLabelView = function(viewName, viewType, spanDataMap) {
-    var entityTypesList = [];
-    var entityList = [];
+var renderSpanLabelView = function(viewName, spanDataMap) {
+    var spanViewOuter = _.filter(sampleData.views, function (view) {
+        return view.viewName === viewName;
+    });
 
-    var collData = {
-        entity_types: [ {
-            type   : 'Person',
-            /* The labels are used when displaying the annotion, in this case
-             we also provide a short-hand "Per" for cases where
-             abbreviations are preferable */
-            labels : ['Person', 'Per'],
-            // Blue is a nice colour for a person?
-            bgColor: '#7fa2ff',
-            // Use a slightly darker version of the bgColor for the border
+    var spanView = _.head(_.head(spanViewOuter).viewData);
+
+    var labels = _.uniq(_.map(spanView.constituents, function (constituent) {
+        return constituent.label;
+    }));
+
+    var colors = randomColor({ count: labels.length });
+
+    var entityTypesList = _.zipWith(labels, colors, function (label, color) {
+        return {
+            type: label,
+            labels: [label],
+            bgColor: color,
             borderColor: 'darken'
-        } ]
-    };
+        }
+    });
+
+    var entityList = _.map(spamView.constituents, function (constituent) {
+
+    });
 
     var docDataOrig = {
         // Our text of choice
@@ -35,6 +44,15 @@ var renderSpanLabelView = function(viewName, viewType, spanDataMap) {
             ['T4', 'Person', [[50, 61]]],
         ]
     };
+
+    var entityList = [
+        /* Format: [${ID}, ${TYPE}, [[${START}, ${END}]]]
+         note that range of the offsets are [${START},${END}) */
+        ['T1', 'Person', [[0, 11]]],
+        ['T2', 'Person', [[27, 29]]],
+        ['T3', 'Person', [[37, 40]]],
+        ['T4', 'Person', [[50, 61]]],
+    ];
 
     return {
         entity_types: entityTypesList,
