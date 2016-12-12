@@ -31,7 +31,7 @@ var renderSpanLabelView = function(viewName, spanName, tokenMap) {
         var unqiue_id = 'entity_' +  constituent.start + '_' + constituent.end;
 
         var tokenStart = tokenMap[constituent.start];
-        // var tokenEnd = tokenMap[constituent.end - 1];
+        var tokenEnd = tokenMap[constituent.end - 1];
 
         console.log(tokenStart, constituent);
 
@@ -39,7 +39,7 @@ var renderSpanLabelView = function(viewName, spanName, tokenMap) {
             return false;
         }
 
-        return [unqiue_id, constituent.label, [[tokenStart.charStart, tokenStart.charEnd - 1]]];
+        return [unqiue_id, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
     });
 
     return {
@@ -118,7 +118,6 @@ var parse = function (options) {
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];
-
 
 
     return {
