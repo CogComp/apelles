@@ -3073,7 +3073,7 @@ Util.profileStart('before parse');
         var webFontConfig = {
           custom: {
             families: [
-              'Astloch',
+              // 'Astloch',
               'PT Sans Caption',
               //        'Ubuntu',
               'Liberation Sans'

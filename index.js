@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var randomColor = require('randomcolor');
 
-var sampleData = require('./public/test.json');
+var sampleData = require('./public/sample.json');
 
 var renderSpanLabelView = function(viewName, spanName, tokenMap) {
     var spanViewOuter = _.filter(sampleData.views, function (view) {
@@ -32,8 +32,6 @@ var renderSpanLabelView = function(viewName, spanName, tokenMap) {
 
         var tokenStart = tokenMap[constituent.start];
         var tokenEnd = tokenMap[constituent.end - 1];
-
-        console.log(tokenStart, constituent);
 
         if (_.isUndefined(tokenStart)) {
             return false;
@@ -112,13 +110,12 @@ var parse = function (options) {
     var tokenMap = _.keyBy(_.flatten(sentenceResults), 'start');
     var rawText = _.join(_.map(_.flatten(sentenceResults), function (token) { return token.text; }), '');
 
-    var spanOutput = renderSpanLabelView("NER_ACE_COARSE_HEAD",
+    var spanOutput = renderSpanLabelView("SHALLOW_PARSE",
         "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
         tokenMap) || {};
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];
-
 
     return {
         collectionData: {
@@ -132,7 +129,7 @@ var parse = function (options) {
 };
 
 module.exports = {
+    data: sampleData,
     parse: parse,
-    lodash: _,
-    data: sampleData
+    lodash: _
 };

@@ -1,0 +1,7383 @@
+{
+  "corpusId": "",
+  "id": "",
+  "text": "These are the times that try men\u0027s souls. The summer soldier and the sunshine patriot will, in this crisis, shrink from the service of their country; but he that stands by it now, deserves the love and thanks of man and woman. Tyranny, like hell, is not easily conquered; yet we have this consolation with us, that the harder the conflict, the more glorious the triumph.",
+  "tokens": [
+    "These",
+    "are",
+    "the",
+    "times",
+    "that",
+    "try",
+    "men",
+    "\u0027s",
+    "souls",
+    ".",
+    "The",
+    "summer",
+    "soldier",
+    "and",
+    "the",
+    "sunshine",
+    "patriot",
+    "will",
+    ",",
+    "in",
+    "this",
+    "crisis",
+    ",",
+    "shrink",
+    "from",
+    "the",
+    "service",
+    "of",
+    "their",
+    "country",
+    ";",
+    "but",
+    "he",
+    "that",
+    "stands",
+    "by",
+    "it",
+    "now",
+    ",",
+    "deserves",
+    "the",
+    "love",
+    "and",
+    "thanks",
+    "of",
+    "man",
+    "and",
+    "woman",
+    ".",
+    "Tyranny",
+    ",",
+    "like",
+    "hell",
+    ",",
+    "is",
+    "not",
+    "easily",
+    "conquered",
+    ";",
+    "yet",
+    "we",
+    "have",
+    "this",
+    "consolation",
+    "with",
+    "us",
+    ",",
+    "that",
+    "the",
+    "harder",
+    "the",
+    "conflict",
+    ",",
+    "the",
+    "more",
+    "glorious",
+    "the",
+    "triumph",
+    "."
+  ],
+  "sentences": {
+    "generator": "UserSpecified",
+    "score": 1.0,
+    "sentenceEndPositions": [
+      10,
+      49,
+      79
+    ]
+  },
+  "views": [
+    {
+      "viewName": "BROWN_CLUSTERS_1000",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "BROWN_CLUSTERS_1000",
+          "generator": "BrownClusters",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "11100010000",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "011011000",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "0111101111010",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "11111001011",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "01111000",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "11110001011",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "1010010010",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "01111110",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "1010010010",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": "00",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "11100000",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "101100011",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "10111110010",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "0111111101",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "10101110110101",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "10111110010",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "011010100",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "01010",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "11011111010011",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "1111111100",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "101110101000",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "10001011",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "010110110",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "101111110010",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "0100",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "110011110",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "1011001100",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": "0111111111101",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "0111101100",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "111010010",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "01111000",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "1010100010",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "0101110",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "1110100111",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "111100101010",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "111101000110",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "100000111",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "0111111101",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "111101110000",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "0100",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "10111110010",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "0111111101",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "10111110010",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": "00",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "111101100111111",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "0111101111010",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "101110101010",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": "011011011",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "1111001000",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "11110111101001",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "111101010110110",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "0111111111101",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "0110111111010",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "11101000111",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "011011100",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "1111111100",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "101110011111",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "01011000",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "11011111011101",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "11110111111010",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "01111000",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "110111011000",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "101011111011",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": "0111110",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "110111000",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "1101110111110",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "110010",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "101110110110",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "CLAUSES_STANFORD",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "CLAUSES_STANFORD",
+          "generator": "From PARSE_STANFORD",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 0,
+              "end": 10
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 4,
+              "end": 9
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 5,
+              "end": 9
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 10,
+              "end": 49
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 33,
+              "end": 48
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 34,
+              "end": 48
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 49,
+              "end": 79
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 49,
+              "end": 58
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 60,
+              "end": 78
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 67,
+              "end": 78
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 68,
+              "end": 78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "CURRENCY_INDICATOR",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "CURRENCY_INDICATOR",
+          "generator": "Gazetteer",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "viewName": "DEPENDENCY_HEADFINDER:PARSE_STANFORD",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeView",
+          "viewName": "DEPENDENCY_HEADFINDER:PARSE_STANFORD",
+          "generator": "HeadFinderDependencies",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "ROOT",
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "Parent: NP, Head: NNS, Child: DT",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: SBAR",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "Parent: SBAR, Head: WHNP, Child: S",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": "Parent: NP, Head: NNS, Child: NP",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "Parent: NP, Head: POS, Child: NNS",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: .",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "ROOT",
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "Parent: VP, Head: MD, Child: ,",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "Parent: VP, Head: MD, Child: PP",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "Parent: VP, Head: MD, Child: ,",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "Parent: VP, Head: MD, Child: VP",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "Parent: VP, Head: VB, Child: PP",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: PRP$",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "Parent: VP, Head: VB, Child: :",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "Parent: VP, Head: VB, Child: PP",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "Parent: PP, Head: CC, Child: NP",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "Parent: VP, Head: VB, Child: SBAR",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "Parent: SBAR, Head: IN, Child: S",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "Parent: VP, Head: VBZ, Child: NP",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: NNS",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "Parent: NP, Head: CC, Child: NN",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": "Parent: NP, Head: CC, Child: NN",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: ADVP",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: NP",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "Parent: NP, Head: CC, Child: NP",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: .",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "ROOT",
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "Parent: S, Head: S, Child: :",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "Parent: S, Head: S, Child: S",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "Parent: VP, Head: VBP, Child: ,",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "Parent: VP, Head: VBP, Child: SBAR",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "Parent: SBAR, Head: IN, Child: S",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "Parent: FRAG, Head: NP, Child: X",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "Parent: X, Head: JJR, Child: DT",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "Parent: S, Head: FRAG, Child: ,",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "Parent: S, Head: FRAG, Child: FRAG",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "Parent: FRAG, Head: NP, Child: X",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "Parent: X, Head: JJ, Child: DT",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "Parent: X, Head: JJ, Child: RBR",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "Parent: S, Head: S, Child: .",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            },
+            {
+              "label": "Parent: S, Head: CC, Child: S",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "Parent: VP, Head: VBZ, Child: RB",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "Parent: VP, Head: VBZ, Child: VP",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "Parent: VP, Head: VBN, Child: ADVP",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: PP",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            }
+          ],
+          "relations": [
+            {
+              "relationName": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 1
+            },
+            {
+              "relationName": "Parent: NP, Head: NNS, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 1,
+              "targetConstituent": 2
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: SBAR",
+              "score": 1.0,
+              "srcConstituent": 1,
+              "targetConstituent": 3
+            },
+            {
+              "relationName": "Parent: SBAR, Head: WHNP, Child: S",
+              "score": 1.0,
+              "srcConstituent": 3,
+              "targetConstituent": 4
+            },
+            {
+              "relationName": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 4,
+              "targetConstituent": 5
+            },
+            {
+              "relationName": "Parent: NP, Head: NNS, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 5,
+              "targetConstituent": 6
+            },
+            {
+              "relationName": "Parent: NP, Head: POS, Child: NNS",
+              "score": 1.0,
+              "srcConstituent": 6,
+              "targetConstituent": 7
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 8
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: .",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 9
+            },
+            {
+              "relationName": "Parent: VP, Head: MD, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 11
+            },
+            {
+              "relationName": "Parent: VP, Head: MD, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 12
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 12,
+              "targetConstituent": 13
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 13,
+              "targetConstituent": 14
+            },
+            {
+              "relationName": "Parent: VP, Head: MD, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 15
+            },
+            {
+              "relationName": "Parent: VP, Head: MD, Child: VP",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 16
+            },
+            {
+              "relationName": "Parent: VP, Head: VB, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 16,
+              "targetConstituent": 17
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 17,
+              "targetConstituent": 18
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 18,
+              "targetConstituent": 19
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 18,
+              "targetConstituent": 20
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 20,
+              "targetConstituent": 21
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: PRP$",
+              "score": 1.0,
+              "srcConstituent": 21,
+              "targetConstituent": 22
+            },
+            {
+              "relationName": "Parent: VP, Head: VB, Child: :",
+              "score": 1.0,
+              "srcConstituent": 16,
+              "targetConstituent": 23
+            },
+            {
+              "relationName": "Parent: VP, Head: VB, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 16,
+              "targetConstituent": 24
+            },
+            {
+              "relationName": "Parent: PP, Head: CC, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 24,
+              "targetConstituent": 25
+            },
+            {
+              "relationName": "Parent: VP, Head: VB, Child: SBAR",
+              "score": 1.0,
+              "srcConstituent": 16,
+              "targetConstituent": 26
+            },
+            {
+              "relationName": "Parent: SBAR, Head: IN, Child: S",
+              "score": 1.0,
+              "srcConstituent": 26,
+              "targetConstituent": 27
+            },
+            {
+              "relationName": "Parent: VP, Head: VBZ, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 27,
+              "targetConstituent": 28
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: NNS",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 29
+            },
+            {
+              "relationName": "Parent: NP, Head: CC, Child: NN",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 30
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 30,
+              "targetConstituent": 31
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 32
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 32,
+              "targetConstituent": 33
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 34
+            },
+            {
+              "relationName": "Parent: NP, Head: CC, Child: NN",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 35
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 27,
+              "targetConstituent": 36
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 36,
+              "targetConstituent": 37
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 37,
+              "targetConstituent": 38
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: ADVP",
+              "score": 1.0,
+              "srcConstituent": 36,
+              "targetConstituent": 39
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 27,
+              "targetConstituent": 40
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 41
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 41,
+              "targetConstituent": 42
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 42,
+              "targetConstituent": 43
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "srcConstituent": 42,
+              "targetConstituent": 44
+            },
+            {
+              "relationName": "Parent: NP, Head: CC, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 41,
+              "targetConstituent": 45
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 45,
+              "targetConstituent": 46
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: NN",
+              "score": 1.0,
+              "srcConstituent": 45,
+              "targetConstituent": 47
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: .",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 48
+            },
+            {
+              "relationName": "Parent: S, Head: S, Child: :",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 50
+            },
+            {
+              "relationName": "Parent: S, Head: S, Child: S",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 51
+            },
+            {
+              "relationName": "Parent: VP, Head: VBP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 52
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 52,
+              "targetConstituent": 53
+            },
+            {
+              "relationName": "Parent: NP, Head: NP, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 52,
+              "targetConstituent": 54
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 54,
+              "targetConstituent": 55
+            },
+            {
+              "relationName": "Parent: VP, Head: VBP, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 56
+            },
+            {
+              "relationName": "Parent: VP, Head: VBP, Child: SBAR",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 57
+            },
+            {
+              "relationName": "Parent: SBAR, Head: IN, Child: S",
+              "score": 1.0,
+              "srcConstituent": 57,
+              "targetConstituent": 58
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 58,
+              "targetConstituent": 59
+            },
+            {
+              "relationName": "Parent: FRAG, Head: NP, Child: X",
+              "score": 1.0,
+              "srcConstituent": 58,
+              "targetConstituent": 60
+            },
+            {
+              "relationName": "Parent: X, Head: JJR, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 60,
+              "targetConstituent": 61
+            },
+            {
+              "relationName": "Parent: S, Head: FRAG, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 58,
+              "targetConstituent": 62
+            },
+            {
+              "relationName": "Parent: S, Head: FRAG, Child: FRAG",
+              "score": 1.0,
+              "srcConstituent": 58,
+              "targetConstituent": 63
+            },
+            {
+              "relationName": "Parent: NP, Head: NN, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 63,
+              "targetConstituent": 64
+            },
+            {
+              "relationName": "Parent: FRAG, Head: NP, Child: X",
+              "score": 1.0,
+              "srcConstituent": 63,
+              "targetConstituent": 65
+            },
+            {
+              "relationName": "Parent: X, Head: JJ, Child: DT",
+              "score": 1.0,
+              "srcConstituent": 65,
+              "targetConstituent": 66
+            },
+            {
+              "relationName": "Parent: X, Head: JJ, Child: RBR",
+              "score": 1.0,
+              "srcConstituent": 65,
+              "targetConstituent": 67
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 68
+            },
+            {
+              "relationName": "Parent: S, Head: S, Child: .",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 69
+            },
+            {
+              "relationName": "Parent: S, Head: CC, Child: S",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 70
+            },
+            {
+              "relationName": "Parent: VP, Head: VBZ, Child: RB",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 71
+            },
+            {
+              "relationName": "Parent: VP, Head: VBZ, Child: VP",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 72
+            },
+            {
+              "relationName": "Parent: VP, Head: VBN, Child: ADVP",
+              "score": 1.0,
+              "srcConstituent": 72,
+              "targetConstituent": 73
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 74
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 75
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: PP",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 76
+            },
+            {
+              "relationName": "Parent: PP, Head: IN, Child: NP",
+              "score": 1.0,
+              "srcConstituent": 76,
+              "targetConstituent": 77
+            },
+            {
+              "relationName": "Parent: S, Head: VP, Child: ,",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "DEPENDENCY_STANFORD",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeView",
+          "viewName": "DEPENDENCY_STANFORD",
+          "generator": "StanfordDepHandler",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "ROOT",
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "nsubj",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "cop",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "rcmod",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "nsubj",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "dobj",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": "poss",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "possessive",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "ROOT",
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "ccomp",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "dobj",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "cc",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "conj",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "cc",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "conj",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": "mark",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "nsubj",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "advmod",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": "poss",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "nsubj",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "nn",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "cc",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "conj",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "nn",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "aux",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "ROOT",
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "auxpass",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "neg",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "advmod",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "cc",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "conj",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "dep",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "dep",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": "dep",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "dep",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "mark",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "dep",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "nsubj",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "dobj",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "det",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "nsubjpass",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "prep",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "pobj",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            }
+          ],
+          "relations": [
+            {
+              "relationName": "nsubj",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 1
+            },
+            {
+              "relationName": "cop",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 2
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 3
+            },
+            {
+              "relationName": "rcmod",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 4
+            },
+            {
+              "relationName": "nsubj",
+              "score": 1.0,
+              "srcConstituent": 4,
+              "targetConstituent": 5
+            },
+            {
+              "relationName": "dobj",
+              "score": 1.0,
+              "srcConstituent": 4,
+              "targetConstituent": 6
+            },
+            {
+              "relationName": "poss",
+              "score": 1.0,
+              "srcConstituent": 6,
+              "targetConstituent": 7
+            },
+            {
+              "relationName": "possessive",
+              "score": 1.0,
+              "srcConstituent": 7,
+              "targetConstituent": 8
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 10
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 11
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 11,
+              "targetConstituent": 12
+            },
+            {
+              "relationName": "ccomp",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 13
+            },
+            {
+              "relationName": "dobj",
+              "score": 1.0,
+              "srcConstituent": 13,
+              "targetConstituent": 14
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 15
+            },
+            {
+              "relationName": "cc",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 16
+            },
+            {
+              "relationName": "conj",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 17
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 18
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 18,
+              "targetConstituent": 19
+            },
+            {
+              "relationName": "cc",
+              "score": 1.0,
+              "srcConstituent": 19,
+              "targetConstituent": 20
+            },
+            {
+              "relationName": "conj",
+              "score": 1.0,
+              "srcConstituent": 19,
+              "targetConstituent": 21
+            },
+            {
+              "relationName": "mark",
+              "score": 1.0,
+              "srcConstituent": 13,
+              "targetConstituent": 22
+            },
+            {
+              "relationName": "nsubj",
+              "score": 1.0,
+              "srcConstituent": 13,
+              "targetConstituent": 23
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 23,
+              "targetConstituent": 24
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 24,
+              "targetConstituent": 25
+            },
+            {
+              "relationName": "advmod",
+              "score": 1.0,
+              "srcConstituent": 23,
+              "targetConstituent": 26
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 27
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 27,
+              "targetConstituent": 28
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 29
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 30
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 30,
+              "targetConstituent": 31
+            },
+            {
+              "relationName": "poss",
+              "score": 1.0,
+              "srcConstituent": 31,
+              "targetConstituent": 32
+            },
+            {
+              "relationName": "nsubj",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 33
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 34
+            },
+            {
+              "relationName": "nn",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 35
+            },
+            {
+              "relationName": "cc",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 36
+            },
+            {
+              "relationName": "conj",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 37
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 37,
+              "targetConstituent": 38
+            },
+            {
+              "relationName": "nn",
+              "score": 1.0,
+              "srcConstituent": 37,
+              "targetConstituent": 39
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 40
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 40,
+              "targetConstituent": 41
+            },
+            {
+              "relationName": "aux",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 42
+            },
+            {
+              "relationName": "auxpass",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 44
+            },
+            {
+              "relationName": "neg",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 45
+            },
+            {
+              "relationName": "advmod",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 46
+            },
+            {
+              "relationName": "cc",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 47
+            },
+            {
+              "relationName": "conj",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 48
+            },
+            {
+              "relationName": "dep",
+              "score": 1.0,
+              "srcConstituent": 48,
+              "targetConstituent": 49
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 50
+            },
+            {
+              "relationName": "dep",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 51
+            },
+            {
+              "relationName": "dep",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 52
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 52,
+              "targetConstituent": 53
+            },
+            {
+              "relationName": "dep",
+              "score": 1.0,
+              "srcConstituent": 52,
+              "targetConstituent": 54
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 55
+            },
+            {
+              "relationName": "mark",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 56
+            },
+            {
+              "relationName": "dep",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 57
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 57,
+              "targetConstituent": 58
+            },
+            {
+              "relationName": "nsubj",
+              "score": 1.0,
+              "srcConstituent": 48,
+              "targetConstituent": 59
+            },
+            {
+              "relationName": "dobj",
+              "score": 1.0,
+              "srcConstituent": 48,
+              "targetConstituent": 60
+            },
+            {
+              "relationName": "det",
+              "score": 1.0,
+              "srcConstituent": 60,
+              "targetConstituent": 61
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 60,
+              "targetConstituent": 62
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 62,
+              "targetConstituent": 63
+            },
+            {
+              "relationName": "nsubjpass",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 64
+            },
+            {
+              "relationName": "prep",
+              "score": 1.0,
+              "srcConstituent": 43,
+              "targetConstituent": 65
+            },
+            {
+              "relationName": "pobj",
+              "score": 1.0,
+              "srcConstituent": 65,
+              "targetConstituent": 66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "HeuristicPredicateView:Nom",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.View",
+          "viewName": "HeuristicPredicateView:Nom",
+          "generator": "",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 3,
+              "end": 4,
+              "properties": {
+                "predicate": "time"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 6,
+              "end": 7,
+              "properties": {
+                "predicate": "man"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 8,
+              "end": 9,
+              "properties": {
+                "predicate": "soul"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 11,
+              "end": 12,
+              "properties": {
+                "predicate": "summer"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 12,
+              "end": 13,
+              "properties": {
+                "predicate": "soldier"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 21,
+              "end": 22,
+              "properties": {
+                "predicate": "crisis"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 26,
+              "end": 27,
+              "properties": {
+                "predicate": "service"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 29,
+              "end": 30,
+              "properties": {
+                "predicate": "country"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 41,
+              "end": 42,
+              "properties": {
+                "predicate": "love"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 43,
+              "end": 44,
+              "properties": {
+                "predicate": "thank"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 45,
+              "end": 46,
+              "properties": {
+                "predicate": "man"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 63,
+              "end": 64,
+              "properties": {
+                "predicate": "consolation"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 71,
+              "end": 72,
+              "properties": {
+                "predicate": "conflict"
+              }
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 77,
+              "end": 78,
+              "properties": {
+                "predicate": "triumph"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "LEMMA",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TokenLabelView",
+          "viewName": "LEMMA",
+          "generator": "edu.illinois.cs.cogcomp.nlp.lemmatizer.IllinoisLemmatizer",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "these",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "be",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "time",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "try",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "man",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "\u0027s",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "soul",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "summer",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "soldier",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "sunshine",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "patriot",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "will",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "in",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "this",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "crisis",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "shrink",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "from",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "service",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "of",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "their",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "country",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": ";",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "but",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "he",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "stand",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "by",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "it",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "now",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "deserve",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "love",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "thanks",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "of",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "man",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "woman",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "tyranny",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "like",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "hell",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": "be",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "not",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "easily",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "conquer",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": ";",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "yet",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "we",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "have",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "this",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "consolation",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "with",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "us",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "harder",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "conflict",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "more",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "glorious",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "triumph",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "NER_CONLL",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "NER_CONLL",
+          "generator": "NER_CONLL-annotator",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "viewName": "NER_ONTONOTES",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "NER_ONTONOTES",
+          "generator": "NER_ONTONOTES-annotator",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "DATE",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "PARSE_STANFORD",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeView",
+          "viewName": "PARSE_STANFORD",
+          "generator": "StanfordParseHandler",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "ROOT",
+              "score": 1.0,
+              "start": 0,
+              "end": 10
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 0,
+              "end": 10
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "These",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 1,
+              "end": 9
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "are",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 2,
+              "end": 9
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 2,
+              "end": 4
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "times",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "SBAR",
+              "score": 1.0,
+              "start": 4,
+              "end": 9
+            },
+            {
+              "label": "WHNP",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "WDT",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 5,
+              "end": 9
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 5,
+              "end": 9
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "try",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 6,
+              "end": 9
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 6,
+              "end": 8
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "men",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "POS",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "\u0027s",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": "souls",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "ROOT",
+              "score": 1.0,
+              "start": 10,
+              "end": 49
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 10,
+              "end": 49
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 10,
+              "end": 17
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 10,
+              "end": 13
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "The",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "summer",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "soldier",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 14,
+              "end": 17
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "sunshine",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "patriot",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 17,
+              "end": 48
+            },
+            {
+              "label": "MD",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "will",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 19,
+              "end": 22
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "in",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 20,
+              "end": 22
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "this",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": "crisis",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 23,
+              "end": 48
+            },
+            {
+              "label": "VB",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "shrink",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 24,
+              "end": 30
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "from",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 25,
+              "end": 30
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 25,
+              "end": 27
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "service",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 27,
+              "end": 30
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "of",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 28,
+              "end": 30
+            },
+            {
+              "label": "PRP$",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "their",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": "country",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": ":",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": ";",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 31,
+              "end": 33
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "but",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "he",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "SBAR",
+              "score": 1.0,
+              "start": 33,
+              "end": 48
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 34,
+              "end": 48
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 34,
+              "end": 38
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "stands",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 35,
+              "end": 37
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "by",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "it",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "ADVP",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "now",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 39,
+              "end": 48
+            },
+            {
+              "label": "VBZ",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "deserves",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 40,
+              "end": 48
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 40,
+              "end": 44
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "love",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "thanks",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 44,
+              "end": 48
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "of",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 45,
+              "end": 48
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "man",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "and",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": "woman",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "ROOT",
+              "score": 1.0,
+              "start": 49,
+              "end": 79
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 49,
+              "end": 79
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 49,
+              "end": 58
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "Tyranny",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 51,
+              "end": 53
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "like",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "hell",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 54,
+              "end": 58
+            },
+            {
+              "label": "VBZ",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "is",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "not",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 56,
+              "end": 58
+            },
+            {
+              "label": "ADVP",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "easily",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "VBN",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "conquered",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": ":",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": ";",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "yet",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 60,
+              "end": 78
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "we",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 61,
+              "end": 78
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "have",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 62,
+              "end": 66
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 62,
+              "end": 64
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "this",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "consolation",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 64,
+              "end": 66
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "with",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "us",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "SBAR",
+              "score": 1.0,
+              "start": 67,
+              "end": 78
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "that",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "S",
+              "score": 1.0,
+              "start": 68,
+              "end": 78
+            },
+            {
+              "label": "FRAG",
+              "score": 1.0,
+              "start": 68,
+              "end": 72
+            },
+            {
+              "label": "X",
+              "score": 1.0,
+              "start": 68,
+              "end": 70
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "JJR",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "harder",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 70,
+              "end": 72
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": "conflict",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "FRAG",
+              "score": 1.0,
+              "start": 73,
+              "end": 78
+            },
+            {
+              "label": "X",
+              "score": 1.0,
+              "start": 73,
+              "end": 76
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "RBR",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "more",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "JJ",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "glorious",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 76,
+              "end": 78
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "the",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": "triumph",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            }
+          ],
+          "relations": [
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 0,
+              "targetConstituent": 1
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 1,
+              "targetConstituent": 2
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 2,
+              "targetConstituent": 3
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 3,
+              "targetConstituent": 4
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 1,
+              "targetConstituent": 5
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 5,
+              "targetConstituent": 6
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 6,
+              "targetConstituent": 7
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 5,
+              "targetConstituent": 8
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 8,
+              "targetConstituent": 9
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 10
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 10,
+              "targetConstituent": 11
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 9,
+              "targetConstituent": 12
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 12,
+              "targetConstituent": 13
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 8,
+              "targetConstituent": 14
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 15
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 15,
+              "targetConstituent": 16
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 16,
+              "targetConstituent": 17
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 14,
+              "targetConstituent": 18
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 18,
+              "targetConstituent": 19
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 19,
+              "targetConstituent": 20
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 20,
+              "targetConstituent": 21
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 19,
+              "targetConstituent": 22
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 22,
+              "targetConstituent": 23
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 23,
+              "targetConstituent": 24
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 24,
+              "targetConstituent": 25
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 23,
+              "targetConstituent": 26
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 26,
+              "targetConstituent": 27
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 22,
+              "targetConstituent": 28
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 28,
+              "targetConstituent": 29
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 1,
+              "targetConstituent": 30
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 30,
+              "targetConstituent": 31
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 32,
+              "targetConstituent": 33
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 34
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 34,
+              "targetConstituent": 35
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 35,
+              "targetConstituent": 36
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 36,
+              "targetConstituent": 37
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 35,
+              "targetConstituent": 38
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 38,
+              "targetConstituent": 39
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 35,
+              "targetConstituent": 40
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 40,
+              "targetConstituent": 41
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 34,
+              "targetConstituent": 42
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 42,
+              "targetConstituent": 43
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 34,
+              "targetConstituent": 44
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 44,
+              "targetConstituent": 45
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 45,
+              "targetConstituent": 46
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 44,
+              "targetConstituent": 47
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 47,
+              "targetConstituent": 48
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 44,
+              "targetConstituent": 49
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 49,
+              "targetConstituent": 50
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 51
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 52
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 52,
+              "targetConstituent": 53
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 54
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 54,
+              "targetConstituent": 55
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 56
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 56,
+              "targetConstituent": 57
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 57,
+              "targetConstituent": 58
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 56,
+              "targetConstituent": 59
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 59,
+              "targetConstituent": 60
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 60,
+              "targetConstituent": 61
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 59,
+              "targetConstituent": 62
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 62,
+              "targetConstituent": 63
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 64
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 64,
+              "targetConstituent": 65
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 51,
+              "targetConstituent": 66
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 66,
+              "targetConstituent": 67
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 67,
+              "targetConstituent": 68
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 66,
+              "targetConstituent": 69
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 69,
+              "targetConstituent": 70
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 70,
+              "targetConstituent": 71
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 69,
+              "targetConstituent": 72
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 72,
+              "targetConstituent": 73
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 73,
+              "targetConstituent": 74
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 74,
+              "targetConstituent": 75
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 73,
+              "targetConstituent": 76
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 76,
+              "targetConstituent": 77
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 72,
+              "targetConstituent": 78
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 78,
+              "targetConstituent": 79
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 79,
+              "targetConstituent": 80
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 78,
+              "targetConstituent": 81
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 81,
+              "targetConstituent": 82
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 82,
+              "targetConstituent": 83
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 81,
+              "targetConstituent": 84
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 84,
+              "targetConstituent": 85
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 66,
+              "targetConstituent": 86
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 86,
+              "targetConstituent": 87
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 66,
+              "targetConstituent": 88
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 88,
+              "targetConstituent": 89
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 89,
+              "targetConstituent": 90
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 88,
+              "targetConstituent": 91
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 91,
+              "targetConstituent": 92
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 92,
+              "targetConstituent": 93
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 66,
+              "targetConstituent": 94
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 94,
+              "targetConstituent": 95
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 95,
+              "targetConstituent": 96
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 94,
+              "targetConstituent": 97
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 97,
+              "targetConstituent": 98
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 98,
+              "targetConstituent": 99
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 99,
+              "targetConstituent": 100
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 100,
+              "targetConstituent": 101
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 98,
+              "targetConstituent": 102
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 102,
+              "targetConstituent": 103
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 103,
+              "targetConstituent": 104
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 102,
+              "targetConstituent": 105
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 105,
+              "targetConstituent": 106
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 106,
+              "targetConstituent": 107
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 98,
+              "targetConstituent": 108
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 108,
+              "targetConstituent": 109
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 109,
+              "targetConstituent": 110
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 97,
+              "targetConstituent": 111
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 111,
+              "targetConstituent": 112
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 97,
+              "targetConstituent": 113
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 113,
+              "targetConstituent": 114
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 114,
+              "targetConstituent": 115
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 113,
+              "targetConstituent": 116
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 116,
+              "targetConstituent": 117
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 117,
+              "targetConstituent": 118
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 118,
+              "targetConstituent": 119
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 117,
+              "targetConstituent": 120
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 120,
+              "targetConstituent": 121
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 117,
+              "targetConstituent": 122
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 122,
+              "targetConstituent": 123
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 117,
+              "targetConstituent": 124
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 124,
+              "targetConstituent": 125
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 116,
+              "targetConstituent": 126
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 126,
+              "targetConstituent": 127
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 127,
+              "targetConstituent": 128
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 126,
+              "targetConstituent": 129
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 129,
+              "targetConstituent": 130
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 130,
+              "targetConstituent": 131
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 129,
+              "targetConstituent": 132
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 132,
+              "targetConstituent": 133
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 129,
+              "targetConstituent": 134
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 134,
+              "targetConstituent": 135
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 33,
+              "targetConstituent": 136
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 136,
+              "targetConstituent": 137
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 138,
+              "targetConstituent": 139
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 139,
+              "targetConstituent": 140
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 140,
+              "targetConstituent": 141
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 141,
+              "targetConstituent": 142
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 142,
+              "targetConstituent": 143
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 140,
+              "targetConstituent": 144
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 144,
+              "targetConstituent": 145
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 140,
+              "targetConstituent": 146
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 146,
+              "targetConstituent": 147
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 147,
+              "targetConstituent": 148
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 146,
+              "targetConstituent": 149
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 149,
+              "targetConstituent": 150
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 150,
+              "targetConstituent": 151
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 140,
+              "targetConstituent": 152
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 152,
+              "targetConstituent": 153
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 140,
+              "targetConstituent": 154
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 154,
+              "targetConstituent": 155
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 155,
+              "targetConstituent": 156
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 154,
+              "targetConstituent": 157
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 157,
+              "targetConstituent": 158
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 154,
+              "targetConstituent": 159
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 159,
+              "targetConstituent": 160
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 160,
+              "targetConstituent": 161
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 161,
+              "targetConstituent": 162
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 159,
+              "targetConstituent": 163
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 163,
+              "targetConstituent": 164
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 139,
+              "targetConstituent": 165
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 165,
+              "targetConstituent": 166
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 139,
+              "targetConstituent": 167
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 167,
+              "targetConstituent": 168
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 139,
+              "targetConstituent": 169
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 169,
+              "targetConstituent": 170
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 170,
+              "targetConstituent": 171
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 171,
+              "targetConstituent": 172
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 169,
+              "targetConstituent": 173
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 173,
+              "targetConstituent": 174
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 174,
+              "targetConstituent": 175
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 173,
+              "targetConstituent": 176
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 176,
+              "targetConstituent": 177
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 177,
+              "targetConstituent": 178
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 178,
+              "targetConstituent": 179
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 177,
+              "targetConstituent": 180
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 180,
+              "targetConstituent": 181
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 176,
+              "targetConstituent": 182
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 182,
+              "targetConstituent": 183
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 183,
+              "targetConstituent": 184
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 182,
+              "targetConstituent": 185
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 185,
+              "targetConstituent": 186
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 186,
+              "targetConstituent": 187
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 173,
+              "targetConstituent": 188
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 188,
+              "targetConstituent": 189
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 173,
+              "targetConstituent": 190
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 190,
+              "targetConstituent": 191
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 191,
+              "targetConstituent": 192
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 190,
+              "targetConstituent": 193
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 193,
+              "targetConstituent": 194
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 194,
+              "targetConstituent": 195
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 195,
+              "targetConstituent": 196
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 196,
+              "targetConstituent": 197
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 195,
+              "targetConstituent": 198
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 198,
+              "targetConstituent": 199
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 194,
+              "targetConstituent": 200
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 200,
+              "targetConstituent": 201
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 201,
+              "targetConstituent": 202
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 200,
+              "targetConstituent": 203
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 203,
+              "targetConstituent": 204
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 193,
+              "targetConstituent": 205
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 205,
+              "targetConstituent": 206
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 193,
+              "targetConstituent": 207
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 207,
+              "targetConstituent": 208
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 208,
+              "targetConstituent": 209
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 209,
+              "targetConstituent": 210
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 208,
+              "targetConstituent": 211
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 211,
+              "targetConstituent": 212
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 208,
+              "targetConstituent": 213
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 213,
+              "targetConstituent": 214
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 207,
+              "targetConstituent": 215
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 215,
+              "targetConstituent": 216
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 216,
+              "targetConstituent": 217
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 215,
+              "targetConstituent": 218
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 218,
+              "targetConstituent": 219
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 139,
+              "targetConstituent": 220
+            },
+            {
+              "relationName": "ParentOf",
+              "score": 1.0,
+              "srcConstituent": 220,
+              "targetConstituent": 221
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "POS",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TokenLabelView",
+          "viewName": "POS",
+          "generator": "edu.illinois.cs.cogcomp.pos.POSAnnotator",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "WDT",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "POS",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "MD",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "VB",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "PRP$",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": ":",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "WDT",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "VBZ",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "VBZ",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "NNS",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "NNP",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": "VBZ",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "RB",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "VBN",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": ":",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "CC",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "VBP",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "PRP",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "IN",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "JJR",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": ",",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "RBR",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "JJ",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "DT",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "NN",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": ".",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "SHALLOW_PARSE",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
+          "viewName": "SHALLOW_PARSE",
+          "generator": "edu.illinois.cs.cogcomp.chunker.main.ChunkerAnnotator",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 2,
+              "end": 4
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 7,
+              "end": 9
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 10,
+              "end": 13
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 14,
+              "end": 17
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 20,
+              "end": 22
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 25,
+              "end": 27
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 28,
+              "end": 30
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "ADVP",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 40,
+              "end": 44
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 45,
+              "end": 48
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "UCP",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "VP",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 62,
+              "end": 64
+            },
+            {
+              "label": "PP",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "SBAR",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 68,
+              "end": 70
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 70,
+              "end": 72
+            },
+            {
+              "label": "NP",
+              "score": 1.0,
+              "start": 76,
+              "end": 78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "SRL_NOM",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.PredicateArgumentView",
+          "viewName": "SRL_NOM",
+          "generator": "illinoisSRL-nom5.4.1",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 3,
+              "end": 4,
+              "properties": {
+                "SenseNumber": "02",
+                "predicate": "time"
+              }
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 8,
+              "end": 9,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "soul"
+              }
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 6,
+              "end": 8
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 12,
+              "end": 13,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "soldier"
+              }
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 26,
+              "end": 27,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "service"
+              }
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 43,
+              "end": 44,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "thank"
+              }
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 63,
+              "end": 64,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "consolation"
+              }
+            },
+            {
+              "label": "A2",
+              "score": 1.0,
+              "start": 64,
+              "end": 66
+            }
+          ],
+          "relations": [
+            {
+              "relationName": "A1",
+              "srcConstituent": 1,
+              "targetConstituent": 2
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 3,
+              "targetConstituent": 4
+            },
+            {
+              "relationName": "A2",
+              "srcConstituent": 7,
+              "targetConstituent": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "SRL_VERB",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.PredicateArgumentView",
+          "viewName": "SRL_VERB",
+          "generator": "illinoisSRL-verb5.4.1",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 1,
+              "end": 2,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "be"
+              }
+            },
+            {
+              "label": "AM-MNR",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 2,
+              "end": 9
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 5,
+              "end": 6,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "try"
+              }
+            },
+            {
+              "label": "AM-MOD",
+              "score": 1.0,
+              "start": 2,
+              "end": 4
+            },
+            {
+              "label": "A0",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 6,
+              "end": 9
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 23,
+              "end": 24,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "shrink"
+              }
+            },
+            {
+              "label": "A2",
+              "score": 1.0,
+              "start": 24,
+              "end": 30
+            },
+            {
+              "label": "AM-ADV",
+              "score": 1.0,
+              "start": 19,
+              "end": 22
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 34,
+              "end": 35,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "stand"
+              }
+            },
+            {
+              "label": "AM-MOD",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "A2",
+              "score": 1.0,
+              "start": 35,
+              "end": 37
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 39,
+              "end": 40,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "deserve"
+              }
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 40,
+              "end": 48
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 54,
+              "end": 55,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "be"
+              }
+            },
+            {
+              "label": "AM-TMP",
+              "score": 1.0,
+              "start": 56,
+              "end": 58
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 60,
+              "end": 78
+            },
+            {
+              "label": "AM-DIS",
+              "score": 1.0,
+              "start": 51,
+              "end": 53
+            },
+            {
+              "label": "AM-MNR",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 57,
+              "end": 58,
+              "properties": {
+                "SenseNumber": "01",
+                "predicate": "conquer"
+              }
+            },
+            {
+              "label": "AM-DIS",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "A1",
+              "score": 1.0,
+              "start": 60,
+              "end": 78
+            },
+            {
+              "label": "Predicate",
+              "score": 1.0,
+              "start": 61,
+              "end": 62,
+              "properties": {
+                "SenseNumber": "03",
+                "predicate": "have"
+              }
+            },
+            {
+              "label": "A0",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            }
+          ],
+          "relations": [
+            {
+              "relationName": "AM-MNR",
+              "srcConstituent": 0,
+              "targetConstituent": 1
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 0,
+              "targetConstituent": 2
+            },
+            {
+              "relationName": "AM-MOD",
+              "srcConstituent": 3,
+              "targetConstituent": 4
+            },
+            {
+              "relationName": "A0",
+              "srcConstituent": 3,
+              "targetConstituent": 5
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 3,
+              "targetConstituent": 6
+            },
+            {
+              "relationName": "A2",
+              "srcConstituent": 7,
+              "targetConstituent": 8
+            },
+            {
+              "relationName": "AM-ADV",
+              "srcConstituent": 7,
+              "targetConstituent": 9
+            },
+            {
+              "relationName": "AM-MOD",
+              "srcConstituent": 10,
+              "targetConstituent": 11
+            },
+            {
+              "relationName": "A2",
+              "srcConstituent": 10,
+              "targetConstituent": 12
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 10,
+              "targetConstituent": 13
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 14,
+              "targetConstituent": 15
+            },
+            {
+              "relationName": "AM-TMP",
+              "srcConstituent": 16,
+              "targetConstituent": 17
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 16,
+              "targetConstituent": 18
+            },
+            {
+              "relationName": "AM-DIS",
+              "srcConstituent": 16,
+              "targetConstituent": 19
+            },
+            {
+              "relationName": "AM-MNR",
+              "srcConstituent": 16,
+              "targetConstituent": 20
+            },
+            {
+              "relationName": "AM-DIS",
+              "srcConstituent": 21,
+              "targetConstituent": 22
+            },
+            {
+              "relationName": "A1",
+              "srcConstituent": 21,
+              "targetConstituent": 23
+            },
+            {
+              "relationName": "A0",
+              "srcConstituent": 24,
+              "targetConstituent": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "viewName": "TOKENS",
+      "viewData": [
+        {
+          "viewType": "edu.illinois.cs.cogcomp.core.datastructures.textannotation.TokenLabelView",
+          "viewName": "TOKENS",
+          "generator": "UserSpecified",
+          "score": 1.0,
+          "constituents": [
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 0,
+              "end": 1
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 3,
+              "end": 4
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 4,
+              "end": 5
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 5,
+              "end": 6
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 7,
+              "end": 8
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 10,
+              "end": 11
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 11,
+              "end": 12
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 12,
+              "end": 13
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 13,
+              "end": 14
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 14,
+              "end": 15
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 17,
+              "end": 18
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 18,
+              "end": 19
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 19,
+              "end": 20
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 20,
+              "end": 21
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 21,
+              "end": 22
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 22,
+              "end": 23
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 23,
+              "end": 24
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 24,
+              "end": 25
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 25,
+              "end": 26
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 26,
+              "end": 27
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 27,
+              "end": 28
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 28,
+              "end": 29
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 29,
+              "end": 30
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 30,
+              "end": 31
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 31,
+              "end": 32
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 32,
+              "end": 33
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 33,
+              "end": 34
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 35,
+              "end": 36
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 36,
+              "end": 37
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 37,
+              "end": 38
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 38,
+              "end": 39
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 39,
+              "end": 40
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 40,
+              "end": 41
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 41,
+              "end": 42
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 42,
+              "end": 43
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 43,
+              "end": 44
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 44,
+              "end": 45
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 45,
+              "end": 46
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 46,
+              "end": 47
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 47,
+              "end": 48
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 48,
+              "end": 49
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 49,
+              "end": 50
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 50,
+              "end": 51
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 51,
+              "end": 52
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 52,
+              "end": 53
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 53,
+              "end": 54
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 54,
+              "end": 55
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 55,
+              "end": 56
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 56,
+              "end": 57
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 57,
+              "end": 58
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 58,
+              "end": 59
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 59,
+              "end": 60
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 60,
+              "end": 61
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 61,
+              "end": 62
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 62,
+              "end": 63
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 63,
+              "end": 64
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 64,
+              "end": 65
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 65,
+              "end": 66
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 66,
+              "end": 67
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 67,
+              "end": 68
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 68,
+              "end": 69
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 69,
+              "end": 70
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 70,
+              "end": 71
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 71,
+              "end": 72
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 72,
+              "end": 73
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 73,
+              "end": 74
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 74,
+              "end": 75
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 75,
+              "end": 76
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 76,
+              "end": 77
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 77,
+              "end": 78
+            },
+            {
+              "label": "",
+              "score": 1.0,
+              "start": 78,
+              "end": 79
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

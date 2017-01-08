@@ -4,13 +4,14 @@
   "description": "Awesome Text Annotation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint index.js server.js"
   },
   "author": "",
   "license": "NCSA",
   "devDependencies": {
     "browserify": "^13.1.1",
     "browserify-middleware": "^7.1.0",
+    "eslint": "^2.13.1",
     "express": "^4.14.0"
   },
   "dependencies": {
