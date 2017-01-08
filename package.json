@@ -1,12 +1,16 @@
 {
-  "name": "illinois-annotation-viz",
+  "name": "text-annotation-viz",
   "version": "0.0.1",
-  "description": "Awesome Text Annotation",
+  "description": "Text Annotation Visualization",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js server.js"
   },
-  "author": "",
+  "author": "Bhargav Mangipudi",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bhargav/text-annotation-viz.git"
+  },
   "license": "NCSA",
   "devDependencies": {
     "browserify": "^13.1.1",
