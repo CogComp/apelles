@@ -49,6 +49,9 @@
         console.log('Loading and rendering');
         var bratData = textViz.render(jsonData);
         // Util.profileEnable();
+        
+        console.log(textViz.getAvailableViews(jsonData));
+
         Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
     });
 </script>

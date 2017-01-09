@@ -74,7 +74,7 @@ var render = function (jsonData, spanInfo, options) {
     spanInfo.type = "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView";
 
     var renderer = renderFactory.get_renderer(spanInfo.type);
-    var spanOutput = renderer.render(spanInfo.name, spanInfo.type, jsonData, tokenMap);
+    var spanOutput = renderer.render(spanInfo.name, spanInfo.type, jsonData, tokenMap) || {};
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];

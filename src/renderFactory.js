@@ -2,20 +2,27 @@
 
 const registery = {};
 
+const PREFIX = "edu.illinois.cs.cogcomp.core.datastructures.textannotation.";
+
 var can_render = function(viewType) {
-	return false;
+	return registery.hasOwnProperty(viewType);
 };
 
 var register_renderer = function(viewType, renderer) {
-
+	registery[viewType] = renderer;
 };
 
 var get_renderer = function(viewType) {
-	return require('./renderers/spanLabelViewRenderer');
+	return registery[viewType];
 };
 
+// Initialization - Register all renderers
+const spanLabelViewRenderer = require('./renderers/spanLabelViewRenderer');
+
+register_renderer(PREFIX + "SpanLabelView", spanLabelViewRenderer);
+register_renderer(PREFIX + "TokenLabelView", spanLabelViewRenderer);
+
 module.exports = {
-	// can_render: can_register,
-	get_renderer: get_renderer,
-	// register_renderer: register_renderer
+	can_render: can_render,
+	get_renderer: get_renderer
 };
