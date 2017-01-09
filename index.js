@@ -1,63 +1,22 @@
 /* eslint no-console:0 */
 
 var _ = require('lodash');
-var randomColor = require('randomcolor');
+var renderFactory = require('./src/renderFactory');
 
 var sampleData = require('./public/sample.json');
 
-var renderSpanLabelView = function(viewName, spanName, tokenMap) {
-    var spanViewOuter = _.filter(sampleData.views, function (view) {
-        return view.viewName === viewName;
-    });
-
-    var spanView = _.head(_.head(spanViewOuter).viewData);
-
-    var labels = _.uniq(_.map(spanView.constituents, function (constituent) {
-        return constituent.label;
-    }));
-
-    var colors = randomColor({ count: labels.length });
-
-    var entityTypesList = _.zipWith(labels, colors, function (label, color) {
-        return {
-            type: label,
-            labels: [label],
-            bgColor: color,
-            borderColor: 'darken'
-        }
-    });
-
-    var entityList = _.map(spanView.constituents, function (constituent) {
-        var unqiue_id = 'entity_' +  constituent.start + '_' + constituent.end;
-
-        var tokenStart = tokenMap[constituent.start];
-        var tokenEnd = tokenMap[constituent.end - 1];
-
-        if (_.isUndefined(tokenStart)) {
-            return false;
-        }
-
-        return [unqiue_id, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
-    });
-
-    return {
-        entity_types: entityTypesList,
-        entities: _.compact(entityList)
-    };
-};
-
-var parse = function (options) {
-    var tokensList = sampleData.tokens;
-    var sentenceList = sampleData.sentences.sentenceEndPositions;
-
-    var availableViews = _.map(sampleData.views, function (view) {
+var getAvailableViews = function(jsonData) {
+    return _.map(jsonData.views, function (view) {
         var requiredView = _.head(view.viewData);
         return { name: requiredView.viewName, type: requiredView.viewType };
     });
+};
 
-    console.log("Available Views: " + JSON.stringify(availableViews));
+var render = function (jsonData, spanInfo, options) {
+    var tokensList = jsonData.tokens;
+    var sentenceList = jsonData.sentences.sentenceEndPositions;
 
-    var tokensViewOuter = _.filter(sampleData.views, function (view) {
+    var tokensViewOuter = _.filter(jsonData.views, function (view) {
         return view.viewName === "TOKENS";
     });
 
@@ -110,9 +69,12 @@ var parse = function (options) {
     var tokenMap = _.keyBy(_.flatten(sentenceResults), 'start');
     var rawText = _.join(_.map(_.flatten(sentenceResults), function (token) { return token.text; }), '');
 
-    var spanOutput = renderSpanLabelView("SHALLOW_PARSE",
-        "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView",
-        tokenMap) || {};
+    spanInfo = {};
+    spanInfo.name = "SHALLOW_PARSE";
+    spanInfo.type = "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView";
+
+    var renderer = renderFactory.get_renderer(spanInfo.type);
+    var spanOutput = renderer.render(spanInfo.name, spanInfo.type, jsonData, tokenMap);
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];
@@ -129,7 +91,7 @@ var parse = function (options) {
 };
 
 module.exports = {
-    data: sampleData,
-    parse: parse,
-    lodash: _
+    getAvailableViews: getAvailableViews,
+    render: render,
+    sampleData: sampleData
 };

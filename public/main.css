@@ -1,10 +1,10 @@
 div#main-content, div#file-picker-area {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     overflow: scroll;
 }
 
 div#render-area {
-	width: 70%;
+	width: 80%;
 	padding: 10px;
 }

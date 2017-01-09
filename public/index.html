@@ -43,10 +43,12 @@
 </div>
 
 <script>
+    const jsonData = textViz.sampleData;
+
     head.ready(function () {
         console.log('Loading and rendering');
-        var bratData = textViz.parse();
-        Util.profileEnable();
+        var bratData = textViz.render(jsonData);
+        // Util.profileEnable();
         Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
     });
 </script>
