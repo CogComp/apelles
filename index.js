@@ -3,6 +3,8 @@
 var _ = require('lodash');
 var renderFactory = require('./src/renderFactory');
 
+var pipelineClient = require('./src/pipeline/pipelineClient');
+
 var sampleData = require('./public/sample.json');
 
 var getAvailableViews = function(jsonData) {
@@ -90,8 +92,20 @@ var render = function (jsonData, spanInfo, options) {
     };
 };
 
+var annotateAndRender = function (text, viewName, options) {
+    const pipelineConfiguration = {};
+
+    return pipelineClient.annotateText(pipelineConfiguration, text, [viewName])
+        .then(function (jsonData) {
+            return render(jsonData, {}, options);
+        });
+};
+
+
+
 module.exports = {
     getAvailableViews: getAvailableViews,
+    annotateAndRender: annotateAndRender,
     render: render,
     sampleData: sampleData
 };

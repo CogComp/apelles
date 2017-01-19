@@ -43,16 +43,23 @@
 </div>
 
 <script>
-    const jsonData = textViz.sampleData;
+    const sampleData = textViz.sampleData;
 
     head.ready(function () {
         console.log('Loading and rendering');
-        var bratData = textViz.render(jsonData);
-        // Util.profileEnable();
-        
-        console.log(textViz.getAvailableViews(jsonData));
 
-        Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
+        // Util.profileEnable();
+
+        textViz.annotateAndRender("Mary had a little lamb!", "SHALLOW_PARSE")
+            .then(function (bratData) {
+                Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
+            }, function (err) {
+                console.log(err);
+
+                var bratData = textViz.render(sampleData);
+                Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
+            });
+
     });
 </script>
 </body>
