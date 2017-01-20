@@ -1,15 +1,24 @@
-div#main-content, div#file-picker-area {
+#main-content {
     width: 90%;
     margin-left: 5%;
     overflow: scroll;
 }
 
-div#render-area {
-	width: 80%;
+#render-area {
+    width: 80%;
 	padding: 10px;
 }
 
-div#input-area {
+.view-area {
+    padding: 10px 0px;
+}
+
+#input-area {
     width: 80%;
     padding: 10px;
+}
+
+#main-content textarea {
+    font-family: 'Liberation Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-size: medium;
 }

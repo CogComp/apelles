@@ -39,8 +39,9 @@
 </head>
 <body>
 <div id="main-content">
+    <div>Enter text to annotate below:</div>
     <div id="input-area">
-        <textarea rows="3" cols="50" id="viz-text">Mary has a little lamb.</textarea>
+        <textarea rows="3" cols="80" id="viz-text">Mary has a little lamb.</textarea>
         <input type="submit" id="viz-submit">
     </div>
     <div id="render-area"></div>
@@ -56,6 +57,13 @@
         const pipelineViews = [ "POS", "NER_CONLL", "NER_ONTONOTES" ];
 
         // Util.profileEnable();
+
+        var createViewArea = function (renderDivId, viewName, viewType) {
+            var outerDiv = $("<div>").attr("class", "view-area");
+            outerDiv.append($("<div>").text(viewName + " // " + viewType));
+            outerDiv.append($("<div>").attr("id", renderDivId));
+            return outerDiv;
+        };
 
         $("#viz-submit").click(function (eventData) {
             var text = $("#viz-text").val();
@@ -82,11 +90,12 @@
                 _.forEach(viewInfos, function (viewInfo) {
                     console.log("Rendering");
 
-                    var newDiv = $("<div>").attr("id", viewInfo.name);
+                    var divId = viewInfo.name;
+                    var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
                     $("#render-area").append(newDiv);
 
                     var bratData = textViz.render(jsonData, viewInfo, {});
-                    Util.embed(viewInfo.name, bratData.collectionData, bratData.documentData, webFontURLs);
+                    Util.embed(divId, bratData.collectionData, bratData.documentData, webFontURLs);
                 });
             }, function (err) {
                 console.log(err);
