@@ -8,3 +8,8 @@ div#render-area {
 	width: 80%;
 	padding: 10px;
 }
+
+div#input-area {
+    width: 80%;
+    padding: 10px;
+}

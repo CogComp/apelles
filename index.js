@@ -71,11 +71,7 @@ var render = function (jsonData, spanInfo, options) {
     var tokenMap = _.keyBy(_.flatten(sentenceResults), 'start');
     var rawText = _.join(_.map(_.flatten(sentenceResults), function (token) { return token.text; }), '');
 
-    spanInfo = {};
-    spanInfo.name = "SHALLOW_PARSE";
-    spanInfo.type = "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView";
-
-    var renderer = renderFactory.get_renderer(spanInfo.type);
+    var renderer = renderFactory.getRenderer(spanInfo.type);
     var spanOutput = renderer.render(spanInfo.name, spanInfo.type, jsonData, tokenMap) || {};
 
     var entityTypes = spanOutput.entity_types || [];
@@ -101,11 +97,12 @@ var annotateAndRender = function (text, viewName, options) {
         });
 };
 
-
-
 module.exports = {
     getAvailableViews: getAvailableViews,
     annotateAndRender: annotateAndRender,
+    lodash: _,
+    pipelineClient: pipelineClient,
     render: render,
-    sampleData: sampleData
+    sampleData: sampleData,
+    supportedTypes: renderFactory.supportedTypes
 };

@@ -28,7 +28,7 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
     });
 
     var entityList = _.map(spanView.constituents, function (constituent) {
-        var unqiue_id = 'entity_' +  constituent.start + '_' + constituent.end;
+        var uniqueId = 'entity_' +  constituent.start + '_' + constituent.end;
 
         var tokenStart = tokenMap[constituent.start];
         var tokenEnd = tokenMap[constituent.end - 1];
@@ -37,7 +37,7 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
             return false;
         }
 
-        return [unqiue_id, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
+        return [uniqueId, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
     });
 
     return {
