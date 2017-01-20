@@ -66,12 +66,17 @@
             p.then(function (text) {
                 $("#render-area").empty();
 
-                return textViz.pipelineClient.annotateText({}, text, pipelineViews);
+                return textViz.pipelineClient.annotateText({}, text, pipelineViews).then(function (jsonData) {
+                    return jsonData;
+                }, function (err) {
+                    // Return Sample Data in case of network error.
+                    return sampleData;
+                });
             }).then(function (jsonData) {
                 var availableViews = textViz.getAvailableViews(jsonData);
 
                 var viewInfos = _.filter(availableViews, function (viewInfo) {
-                    return $.inArray(viewInfo.type, textViz.supportedTypes) && viewInfo.name !== "TOKENS";
+                    return $.inArray(viewInfo.type, textViz.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
                 });
 
                 _.forEach(viewInfos, function (viewInfo) {
@@ -86,7 +91,11 @@
             }, function (err) {
                 console.log(err);
 
-                var bratData = textViz.render(sampleData);
+                var bratData = textViz.render(sampleData,
+                    {
+                        name: "SHALLOW_PARSE",
+                        type: "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView"
+                    });
                 Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
             });
         });
