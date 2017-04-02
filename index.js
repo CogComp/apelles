@@ -76,14 +76,18 @@ var render = function (jsonData, spanInfo, options) {
 
     var entityTypes = spanOutput.entity_types || [];
     var entities = spanOutput.entities || [];
+    var relationTypes = spanOutput.relation_types || [];
+    var relations = spanOutput.relations || [];
 
     return {
         collectionData: {
-            entity_types: entityTypes
+            entity_types: entityTypes,
+            relation_types: relationTypes
         },
         documentData: {
             text: rawText,
-            entities: entities
+            entities: entities,
+            relations: relations
         }
     };
 };

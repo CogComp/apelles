@@ -1,3 +1,9 @@
+# Apelles
+
+This is a visualization library designed around cogcomp's NLP datastructures.
+
+## Getting started
+
 Requirements: NodeJS, NPM should be installed.
 
 To install dependencies:

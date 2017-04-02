@@ -88,12 +88,12 @@
                 });
 
                 _.forEach(viewInfos, function (viewInfo) {
-                    console.log("Rendering");
+                    if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD") return;
 
+                    console.log("Rendering");
                     var divId = viewInfo.name;
                     var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
                     $("#render-area").append(newDiv);
-
                     var bratData = textViz.render(jsonData, viewInfo, {});
                     Util.embed(divId, bratData.collectionData, bratData.documentData, webFontURLs);
                 });
