@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var randomColor = require('randomcolor');
 
-const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeLabelView"];
+const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeView"];
 
 var render = function(viewName, viewType, jsonData, tokenMap) {
 
