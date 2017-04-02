@@ -9,7 +9,7 @@
   "author": "Bhargav Mangipudi",
   "repository": {
     "type": "git",
-    "url": "git@github.com:bhargav/text-annotation-viz.git"
+    "url": "git@github.com:CogComp/Apelles.git"
   },
   "license": "NCSA",
   "devDependencies": {

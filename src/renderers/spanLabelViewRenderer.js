@@ -50,4 +50,4 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
 module.exports = {
 	render: render,
 	supportedTypes: supportedTypes
-}
+};
