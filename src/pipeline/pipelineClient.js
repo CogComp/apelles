@@ -9,10 +9,17 @@ var getTextAnnotation = function (pipelineConfiguration, text, views) {
     };
 
     return $.ajax({
-        url: "http://localhost:9000/annotate",
+        url: "http://austen.cs.illinois.edu:8080/annotate",
         data: payload,
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        success: function(data) {
+            console.log("Received the response. . . ");
+            console.log(data);
+        },
+        error: function() {
+            console.log("error . . . ");
+        }
     });
 };
 
