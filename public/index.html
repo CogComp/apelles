@@ -59,7 +59,7 @@
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below:</div>
         <div id="input-area" style="width: 100%" >
-            <textarea rows="3" cols="80" style="width: 100%" id="viz-text">The boy gave the frog to the girl . The boy's gift was to the girl . The girl was given a frog . A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. </textarea>
+            <textarea rows="3" cols="80" style="width: 100%" id="viz-text">The boy gave the frog to the girl . The boy's gift was to the girl . The girl was given a frog . A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. The construction of the John Smith library finished on time .</textarea>
             <input type="submit" class="btn btn-default" id="viz-submit">
             <select class="selectpicker" id="view-selector" multiple data-actions-box="true" multiple>
                 <option value="LEMMA">LEMMA</option>
@@ -146,7 +146,8 @@ function getSelectValues(select) {
                 });
 
                 _.forEach(viewInfos, function (viewInfo) {
-                    if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD") return;
+                    //if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD" || viewInfo.name == "PARSE_STANFORD") return;
+                    if(!pipelineViews.includes(viewInfo.name)) return;
 
                     console.log("Rendering");
                     var divId = viewInfo.name;
