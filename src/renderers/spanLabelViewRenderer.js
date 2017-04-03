@@ -7,17 +7,17 @@ const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotat
 
 var render = function(viewName, viewType, jsonData, tokenMap) {
 
-    var treeViewOuter = _.filter(jsonData.views, function (view) {
+    var spanViewOuter = _.filter(jsonData.views, function (view) {
         return view.viewName === viewName;
     });
 
-    var treeView = _.head(_.head(treeViewOuter).viewData);
+    var spanView = _.head(_.head(spanViewOuter).viewData);
 
-    var labels = _.uniq(_.map(treeView.constituents, function (constituent) {
+    var labels = _.uniq(_.map(spanView.constituents, function (constituent) {
         return constituent.label;
     }));
 
-    var relationLabels = _.uniq(_.map(treeView.relations, function (relation) {
+    var relationLabels = _.uniq(_.map(spanView.relations, function (relation) {
         return relation.relationName;
     }));
 
@@ -33,7 +33,7 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
         }
     });
 
-    var entityList = _.map(treeView.constituents, function (constituent) {
+    var entityList = _.map(spanView.constituents, function (constituent) {
         var uniqueId = 'entity_' +  constituent.start + '_' + constituent.end;
 
         var tokenStart = tokenMap[constituent.start];
@@ -46,7 +46,7 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
         return [uniqueId, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
     });
 
-    var relations = _.map(treeView.relations, function (relation) {
+    var relations = _.map(spanView.relations, function (relation) {
         var uniqueId = 'relation_' +  relation.srcConstituent + '_' + relation.targetConstituent;
         var srcConstituentId = entityList[relation.srcConstituent][0];
         var targetConstituentId = entityList[relation.targetConstituent][0];
