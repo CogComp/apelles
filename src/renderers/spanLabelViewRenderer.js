@@ -6,6 +6,7 @@ var randomColor = require('randomcolor');
 const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView"];
 
 var render = function(viewName, viewType, jsonData, tokenMap) {
+
     var spanViewOuter = _.filter(jsonData.views, function (view) {
         return view.viewName === viewName;
     });
@@ -16,7 +17,12 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
         return constituent.label;
     }));
 
+    var relationLabels = _.uniq(_.map(spanView.relations, function (relation) {
+        return relation.relationName;
+    }));
+
     var colors = randomColor({ count: labels.length });
+    var relationColors = randomColor({ count: relationLabels.length });
 
     var entityTypesList = _.zipWith(labels, colors, function (label, color) {
         return {
@@ -40,9 +46,29 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
         return [uniqueId, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
     });
 
+    var relations = _.map(spanView.relations, function (relation) {
+        var uniqueId = 'relation_' +  relation.srcConstituent + '_' + relation.targetConstituent;
+        var srcConstituentId = entityList[relation.srcConstituent][0];
+        var targetConstituentId = entityList[relation.targetConstituent][0];
+        var relationName = relation.relationName;
+
+        return [uniqueId, relationName, [["", srcConstituentId], ["", targetConstituentId]]];
+    });
+
+    var relationTypesList = _.zipWith(relationLabels, relationColors, function (label, color) {
+        return {
+            type: label,
+            labels: [label],
+            bgColor: color,
+            borderColor: 'darken'
+        }
+    });
+
     return {
         entity_types: entityTypesList,
-        entities: _.compact(entityList)
+        entities: _.compact(entityList),
+        relation_types: relationTypesList,
+        relations: relations
     };
 };
 
