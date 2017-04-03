@@ -1,11 +1,11 @@
 #main-content {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    margin-left: 0%;
     overflow: scroll;
 }
 
 #render-area {
-    width: 80%;
+    width: 100%;
 	padding: 10px;
 }
 
@@ -21,4 +21,10 @@
 #main-content textarea {
     font-family: 'Liberation Sans', Verdana, Arial, Helvetica, sans-serif;
     font-size: medium;
+}
+
+.visualization-block {
+    display: block;
+    height: 100% !important;
+    width: 100%;
 }

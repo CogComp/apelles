@@ -6,8 +6,12 @@
 
     <link rel="stylesheet" type="text/css" href="./brat_client/style-vis.css"/>
     <link rel="stylesheet" type="text/css" href="./main.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
     <script type="text/javascript" src="./brat_client/client/lib/head.load.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
     <script type="text/javascript">
         var bratLocation = './brat_client';
 
@@ -38,16 +42,36 @@
     <script src="/text-viz.js" type="text/javascript"></script>
 </head>
 <body>
-<div id="main-content">
-    <div>Enter text to annotate below:</div>
-    <div id="input-area">
-        <textarea rows="3" cols="80" id="viz-text">Mary has a little lamb.</textarea>
-        <input type="submit" id="viz-submit">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Cogcomp Pipeline Demo</h1>
+        <p>
+            The Illinois NLP Pipeline provides a suite of state-of-the-art Natural Language Processing tools
+            that allows you to run various NLP tools to annotate plain text input.
+        </p>
+        <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
     </div>
-    <div id="render-area"></div>
+
+    <div id="main-content">
+        <div>Enter text to annotate below:</div>
+        <div id="input-area" style="width: 100%" >
+            <textarea rows="3" cols="80" style="width: 100%" id="viz-text">Mary has a little lamb.</textarea>
+            <input type="submit" class="btn btn-default" id="viz-submit">
+            <select id="example-getting-started" multiple="multiple">
+                <option value="ner">NER</option>
+                <option value="pos">POS</option>
+                <option value="dep">Dependency</option>
+                <option value="srl">SRL</option>
+            </select>
+        </div>
+        <div id="render-area"></div>
+    </div>
+
 </div>
 
 <script>
+
     const sampleData = textViz.sampleData;
 
     head.ready(function () {
@@ -60,8 +84,7 @@
 
         var createViewArea = function (renderDivId, viewName, viewType) {
             var outerDiv = $("<div>").attr("class", "view-area");
-            outerDiv.append($("<div>").text(viewName + " // " + viewType));
-            outerDiv.append($("<div>").attr("id", renderDivId));
+            outerDiv.append($("<div class='alert alert-success visualization-block' role='alert'>").text(viewName + " // " + viewType).attr("id", renderDivId));
             return outerDiv;
         };
 
@@ -107,6 +130,11 @@
                     });
                 Util.embed('render-area', bratData.collectionData, bratData.documentData, webFontURLs);
             });
+        });
+
+
+        $('#example-getting-started').multiselect({
+            includeSelectAllOption: true
         });
     });
 </script>
