@@ -21,10 +21,12 @@ var getRenderer = function(viewType) {
 // Initialization - Register all renderers
 const spanLabelViewRenderer = require('./renderers/spanLabelViewRenderer');
 const treeViewRenderer = require('./renderers/treeViewRenderer');
+const predicateArgumentViewRenderer = require('./renderers/predicateArgumentViewRenderer');
 
 registerRenderer(PREFIX + "SpanLabelView", spanLabelViewRenderer);
 registerRenderer(PREFIX + "TokenLabelView", spanLabelViewRenderer);
 registerRenderer(PREFIX + "TreeView", treeViewRenderer);
+registerRenderer(PREFIX + "PredicateArgumentView", predicateArgumentViewRenderer);
 
 module.exports = {
 	canRender: canRender,
