@@ -55,7 +55,7 @@
         </p>
         <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
     </div>
-
+    <div class="loader" id="loader"></div>
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below:</div>
         <div id="input-area" style="width: 100%" >
@@ -69,15 +69,15 @@
                 <option value="NER_ONTONOTES">NER-Ontonotes</option>
                 <option value="SRL_VERB">SRL (verb) </option>
                 <option value="SRL_PREP">SRL (preposition) </option>
+                <option value="SRL_COMMA">SRL (comma) </option>
                 <option value="QUANTITIES">Quantities</option>
-                <option value="DEPENDENCY">Dependency (Cogcomp)</option>
+                <option value="DEPENDENCY">Dependency Tree (Cogcomp)</option>
                 <option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
                 <!--<option value="PARSE_STANFORD">Parse Tree (Stanford) </option>-->
             </select>
         </div>
         <div id="render-area"></div>
     </div>
-
 </div>
 
 
@@ -119,6 +119,9 @@ function getSelectValues(select) {
 
         $("#viz-submit").click(function (eventData) {
 
+            // loader active
+            document.getElementById("loader").style.visibility = "visible";
+
             var pipelineViews = getSelectValues(document.getElementsByTagName('select')[0]);
 
             var text = $("#viz-text").val();
@@ -156,6 +159,7 @@ function getSelectValues(select) {
                     var bratData = textViz.render(jsonData, viewInfo, {});
                     Util.embed(divId, bratData.collectionData, bratData.documentData, webFontURLs);
                 });
+                document.getElementById("loader").style.visibility = "hidden";
             }, function (err) {
                 console.log(err);
 
