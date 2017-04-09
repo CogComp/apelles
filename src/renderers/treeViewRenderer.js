@@ -1,7 +1,7 @@
 /* eslint no-console:0 */
 
 var _ = require('lodash');
-var randomColor = require('randomcolor');
+var utils = require('../utils');
 
 const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.TreeView"];
 
@@ -28,8 +28,8 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
         return relation.relationName;
     }));
 
-    var colors = randomColor({ count: labels.length });
-    var relationColors = randomColor({ count: relationLabels.length });
+    var colors = utils.getColorScheme(labels.length);
+    var relationColors = utils.getColorScheme(relationLabels.length);
 
     var entityTypesList = _.zipWith(labels, colors, function (label, color) {
         return {
