@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.js server.js"
   },
-  "author": "Cognitive Computing Group",
+  "author": "Cognitive Computation Group",
   "repository": {
     "type": "git",
     "url": "git@github.com:CogComp/Apelles.git"
