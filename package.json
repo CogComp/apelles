@@ -1,12 +1,12 @@
 {
-  "name": "text-annotation-viz",
+  "name": "apelles",
   "version": "0.0.1",
-  "description": "Text Annotation Visualization",
+  "description": "NLP Annotation Visualization Library",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js server.js"
   },
-  "author": "Bhargav Mangipudi",
+  "author": "Cognitive Computing Group",
   "repository": {
     "type": "git",
     "url": "git@github.com:CogComp/Apelles.git"

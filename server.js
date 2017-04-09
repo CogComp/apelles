@@ -4,7 +4,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/text-viz.js', browserify('./index.js', { standalone: 'textViz' }));
+app.get('/apelles.js', browserify('./index.js', { standalone: 'apelles' }));
 
 app.listen(8080);
 console.log('Listening at http://localhost:8080');

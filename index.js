@@ -14,7 +14,7 @@ var getAvailableViews = function(jsonData) {
     });
 };
 
-var render = function (jsonData, spanInfo, options) {
+var render = function (jsonData, domElement, spanInfo, options) {
     var tokensList = jsonData.tokens;
     var sentenceList = jsonData.sentences.sentenceEndPositions;
 
@@ -72,24 +72,12 @@ var render = function (jsonData, spanInfo, options) {
     var rawText = _.join(_.map(_.flatten(sentenceResults), function (token) { return token.text; }), '');
 
     var renderer = renderFactory.getRenderer(spanInfo.type);
-    var spanOutput = renderer.render(spanInfo.name, spanInfo.type, jsonData, tokenMap) || {};
 
-    var entityTypes = spanOutput.entity_types || [];
-    var entities = spanOutput.entities || [];
-    var relationTypes = spanOutput.relation_types || [];
-    var relations = spanOutput.relations || [];
+    options = options || {};
+    options['rawText'] = rawText;
+    options['tokenMap'] = tokenMap;
 
-    return {
-        collectionData: {
-            entity_types: entityTypes,
-            relation_types: relationTypes
-        },
-        documentData: {
-            text: rawText,
-            entities: entities,
-            relations: relations
-        }
-    };
+    return Promise.resolve(renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options));
 };
 
 var annotateAndRender = function (text, viewName, options) {

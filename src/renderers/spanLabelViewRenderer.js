@@ -5,7 +5,14 @@ var randomColor = require('randomcolor');
 
 const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView"];
 
-var render = function(viewName, viewType, jsonData, tokenMap) {
+var render = function(viewName, viewType, jsonData, domElement, options) {
+    console.assert(options.hasOwnProperty('brat_util'))
+    console.assert(options.hasOwnProperty('brat_webFontURLs'))
+    console.assert(options.hasOwnProperty('rawText'))
+    console.assert(options.hasOwnProperty('tokenMap'))
+
+    var tokenMap = options['tokenMap']
+    var rawText = options['rawText']
 
     var spanViewOuter = _.filter(jsonData.views, function (view) {
         return view.viewName === viewName;
@@ -64,12 +71,20 @@ var render = function(viewName, viewType, jsonData, tokenMap) {
         }
     });
 
-    return {
-        entity_types: entityTypesList,
-        entities: _.compact(entityList),
-        relation_types: relationTypesList,
-        relations: relations
+    var collectionData = {
+        entity_types: entityTypesList || [],
+        relation_types: relationTypesList || []
     };
+
+    var documentData = {
+        text: rawText,
+        entities: _.compact(entityList) || [],
+        relations: relations || []
+    }
+
+    var bratUtil = options['brat_util']
+
+    return bratUtil.embed(domElement, collectionData, documentData, options['brat_webFontURLs'])
 };
 
 
