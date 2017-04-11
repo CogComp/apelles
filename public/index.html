@@ -68,6 +68,7 @@
                 <option value="NER_CONLL">NER-Conll</option>
                 <option value="NER_ONTONOTES">NER-Ontonotes</option>
                 <option value="SRL_VERB">SRL (verb) </option>
+                <option value="SRL_VERB_Path_LSTM">SRL (Path-LSTM) </option>
                 <option value="SRL_PREP">SRL (preposition) </option>
                 <option value="SRL_COMMA">SRL (comma) </option>
                 <option value="QUANTITIES">Quantities</option>
@@ -78,6 +79,13 @@
         </div>
         <div id="render-area"></div>
     </div>
+    <div class="alert alert-danger" id="comeLater" style="text-align: center; display: none" role="alert">
+        Servers unresponse. Come back later!
+        <div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
+    </div>
+    <div class="alert alert-danger" id="warning" style="text-align: center; display: none" role="alert">
+        Warning: external-annotations server is off Ugh.
+    </div>
     <div class="alert alert-warning" style="text-align: center" role="alert">
         Problems? Use our <a href="https://github.com/CogComp/Apelles/issues">issue tracker</a>.
     </div>
@@ -86,26 +94,38 @@
 
 <script type="text/javascript">
 
-// Return an array of the selected opion values
-// select is an HTML select element
-function getSelectValues(select) {
-    var result = [];
-    var options = select && select.options;
-    var opt;
+    // Return an array of the selected opion values
+    // select is an HTML select element
+    function getSelectValues(select) {
+        var result = [];
+        var options = select && select.options;
+        var opt;
 
-    for (var i=0, iLen=options.length; i<iLen; i++) {
-        opt = options[i];
+        for (var i=0, iLen=options.length; i<iLen; i++) {
+            opt = options[i];
 
-        if (opt.selected) {
-            result.push(opt.value || opt.text);
+            if (opt.selected) {
+                result.push(opt.value || opt.text);
+            }
         }
+        console.log("getSelectValues");
+        console.log(result);
+        return result;
     }
-    console.log("getSelectValues");
-    console.log(result);
-    return result;
-}
 
-    const sampleData = apelles.sampleData;
+    fetch("http://austen.cs.illinois.edu:8080/annotate")
+      .then(function() {
+          console.log("Connection works. ");
+      }).catch(function() {
+        document.getElementById("comeLater").style.display = "block";
+    });
+
+    fetch("http://saruman.cs.illinois.edu:8080/annotate")
+      .then(function() {
+          console.log("Connection works. ");
+      }).catch(function() {
+        document.getElementById("warning").style.display = "block";
+    });
 
     head.ready(function () {
         console.log('Loading and rendering');
@@ -114,7 +134,7 @@ function getSelectValues(select) {
         const brat_options = {
             'brat_util': Util,
             'brat_webFontURLs': webFontURLs
-        }
+        };
 
         // Util.profileEnable();
 
@@ -138,45 +158,46 @@ function getSelectValues(select) {
             console.log("pipelineViews: ");
             console.log(pipelineViews);
 
-            var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
-            p.then(function (text) {
-                $("#render-area").empty();
+            function sendRequest(api) {
+                var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
+                p.then(function (text) {
+                    $("#render-area").empty();
 
-                return apelles.pipelineClient.annotateText({}, text, pipelineViews).then(function (jsonData) {
-                    return jsonData;
+                    return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
+                        return jsonData;
+                    }, function (err) {
+                        // return empty annotation
+                        return [];
+                    });
+                }).then(function (jsonData) {
+                    var availableViews = apelles.getAvailableViews(jsonData);
+
+                    var viewInfos = _.filter(availableViews, function (viewInfo) {
+                        return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
+                    });
+
+                    _.forEach(viewInfos, function (viewInfo) {
+                        //if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD" || viewInfo.name == "PARSE_STANFORD") return;
+                        if (!pipelineViews.includes(viewInfo.name)) return;
+
+                        console.log("Rendering");
+                        var divId = viewInfo.name;
+                        var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
+                        $("#render-area").append(newDiv);
+
+                        apelles.render(jsonData, divId, viewInfo, brat_options);
+                    });
+                    document.getElementById("loader").style.visibility = "hidden";
                 }, function (err) {
-                    // Return Sample Data in case of network error.
-                    return sampleData;
+                    // do nothing
                 });
-            }).then(function (jsonData) {
-                var availableViews = apelles.getAvailableViews(jsonData);
+            }
 
-                var viewInfos = _.filter(availableViews, function (viewInfo) {
-                    return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
-                });
+            // main server
+            sendRequest("http://austen.cs.illinois.edu:8080/annotate");
 
-                _.forEach(viewInfos, function (viewInfo) {
-                    //if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD" || viewInfo.name == "PARSE_STANFORD") return;
-                    if(!pipelineViews.includes(viewInfo.name)) return;
-
-                    console.log("Rendering");
-                    var divId = viewInfo.name;
-                    var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
-                    $("#render-area").append(newDiv);
-
-                    apelles.render(jsonData, divId, viewInfo, brat_options);
-                });
-                document.getElementById("loader").style.visibility = "hidden";
-            }, function (err) {
-                console.log(err);
-
-                apelles.render(sampleData, "render-area",
-                    {
-                        name: "SHALLOW_PARSE",
-                        type: "edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView"
-                    },
-                    brat_options);
-            });
+            // external annotations server
+            sendRequest("http://saruman.cs.illinois.edu:8080/annotate");
         });
     });
 </script>

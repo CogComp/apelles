@@ -1,6 +1,6 @@
 var $ = require('jquery');
 
-var getTextAnnotation = function (pipelineConfiguration, text, views) {
+var getTextAnnotation = function (pipelineConfiguration, text, views, api) {
     views = views || [];
 
     payload = {
@@ -9,7 +9,7 @@ var getTextAnnotation = function (pipelineConfiguration, text, views) {
     };
 
     return $.ajax({
-        url: "http://austen.cs.illinois.edu:8080/annotate",
+        url: api,
         data: payload,
         type: "GET",
         dataType: "json",
