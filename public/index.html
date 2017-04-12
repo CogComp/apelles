@@ -55,7 +55,10 @@
         </p>
         <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
     </div>
-    <div class="loader" id="loader"></div>
+    <div style="height: 30px; margin-left: 50%">
+        <div class="loader" id="loader1"></div>
+        <div class="loader" id="loader2"></div>
+    </div>
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below (max-length: 1000 characters) </div>
         <div id="input-area" style="width: 100%" >
@@ -68,7 +71,7 @@
                 <option value="NER_CONLL">NER-Conll</option>
                 <option value="NER_ONTONOTES">NER-Ontonotes</option>
                 <option value="SRL_VERB">SRL (verb) </option>
-                <option value="SRL_VERB_Path_LSTM">SRL (Path-LSTM) </option>
+                <option value="SRL_VERB_PATH_LSTM">SRL (Path-LSTM) </option>
                 <option value="SRL_PREP">SRL (preposition) </option>
                 <option value="SRL_COMMA">SRL (comma) </option>
                 <option value="QUANTITIES">Quantities</option>
@@ -120,7 +123,7 @@
         document.getElementById("comeLater").style.display = "block";
     });
 
-    fetch("http://saruman.cs.illinois.edu:8080/annotate")
+    fetch("http://sauron.cs.illinois.edu:8080/annotate")
       .then(function() {
           console.log("Connection works. ");
       }).catch(function() {
@@ -147,7 +150,8 @@
         $("#viz-submit").click(function (eventData) {
 
             // loader active
-            document.getElementById("loader").style.visibility = "visible";
+            document.getElementById("loader1").style.visibility = "visible";
+            document.getElementById("loader2").style.visibility = "visible";
 
             var pipelineViews = getSelectValues(document.getElementsByTagName('select')[0]);
 
@@ -158,7 +162,7 @@
             console.log("pipelineViews: ");
             console.log(pipelineViews);
 
-            function sendRequest(api) {
+            function sendRequest(api, loaderId) {
                 var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
                 p.then(function (text) {
                     $("#render-area").empty();
@@ -187,17 +191,17 @@
 
                         apelles.render(jsonData, divId, viewInfo, brat_options);
                     });
-                    document.getElementById("loader").style.visibility = "hidden";
+                    document.getElementById(loaderId).style.visibility = "hidden";
                 }, function (err) {
                     // do nothing
                 });
             }
 
             // main server
-            sendRequest("http://austen.cs.illinois.edu:8080/annotate");
+            sendRequest("http://austen.cs.illinois.edu:8080/annotate", "loader1");
 
             // external annotations server
-            sendRequest("http://saruman.cs.illinois.edu:8080/annotate");
+            sendRequest("http://localhost:8080/annotate", "loader2");
         });
     });
 </script>
