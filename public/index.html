@@ -52,8 +52,8 @@
         <p>
             The Illinois NLP Pipeline provides a suite of state-of-the-art Natural Language Processing tools
             that allows you to run various NLP tools to annotate plain text input.
+            <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
         </p>
-        <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
     </div>
     <div style="height: 30px; margin-left: 50%">
         <div class="loader" id="loader1"></div>
@@ -62,7 +62,7 @@
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below (max-length: 1000 characters) </div>
         <div id="input-area" style="width: 100%" >
-            <textarea maxlength="1000" rows="8" cols="80" style="width: 100%" id="viz-text">The boy gave the frog to the girl . The boy's gift was to the girl . The girl was given a frog . A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. The construction of the John Smith library finished on time .  Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. </textarea>
+            <textarea maxlength="1000" rows="8" cols="80" style="width: 100%" id="viz-text">The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. The construction of the John Smith library finished on time.  Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. </textarea>
             <input type="submit" class="btn btn-default" id="viz-submit">
             <select class="selectpicker" id="view-selector" multiple data-actions-box="true" multiple>
                 <option value="LEMMA">LEMMA</option>
@@ -76,7 +76,11 @@
                 <option value="SRL_COMMA">SRL (comma) </option>
                 <option value="QUANTITIES">Quantities</option>
                 <option value="DEPENDENCY">Dependency Tree (Cogcomp)</option>
+                <option data-divider="true"></option>
                 <option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
+                <option value="STANFORD_COREF">Co-reference (Stanford) </option>
+                <option value="STANFORD_RELATIONS">Relations (Stanford) </option>
+                <option value="STANFORD_OPENIE">Open IE (Stanford) </option>
                 <!--<option value="PARSE_STANFORD">Parse Tree (Stanford) </option>-->
             </select>
         </div>
