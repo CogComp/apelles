@@ -1,6 +1,6 @@
 {
   "name": "apelles",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NLP Annotation Visualization Library",
   "main": "index.js",
   "scripts": {
