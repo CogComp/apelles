@@ -70,6 +70,7 @@
                 <option value="SHALLOW_PARSE">Shallow Parse</option>
                 <option value="NER_CONLL">NER-Conll</option>
                 <option value="NER_ONTONOTES">NER-Ontonotes</option>
+                <option value="SRL_NOM">SRL (nom) </option>
                 <option value="SRL_VERB">SRL (verb) </option>
                 <option value="SRL_VERB_PATH_LSTM">SRL (Path-LSTM) </option>
                 <option value="SRL_PREP">SRL (preposition) </option>
@@ -127,7 +128,7 @@
         document.getElementById("comeLater").style.display = "block";
     });
 
-    fetch("http://sauron.cs.illinois.edu:8080/annotate")
+    fetch("http://bronte.cs.illinois.edu:5800/annotate")
       .then(function() {
           console.log("Connection works. ");
       }).catch(function() {
@@ -205,7 +206,7 @@
             sendRequest("http://austen.cs.illinois.edu:8080/annotate", "loader1");
 
             // external annotations server
-            sendRequest("http://sauron.cs.illinois.edu:8080/annotate", "loader2");
+            sendRequest("http://bronte.cs.illinois.edu:5800/annotate", "loader2");
         });
     });
 </script>
