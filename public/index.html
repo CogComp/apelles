@@ -94,6 +94,18 @@
     <div class="alert alert-danger" id="warning" style="text-align: center; display: none" role="alert">
         Warning: external-annotations server is off Ugh.
     </div>
+
+    <b>Embeddable Code</b> (include this snippet in your website)
+    <div class="col-lg-12">
+        <div class="input-group">
+      <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button" id="copy-embeddable-code-btn">Copy</button>
+      </span>
+            <input type="text" class="form-control" id="embeddable-box" value="" onClick="this.select();" >
+        </div>
+    </div>
+    <br><br><br>
+
     <div class="alert alert-warning" style="text-align: center" role="alert">
         Problems? Use our <a href="https://github.com/CogComp/Apelles/issues">issue tracker</a>.
     </div>
@@ -152,6 +164,13 @@
             return outerDiv;
         };
 
+        function fillOutEmbeddableFormContent() {
+            var headerString = `<link rel="stylesheet" type="text/css" href="http://www.cis.upenn.edu/~danielkh/apelles/brat_client/style-vis.css"/>
+            <link rel="stylesheet" type="text/css" href="http://www.cis.upenn.edu/~danielkh/apelles/main.css"/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">`;
+            $("#embeddable-box")[0].value = headerString + $("#render-area").html();
+        }
+
         $("#viz-submit").click(function (eventData) {
 
             // loader active
@@ -197,6 +216,8 @@
                         apelles.render(jsonData, divId, viewInfo, brat_options);
                     });
                     document.getElementById(loaderId).style.visibility = "hidden";
+
+                    setInterval(function(){ fillOutEmbeddableFormContent() },3000);
                 }, function (err) {
                     // do nothing
                 });
@@ -207,7 +228,21 @@
 
             // external annotations server
             sendRequest("http://bronte.cs.illinois.edu:5800/annotate", "loader2");
+
         });
+
+        $("#copy-embeddable-code-btn").click(function (eventData) {
+            $("#embeddable-box")[0].select();
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+            $("#embeddable-box")[0].blur();
+        });
+
     });
 </script>
 </body>
