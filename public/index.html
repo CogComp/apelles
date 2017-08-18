@@ -55,9 +55,8 @@
             <button type="button" onclick="location.href='https://github.com/CogComp/cogcomp-nlp/tree/master/pipeline';" class="btn btn-danger btn-xs">Read More</button>
         </p>
     </div>
-    <div style="height: 30px; margin-left: 50%">
-        <div class="loader" id="loader1"></div>
-        <div class="loader" id="loader2"></div>
+    <div id="loader_container" style="height: 30px; margin-left: 50%">
+        <div class="loader" id="loader-main"></div>
     </div>
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below (max-length: 1000 characters) </div>
@@ -104,6 +103,20 @@
 
 <script type="text/javascript">
 
+    var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
+    var externalAnnotatorServers = [
+      "http://bronte.cs.illinois.edu:8443/annotate",
+        "http://bronte.cs.illinois.edu:1503/annotate",
+        "http://bronte.cs.illinois.edu:1720/annotate"
+    ];
+
+    // for each external annotator, add a loader
+    externalAnnotatorServers.forEach(function(item, i){
+        var loaderDiv = $("#loader_container");
+        console.log("load id: " + i);
+        loaderDiv.append("<div class='loader' id='loader-ex-" + i + "'></div>");
+    });
+
     // Return an array of the selected opion values
     // select is an HTML select element
     function getSelectValues(select) {
@@ -123,18 +136,20 @@
         return result;
     }
 
-    fetch("http://austen.cs.illinois.edu:8080/annotate")
+    fetch(pipelineServer)
       .then(function() {
           console.log("Connection works. ");
       }).catch(function() {
         document.getElementById("comeLater").style.display = "block";
     });
 
-    fetch("http://bronte.cs.illinois.edu:5800/annotate")
-      .then(function() {
-          console.log("Connection works. ");
-      }).catch(function() {
-        document.getElementById("warning").style.display = "block";
+    externalAnnotatorServers.forEach(function (url) {
+        fetch(url)
+          .then(function() {
+              console.log("Connection works. ");
+          }).catch(function() {
+            document.getElementById("warning").style.display = "block";
+        });
     });
 
     head.ready(function () {
@@ -157,9 +172,10 @@
         $("#viz-submit").click(function (eventData) {
 
             // loader active
-            document.getElementById("loader1").style.visibility = "visible";
-            document.getElementById("loader2").style.visibility = "visible";
-
+            document.getElementById("loader-main").style.visibility = "visible";
+            externalAnnotatorServers.forEach(function(url, i) {
+                document.getElementById("loader-ex-" + i).style.visibility = "visible";
+            });
             var pipelineViews = getSelectValues(document.getElementsByTagName('select')[0]);
 
             var text = $("#viz-text").val();
@@ -205,10 +221,12 @@
             }
 
             // main server
-            sendRequest("http://austen.cs.illinois.edu:8080/annotate", "loader1");
+            sendRequest(pipelineServer, "loader-main");
 
             // external annotations server
-            sendRequest("http://bronte.cs.illinois.edu:5800/annotate", "loader2");
+            externalAnnotatorServers.forEach(function(url, i) {
+                sendRequest(url, "loader-ex-" + i);
+            });
         });
     });
 </script>
