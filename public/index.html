@@ -71,7 +71,7 @@
             </div>
         </div>
         <div id="input-area" style="width: 100%" >
-            <textarea id="text-area-main" maxlength="1500" rows="8" cols="80" style="width: 100%" id="viz-text"> </textarea>
+            <textarea id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"> </textarea>
             <input type="submit" class="btn btn-success" id="viz-submit">
             <select class="selectpicker" id="view-selector" multiple data-actions-box="true" multiple>
                 <option value="LEMMA">LEMMA</option>
@@ -181,13 +181,13 @@
 
             // default text
             if(i == 0) {
-                $("#text-area-main").text(sent);
+                $("#viz-text").text(sent);
             }
 
             // set the sentence in the text-area
             jQuery("#action-" + i).click(function(e){
                 e.preventDefault();
-                $("#text-area-main").text(sent);
+                $("#viz-text").text(sent);
             });
         });
 
