@@ -61,7 +61,8 @@
     <div id="main-content" style="overflow: visible;">
         <div>Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a sample document:
             <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Sample Documents
                     <span class="caret"></span>
                 </button>
@@ -111,19 +112,6 @@
 
 
 <script type="text/javascript">
-
-    var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
-    var externalAnnotatorServers = [
-      "http://bronte.cs.illinois.edu:8443/annotate",
-        "http://bronte.cs.illinois.edu:1503/annotate",
-        "http://bronte.cs.illinois.edu:8009/annotate"
-    ];
-
-    // for each external annotator, add a loader
-    externalAnnotatorServers.forEach(function(item, i){
-        var loaderDiv = $("#loader_container");
-        loaderDiv.append("<div class='loader' id='loader-ex-" + i + "'></div>");
-    });
 
     var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
     var externalAnnotatorServers = [
