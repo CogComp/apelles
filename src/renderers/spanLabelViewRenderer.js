@@ -6,13 +6,13 @@ var utils = require('../utils');
 const supportedTypes = ["edu.illinois.cs.cogcomp.core.datastructures.textannotation.SpanLabelView"];
 
 var render = function(viewName, viewType, jsonData, domElement, options) {
-    console.assert(options.hasOwnProperty('brat_util'))
-    console.assert(options.hasOwnProperty('brat_webFontURLs'))
-    console.assert(options.hasOwnProperty('rawText'))
-    console.assert(options.hasOwnProperty('tokenMap'))
+    console.assert(options.hasOwnProperty('brat_util'));
+    console.assert(options.hasOwnProperty('brat_webFontURLs'));
+    console.assert(options.hasOwnProperty('rawText'));
+    console.assert(options.hasOwnProperty('tokenMap'));
 
-    var tokenMap = options['tokenMap']
-    var rawText = options['rawText']
+    var tokenMap = options['tokenMap'];
+    var rawText = options['rawText'];
 
     var spanViewOuter = _.filter(jsonData.views, function (view) {
         return view.viewName === viewName;
@@ -80,9 +80,9 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
         text: rawText,
         entities: _.compact(entityList) || [],
         relations: relations || []
-    }
+    };
 
-    var bratUtil = options['brat_util']
+    var bratUtil = options['brat_util'];
 
     return bratUtil.embed(domElement, collectionData, documentData, options['brat_webFontURLs'])
 };

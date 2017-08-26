@@ -59,16 +59,25 @@
         <div class="loader" id="loader-main"></div>
     </div>
     <div id="main-content" style="overflow: visible;">
-        <div>Enter text to annotate below (max-length: 1000 characters) </div>
+        <div>Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a sample document:
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Sample Documents
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
+                </ul>
+            </div>
+        </div>
         <div id="input-area" style="width: 100%" >
-            <textarea maxlength="1000" rows="8" cols="80" style="width: 100%" id="viz-text">The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. The construction of the John Smith library finished on time.  Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. </textarea>
-            <input type="submit" class="btn btn-default" id="viz-submit">
+            <textarea id="text-area-main" maxlength="1500" rows="8" cols="80" style="width: 100%" id="viz-text"> </textarea>
+            <input type="submit" class="btn btn-success" id="viz-submit">
             <select class="selectpicker" id="view-selector" multiple data-actions-box="true" multiple>
                 <option value="LEMMA">LEMMA</option>
-                <option value="POS">POS</option>
-                <option value="SHALLOW_PARSE">Shallow Parse</option>
+                <option value="POS" selected>POS</option>
+                <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
                 <option value="MENTION">Mention Detection</option>
-                <option value="NER_CONLL">NER-Conll</option>
+                <option value="NER_CONLL">NER-CoNLL</option>
                 <option value="NER_ONTONOTES">NER-Ontonotes</option>
                 <option value="TIMEX3">Temporal Normalizer</option>
                 <option value="SRL_NOM">SRL (Nom) </option>
@@ -107,7 +116,20 @@
     var externalAnnotatorServers = [
       "http://bronte.cs.illinois.edu:8443/annotate",
         "http://bronte.cs.illinois.edu:1503/annotate",
-        "http://bronte.cs.illinois.edu:8009/annotate" 
+        "http://bronte.cs.illinois.edu:8009/annotate"
+    ];
+
+    // for each external annotator, add a loader
+    externalAnnotatorServers.forEach(function(item, i){
+        var loaderDiv = $("#loader_container");
+        loaderDiv.append("<div class='loader' id='loader-ex-" + i + "'></div>");
+    });
+
+    var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
+    var externalAnnotatorServers = [
+      "http://bronte.cs.illinois.edu:8443/annotate",
+        "http://bronte.cs.illinois.edu:1503/annotate",
+        "http://bronte.cs.illinois.edu:8009/annotate"
     ];
 
     // for each external annotator, add a loader
@@ -155,6 +177,32 @@
     head.ready(function () {
         console.log('Loading and rendering');
 
+        var sampleSentences = [
+          "The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. ",
+            "A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. ",
+            "The construction of the John Smith library finished on time.",
+            "Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ",
+            "Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ",
+            "Harvey made landfall Friday night near Rockport, Texas, north of Corpus Christi, as the first Category 4 hurricane to landfall in the U.S. since Charley in August 2004.  Harvey's center of circulation is currently located near Victoria, Texas, only roughly 50 miles from where it made landfall late Friday night. mph reported Saturday morning near Victoria. A Texas Coastal Ocean Observing Network station at Aransas Pass reported sustained winds of 102 mph and a wind gust of 132 mph Friday night. Rainfall amounts of more than 10 inches have already accumulated in southeast Texas, including 14.46 inches near Austwell."
+        ];
+
+        // fill out the senetnces to the dropdown
+        sampleSentences.forEach(function (sent, i) {
+            var area = $("#dropdownMenuArea1");
+            area.append("<li><a href='#' id='action-" + i + "'>" + sent.substring(0,50) + "</a></li>");
+
+            // default text
+            if(i == 0) {
+                $("#text-area-main").text(sent);
+            }
+
+            // set the sentence in the text-area
+            jQuery("#action-" + i).click(function(e){
+                e.preventDefault();
+                $("#text-area-main").text(sent);
+            });
+        });
+
         const _ = apelles.lodash;
         const brat_options = {
             'brat_util': Util,
@@ -176,7 +224,7 @@
             externalAnnotatorServers.forEach(function(url, i) {
                 document.getElementById("loader-ex-" + i).style.visibility = "visible";
             });
-            var pipelineViews = getSelectValues(document.getElementsByTagName('select')[0]);
+            var pipelineViews = getSelectValues(document.getElementById('view-selector'));
 
             var text = $("#viz-text").val();
             console.log("Submit event: ");
