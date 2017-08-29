@@ -6,16 +6,19 @@
 
 #render-area {
     width: 100%;
-	padding: 10px;
+	padding-top: 5px;
+    padding-bottom: 0px;
 }
 
 .view-area {
-    padding: 10px 0px;
+    padding-top: 5px;
+    padding-bottom: 0px;
 }
 
 #input-area {
     width: 80%;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #main-content textarea {
