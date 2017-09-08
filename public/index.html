@@ -212,13 +212,13 @@
 
             // default text
             if(i == 0) {
-                $("#viz-text").text(sent);
+                $("#viz-text").val(sent);
             }
 
             // set the sentence in the text-area
             jQuery("#action-" + i).click(function(e){
                 e.preventDefault();
-                $("#viz-text").text(sent);
+                $("#viz-text").val(sent);
             });
         });
 
