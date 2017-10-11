@@ -5,6 +5,8 @@ var renderFactory = require('./src/renderFactory');
 
 var pipelineClient = require('./src/pipeline/pipelineClient');
 
+var comparator = require('./src/pipeline/comparator');
+
 var sampleData = require('./public/sample.json');
 
 var clipboard = require('clipboard');
@@ -98,6 +100,7 @@ module.exports = {
     annotateAndRender: annotateAndRender,
     lodash: _,
     pipelineClient: pipelineClient,
+    comparator: comparator,
     render: render,
     sampleData: sampleData,
     supportedTypes: renderFactory.supportedTypes,
