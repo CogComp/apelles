@@ -11,3 +11,17 @@ To install dependencies:
 
 To start the dev server:
 `node server.js`
+
+## Local comparison tool
+
+`comparison.js` provides a tool for comparing two annotation versions of the same text.
+
+Usage:
+
+1. Create two folders of annotation JSON files with identical file names.
+
+   Example: `prediction/sample.json` and `gold/sample.json`
+
+1. Start server with `node comparison.js --port <PORT> <FOLDER#1> <FOLDER#2>`
+
+   Example: `node comparison.js --port 3154 prediction gold`
