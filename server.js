@@ -7,8 +7,8 @@ var requireText = require('require-text');
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080);
-console.log('Listening at http://localhost:8080');
+app.listen(80);
+console.log('Listening at http://localhost:80');
 
 app.get('/embed.css', browserify('./public/embed.css', {}));
 app.get('/apelles.js', browserify('./index.js', {standalone: 'apelles'}));
