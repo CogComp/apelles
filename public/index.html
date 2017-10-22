@@ -96,7 +96,7 @@
               src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=fork&count=true&size=large"
               frameborder="0" scrolling="0" width="158px" height="30px" style="margin-right: -20px"></iframe>
         </div>
-        <h1>CogComp-NLP </h1>
+        <h1><a href="/" style="text-decoration: none">CogComp-NLP</a></h1>
         <p>
             CogComp-NLP provides a suite of state-of-the-art Natural Language Processing (NLP) tools
             that allows you to annotate plain text inputs.
@@ -158,29 +158,38 @@
             <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
             <!--<option value="PARSE_STANFORD">Parse Tree (Stanford) </option>-->
         </select>
-        <!--<button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"-->
-                <!--data-html="true" id="main-popover" data-content="">Share it!-->
-        <!--</button>-->
+        <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
+                data-html="true" id="main-popover" data-content="">Link to page
+        </button>
     </div>
     <div id="render-area"></div>
 </div>
 <div class="alert alert-danger" id="comeLater" style="text-align: center; display: none" role="alert">
-    Servers unresponse. Come back later!
+    Servers unresponsive. Come back later!
     <div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
 </div>
 <div class="alert alert-danger" id="warning" style="text-align: center; display: none" role="alert">
     Warning: external-annotations server is off Ugh.
 </div>
+<textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
 <div class="alert alert-warning" style="text-align: center" role="alert">
     Problems? Use our <a href="https://github.com/CogComp/cogcomp-nlp/issues">issue tracker</a>.
 </div>
-<script type="text/javascript">
-//    $.noConflict();
-//    $('[data-toggle="popover"]').popover();
-//    var htmlContent = "Static link: <input type='text' onfocus='this.select();' id='static-link' onmouseup='return false;' /><br>" +
-//      "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' /><br>";
-//    $("#main-popover").attr("data-content", htmlContent);
 
+<div id="render-info" style="visibility: hidden;">{{_content_rendered_}}</div>
+<div id="render-text" style="visibility: hidden;">{{text}}</div>
+<div id="render-views" style="visibility: hidden;">{{viewNames}}</div>
+
+<script type="text/javascript">
+    var clipboard = new apelles.cb('.btn'); // copy to the clipboard initialization
+    clipboard.on('success', function (e) {
+        e.clearSelection();
+    });
+
+    var page_rendered = true;
+    if ($("#render-info").text().includes("_content_rendered_")) {
+        page_rendered = false;
+    }
 
     var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
     var externalAnnotatorServers = [
@@ -191,7 +200,6 @@
     // for each external annotator, add a loader
     externalAnnotatorServers.forEach(function (item, i) {
         var loaderDiv = $("#loader_container");
-        console.log("load id: " + i);
         loaderDiv.append("<div class='loader' id='loader-ex-" + i + "'></div>");
     });
 
@@ -209,9 +217,25 @@
                 result.push(opt.value || opt.text);
             }
         }
-        console.log("getSelectValues");
-        console.log(result);
         return result;
+    }
+
+    /**
+     * @param select is the selector object
+     * @param viewNames is a Set
+     */
+    function setSelectValues(select, viewNames) {
+        var options = select && select.options;
+        for (var i = 0, iLen = options.length; i < iLen; i++) {
+            if (viewNames.has(options[i].value)) {
+                options[i].setAttribute("selected", "true");
+                options[i].selected = true;
+            }
+            else {
+                options[i].setAttribute("selected", "false");
+                options[i].selected = false;
+            }
+        }
     }
 
     fetch(pipelineServer)
@@ -232,6 +256,12 @@
 
     head.ready(function () {
         console.log('Loading and rendering');
+
+        const _ = apelles.lodash;
+        const brat_options = {
+            'brat_util': Util,
+            'brat_webFontURLs': webFontURLs
+        };
 
         var sampleSentences = [
             "The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. ",
@@ -266,7 +296,7 @@
             area.append("<li><a href='#' id='action-" + i + "'>" + sentence + "</a></li>");
 
             // default text
-            if (i == 0) {
+            if (i == 0 && !page_rendered) {
                 $("#viz-text").val(sent);
             }
 
@@ -276,33 +306,32 @@
                 $("#viz-text").val(sent);
             });
         });
+        if (page_rendered) {
+            $("#viz-text").val($("#render-text").text());
+            // select the views
+            var viewNamesToCheck = $("#render-views").text().split(",");
+            setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
+            updatePage();
+        }
 
-        const _ = apelles.lodash;
-        const brat_options = {
-            'brat_util': Util,
-            'brat_webFontURLs': webFontURLs
-        };
+        function getDynamicLink() {
+            var views = getSelectValues(document.getElementById('view-selector')).join();
+            var text = $("#viz-text").val();
+            return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
+        }
 
-        // Util.profileEnable();
+        // set popover with links
+        $.noConflict();
+        $('[data-toggle="popover"]').popover();
+        var htmlContent = "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' style='width: 180pt'/>";
+        $("#main-popover").attr("data-content", htmlContent);
+        $("#main-popover").click(function () {
+            var link = getDynamicLink();
+            console.log(link);
+            $("#dynamic-link").val(link);
+        });
 
-        var createViewArea = function (renderDivId, viewName, viewType) {
-            var outerDiv = $("<div>").attr("class", "view-area");
-            var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
-            var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewType;
-            var dropup = "<div class='dropup'> " +
-              "<button class='btn btn-sm btn-success dropdown-toggle' type='button' data-toggle='dropdown'>" +
-              "<span class='caret'></span></button> <ul class='dropdown-menu'> <li><a href='#' onclick='downloadImage(`" + viewName + "`);'>Download as PNG</a></li> " +
-              "</ul> " +
-              "</div>";
-            var closeButton = "<a href='' class='close' data-dismiss='alert' aria-label='close'><b>&times;</b></a>";
-            var headerContent = "<form class='form-inline' role='form'> <div class='form-group'> " + dropup +
-              "</div><div class='form-group' style='margin-left: 0.3cm'>" + text + "</div>" + closeButton + "</form>";
-            newblock.append(headerContent);
-            outerDiv.append(newblock);
-            return outerDiv;
-        };
-
-        $("#viz-submit").click(function (eventData) {
+        function updatePage() {
             // loader active
             document.getElementById("loader-main").style.visibility = "visible";
             externalAnnotatorServers.forEach(function (url, i) {
@@ -347,6 +376,10 @@
                         apelles.render(jsonData, divId, viewInfo, brat_options);
                     });
                     document.getElementById(loaderId).style.visibility = "hidden";
+
+                    // then reset it
+                    console.log("reset the page");
+                    $("#render-info").text("_content_rendered_");
                 }, function (err) {
                     // do nothing
                 });
@@ -359,34 +392,44 @@
             externalAnnotatorServers.forEach(function (url, i) {
                 sendRequest(url, "loader-ex-" + i);
             });
+        }
 
+        // Util.profileEnable();
 
+        var createViewArea = function (renderDivId, viewName, viewType) {
+            var outerDiv = $("<div>").attr("class", "view-area");
+            var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
+            var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewType;
+            var dropup = "<div class='dropup' id='dropup'> " +
+              "<button class='btn btn-sm btn-success dropdown-toggle' type='button' data-toggle='dropdown'>" +
+              "<span class='caret'></span></button> <ul class='dropdown-menu'> " +
+//              "<li><a href='#' onclick='downloadImage(`" + viewName + "`);'>Download as PNG</a></li>" +
+              '<li><button class="btn" data-clipboard-action="cut" data-clipboard-target="#svg-code" style="background-color: transparent; color: #333" onclick="return setTextArea(`' + viewName + '`);">Copy embeddable html to clipboard</button> </li>' +
+              "</ul>" +
+              "</div>";
+            var closeButton = "<a href='' class='close' data-dismiss='alert' aria-label='close'><b>&times;</b></a>";
+            var headerContent = "<form class='form-inline' role='form'> <div class='form-group'> " + dropup +
+              "</div><div class='form-group' style='margin-left: 0.3cm'>" + text + "</div>" + closeButton + "</form>";
+            newblock.append(headerContent);
+            outerDiv.append(newblock);
+            return outerDiv;
+        };
+
+        $("#viz-submit").click(function (eventData) {
+            updatePage()
         });
     });
     function sleep(time) {
         return new Promise((resolve) => setTimeout(resolve, time));
     }
 
-    function downloadImage(id) {
-        var mySVG = $("#" + id + " svg")[0];
-        var imgId = id + "-img";
-        $(document.body).append('<img height="' + mySVG.getBBox().height + '" width="' + mySVG.getBBox().width + '" id="' + imgId + '" style="visibility: hidden; "/>');
-        var tgtImage = document.getElementById(imgId);      // Where to draw the result
-        var can = document.createElement('canvas'); // Not shown on page
-        var ctx = can.getContext('2d');
-        var loader = new Image;
-        loader.width = can.width = tgtImage.width;
-        loader.height = can.height = tgtImage.height;
-        loader.onload = function () {
-            ctx.drawImage(loader, 0, 0, loader.width, loader.height);
-            tgtImage.src = can.toDataURL();
-        };
-        var svgAsXML = (new XMLSerializer).serializeToString(mySVG);
-        loader.src = 'data:image/svg+xml,' + encodeURIComponent(svgAsXML);
-        sleep(500).then(() => {
-            var url = tgtImage.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-            window.open(url);
-        });
+    function setTextArea(id) {
+        var mySVG = $("#" + id)[0];
+        var text = mySVG.innerHTML;
+        text = '<link rel="stylesheet" type="text/css" href="http://nlp.cogcomp.org/embed.css">' + text.substring(text.indexOf("<svg"));
+        text = text.replace("width: 908px; ", "");
+        $("#svg-code").val(text);
+        return false;
     }
 </script>
 </body>

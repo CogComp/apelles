@@ -7,6 +7,8 @@ var pipelineClient = require('./src/pipeline/pipelineClient');
 
 var sampleData = require('./public/sample.json');
 
+var clipboard = require('clipboard');
+
 var getAvailableViews = function(jsonData) {
     return _.map(jsonData.views, function (view) {
         var requiredView = _.head(view.viewData);
@@ -96,5 +98,6 @@ module.exports = {
     pipelineClient: pipelineClient,
     render: render,
     sampleData: sampleData,
-    supportedTypes: renderFactory.supportedTypes
+    supportedTypes: renderFactory.supportedTypes,
+    cb: clipboard
 };

@@ -23,6 +23,9 @@
     "d3-scale": "^1.0.5",
     "jquery": "^3.1.1",
     "lodash": "^4.17.2",
-    "randomcolor": "^0.4.4"
+    "randomcolor": "^0.4.4",
+    "clipboard": "1.7.1",
+    "hogan": "1.0.2",
+    "require-text": "0.0.1"
   }
 }
