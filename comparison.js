@@ -10,7 +10,7 @@ var argv = minimist(process.argv.slice(2));
 var serverPort = argv['port'] || 8080;
 var annotationFolders = argv['_'];
 if (annotationFolders.length == 0) {
-    annotationFolders = [__dirname + '/public/comparison/left', __dirname + '/public/comparison/right'];
+    annotationFolders = [__dirname + '/public/comparison/prediction', __dirname + '/public/comparison/gold'];
 }
 
 
