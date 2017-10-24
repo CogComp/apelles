@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CogComp-NLP Comparison Tool</title>
+
+    <link rel="stylesheet" type="text/css" href="./brat_client/style-vis.css"/>
+    <link rel="stylesheet" type="text/css" href="./main.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+    <script type="text/javascript" src="./brat_client/client/lib/head.load.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+
+    <script type="text/javascript">
+        var bratLocation = './brat_client';
+
+        head.js(
+            // External libraries
+            bratLocation + '/client/lib/jquery.min.js',
+            bratLocation + '/client/lib/jquery.svg.min.js',
+            bratLocation + '/client/lib/jquery.svgdom.min.js',
+            bratLocation + '/client/lib/webfont.js',
+
+            // brat helper modules
+            bratLocation + '/client/src/configuration.js',
+            bratLocation + '/client/src/util.js',
+            bratLocation + '/client/src/annotation_log.js',
+
+            // brat modules
+            bratLocation + '/client/src/dispatcher.js',
+            bratLocation + '/client/src/url_monitor.js',
+            bratLocation + '/client/src/visualizer.js'
+        );
+
+        var webFontURLs = [
+            // bratLocation + '/static/fonts/Astloch-Bold.ttf',
+            bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+            bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+        ];
+    </script>
+    <script src="/apelles.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <div style="float: right">
+            <iframe src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="margin-right: -20px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px" style="margin-right: -20px"></iframe>
+        </div>
+        <h1>CogComp-NLP</h1>
+        <p>
+            This comparison tool displays two annotations side by side, with identical items hidden.
+            <a href="https://github.com/CogComp/apelles" class="btn btn-danger btn-xs">Read More</a>
+        </p>
+    </div>
+    <div id="main-content" style="overflow: visible;">
+        <div id="input-area" class="row">
+            <p class="col-xs-12">Choose a pair of annotation files with the same name in the two comparison folders</p>
+            <select class="selectpicker col-md-5 col-xs-12" id="annotation-selector" data-actions-box="true">
+            </select>
+            <select class="selectpicker col-md-5 col-xs-12" id="view-selector" data-actions-box="true" multiple>
+                <option value="LEMMA" selected>LEMMA</option>
+                <option value="POS" selected>POS</option>
+                <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
+                <option value="MENTION">Mention Detection</option>
+                <option value="NER_CONLL" selected>NER-CoNLL</option>
+                <option value="NER_ONTONOTES" selected>NER-Ontonotes</option>
+                <option value="TIMEX3">Temporal Normalizer</option>
+                <option value="SRL_NOM" selected>SRL (Nom) </option>
+                <option value="SRL_VERB" selected>SRL (Verb) </option>
+                <option value="PATH_LSTM_SRL">SRL (Path-LSTM) </option>
+                <option value="SRL_PREP">SRL (preposition) </option>
+                <option value="SRL_COMMA">SRL (Comma) </option>
+                <option value="QUANTITIES">Quantities</option>
+                <option value="DEPENDENCY">Dependency Tree (CogComp)</option>
+                <option data-divider="true"></option>
+                <option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
+                <option value="STANFORD_COREF">Co-reference (Stanford) </option>
+                <option value="STANFORD_RELATIONS">Relations (Stanford) </option>
+                <option value="STANFORD_OPENIE">Open IE (Stanford) </option>
+            </select>
+            <input type="submit" class="btn btn-success pull-right" id="compare-submit">
+        </div>
+        <div id="render-area"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    head.ready(function () {
+        const _ = apelles.lodash;
+
+        const BRAT_OPTIONS = {
+            'brat_util': Util,
+            'brat_webFontURLs': webFontURLs
+        };
+
+        // Return an array of the selected option values
+        // select is an HTML select element
+        function getSelectValues(select) {
+            return _.map(select.find('option:selected'), _.property('value'));
+        }
+
+        function loadAvailableAnnotations() {
+            $.ajax({ dataType: "json", type: "GET", url: '/list' }).then(function (files) {
+                _.forEach(files, function (file) {
+                    $('#annotation-selector').append($('<option>', {
+                        value: file,
+                        text: file
+                    }));
+                });
+            }, function (err) {
+                console.log(err);
+            })
+        }
+
+        function loadAnnotation(file) {
+            return $.ajax({ data: { file: encodeURI(file) }, dataType: "json", type: "GET", url: "/get" }).then(function (jsonData) {
+                return jsonData;
+            }, function (err) {
+                console.log(err);
+            })
+        }
+
+        function findViewInfosToRender(selectedViews, jsonData) {
+            var availableViews = apelles.getAvailableViews(jsonData);
+
+            return _.filter(availableViews, function (viewInfo) {
+                return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 &&
+                    viewInfo.name !== "TOKENS" &&
+                    selectedViews.includes(viewInfo.name);
+            });
+        }
+
+        function createViewArea(renderDivId, viewName, viewType) {
+            var outerDiv = $("<div>", { 'class': 'view-area' });
+            outerDiv.append($("<div>", {
+                'class': 'alert alert-success visualization-block',
+                role: 'alert',
+                text: viewName + " // " + viewType,
+                id: renderDivId
+            }));
+            return outerDiv;
+        }
+
+        function renderAnnotation(jsonData, viewInfo, renderAreaId, apiId) {
+            console.log("Rendering");
+            var divId = "server-" + apiId + "-" + viewInfo.name;
+            var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
+            $("#" + renderAreaId).append(newDiv);
+
+            apelles.render(jsonData, divId, viewInfo, BRAT_OPTIONS);
+        }
+
+        loadAvailableAnnotations();
+        $("#compare-submit").click(function (eventData) {
+            $("#render-area").empty();
+
+            var selectedAnnotation = $('#annotation-selector').val();
+            var selectedViews = getSelectValues($('#view-selector'));
+
+            loadAnnotation(selectedAnnotation).then(function (jsonDataArray) {
+                console.log(jsonDataArray);
+
+                var viewInfosArray = _.map(jsonDataArray, function (jsonData) {
+                    return findViewInfosToRender(selectedViews, jsonData);
+                });
+
+                var viewInfoWithIndicesArray = apelles.comparator.compareJsonData(jsonDataArray, viewInfosArray);
+
+                _.forEach(viewInfoWithIndicesArray, function (viewInfoWithIndices) {
+                    var viewInfo = viewInfoWithIndices.viewInfo;
+
+                    var divId = "row-" + viewInfo.name;
+                    var newDiv = $("<div>", { 'class': 'row', id: divId });
+                    $("#render-area").append(newDiv);
+
+                    _.forEach(viewInfoWithIndices.indices, function (index) {
+                        var subDivId = "column-" + index + "-" + viewInfo.name;
+                        var newSubDiv = $("<div>", { 'class': 'col-md-6 col-xs-12', id: subDivId });
+                        newDiv.append(newSubDiv);
+
+                        renderAnnotation(jsonDataArray[index], viewInfo, subDivId, index);
+                    });
+                });
+            }, function (err) {
+                // do nothing
+            });
+        });
+    });
+</script>
+</body>
+</html>
