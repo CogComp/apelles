@@ -22,6 +22,7 @@ Usage:
 
    Example: `prediction/sample.json` and `gold/sample.json`
 
-1. Start server with `node comparison.js --port <PORT> <FOLDER#1> <FOLDER#2>`
+1. Start server with `node comparison.js --port <PORT> <FOLDER#1> <FOLDER#2>`.
+   This command can be run from any working directory, with `<FOLDER>` relative to current working directory.
 
    Example: `node comparison.js --port 3154 prediction gold`
