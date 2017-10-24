@@ -58,9 +58,9 @@
         </p>
     </div>
     <div id="main-content" style="overflow: visible;">
-        <div id="input-area" class="row">
-            <p class="col-xs-12">Choose a pair of annotation files with the same name in the two comparison folders</p>
-            <select class="selectpicker col-md-5 col-xs-12" id="annotation-selector" data-actions-box="true">
+        <div id="input-area" class="row" style="width: 100%;">
+            <p class="col-xs-12">Choose some pairs of annotation files with the same name in the two comparison folders</p>
+            <select class="selectpicker col-md-5 col-xs-12" id="annotation-selector" data-actions-box="true" multiple>
             </select>
             <select class="selectpicker col-md-5 col-xs-12" id="view-selector" data-actions-box="true" multiple>
                 <option value="LEMMA" selected>LEMMA</option>
@@ -83,8 +83,9 @@
                 <option value="STANFORD_RELATIONS">Relations (Stanford) </option>
                 <option value="STANFORD_OPENIE">Open IE (Stanford) </option>
             </select>
-            <input type="submit" class="btn btn-success pull-right" id="compare-submit">
+            <input type="submit" class="btn btn-success pull-right col-md-1 col-xs-6" id="compare-submit">
         </div>
+        <hr>
         <div id="render-area"></div>
     </div>
 </div>
@@ -107,6 +108,7 @@
             $.ajax({ dataType: "json", type: "GET", url: '/list' }).then(function (files) {
                 _.forEach(files, function (file) {
                     $('#annotation-selector').append($('<option>', {
+                        selected: true,
                         value: file,
                         text: file
                     }));
@@ -116,77 +118,91 @@
             })
         }
 
-        function loadAnnotation(file) {
-            return $.ajax({ data: { file: encodeURI(file) }, dataType: "json", type: "GET", url: "/get" }).then(function (jsonData) {
-                return jsonData;
+        function loadAnnotation(annotations) {
+            return $.ajax({ data: { annotations: annotations }, dataType: "json", type: "GET", url: "/get" }).then(function (data) {
+                return data;
             }, function (err) {
                 console.log(err);
             })
         }
 
-        function findViewInfosToRender(selectedViews, jsonData) {
-            var availableViews = apelles.getAvailableViews(jsonData);
+        function findViewInfosToRender(selectedViews, fetchedData) {
+            var availableViews = apelles.getAvailableViews(fetchedData.jsonData);
 
-            return _.filter(availableViews, function (viewInfo) {
+            return _.map(_.filter(availableViews, function (viewInfo) {
                 return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 &&
                     viewInfo.name !== "TOKENS" &&
                     selectedViews.includes(viewInfo.name);
+            }), function(viewInfo) {
+                return $.extend({ file: fetchedData.file }, viewInfo);
             });
         }
 
-        function createViewArea(renderDivId, viewName, viewType) {
-            var outerDiv = $("<div>", { 'class': 'view-area' });
-            outerDiv.append($("<div>", {
-                'class': 'alert alert-success visualization-block',
-                role: 'alert',
-                text: viewName + " // " + viewType,
-                id: renderDivId
-            }));
-            return outerDiv;
+        function generateId() {
+            // Convert to base 36 and return the first 10 characters after the decimal place
+            return Math.random().toString(36).substr(2, 10);
         }
 
-        function renderAnnotation(jsonData, viewInfo, renderAreaId, apiId) {
-            console.log("Rendering");
-            var divId = "server-" + apiId + "-" + viewInfo.name;
-            var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
-            $("#" + renderAreaId).append(newDiv);
+        function createDiv(container, options, content) {
+            var div = $("<div>", $.extend({ id: 'div-' + generateId() }, options));
+            if (content) {
+                div.append(content);
+            }
+            container.append(div);
+            return div;
+        }
 
-            apelles.render(jsonData, divId, viewInfo, BRAT_OPTIONS);
+        function renderAnnotation(fetchedData, viewInfo, renderArea) {
+            var div = createDiv(renderArea, {
+                'class': 'alert alert-success visualization-block',
+                role: 'alert',
+                text: _.escape(viewInfo.name) + " // " + _.escape(_.last(viewInfo.type.split('.')))
+            }, $("<span>", {
+                'class': 'pull-right',
+                text: _.escape(viewInfo.file)
+            }));
+
+            apelles.render(fetchedData.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
         }
 
         loadAvailableAnnotations();
         $("#compare-submit").click(function (eventData) {
             $("#render-area").empty();
 
-            var selectedAnnotation = $('#annotation-selector').val();
+            var selectedAnnotations = getSelectValues($('#annotation-selector'));
             var selectedViews = getSelectValues($('#view-selector'));
 
-            loadAnnotation(selectedAnnotation).then(function (jsonDataArray) {
-                console.log(jsonDataArray);
-
-                var viewInfosArray = _.map(jsonDataArray, function (jsonData) {
-                    return findViewInfosToRender(selectedViews, jsonData);
+            loadAnnotation(selectedAnnotations).then(function (fetchedData) {
+                var headerDiv = createDiv($("#render-area"), { 'class': 'row' });
+                _.forEach(fetchedData.folders, function (folder) {
+                    var headerColumnDiv = createDiv(headerDiv, { 'class': 'col-md-6 col-xs-12' });
+                    createDiv(headerColumnDiv, {
+                        'class': 'alert alert-info'
+                    }, $("<p>", {
+                        'class': 'text-center',
+                        text: _.escape(folder)
+                    }));
                 });
 
+                var fetchedDataArray = fetchedData.data;
+                var viewInfosArray = _.map(fetchedDataArray, function (fetchedData) {
+                    return findViewInfosToRender(selectedViews, fetchedData);
+                });
+
+                var jsonDataArray = _.map(fetchedDataArray, _.property('jsonData'));
                 var viewInfoWithIndicesArray = apelles.comparator.compareJsonData(jsonDataArray, viewInfosArray);
 
                 _.forEach(viewInfoWithIndicesArray, function (viewInfoWithIndices) {
                     var viewInfo = viewInfoWithIndices.viewInfo;
 
-                    var divId = "row-" + viewInfo.name;
-                    var newDiv = $("<div>", { 'class': 'row', id: divId });
-                    $("#render-area").append(newDiv);
-
+                    var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
                     _.forEach(viewInfoWithIndices.indices, function (index) {
-                        var subDivId = "column-" + index + "-" + viewInfo.name;
-                        var newSubDiv = $("<div>", { 'class': 'col-md-6 col-xs-12', id: subDivId });
-                        newDiv.append(newSubDiv);
-
-                        renderAnnotation(jsonDataArray[index], viewInfo, subDivId, index);
+                        var renderColumnDiv = createDiv(renderRowDiv, { 'class': 'col-md-6 col-xs-12' });
+                        renderAnnotation(fetchedDataArray[index], viewInfo, renderColumnDiv);
                     });
                 });
             }, function (err) {
-                // do nothing
+                console.log(err);
             });
         });
     });

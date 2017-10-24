@@ -33,6 +33,11 @@ function listAvailableAnnotations() {
 }
 
 
+function generateFolderName(folder) {
+    return path.basename(folder);
+}
+
+
 function getAvailableAnnotations(req, res) {
     listAvailableAnnotations().then(function (results) {
         res.json(results);
@@ -45,16 +50,23 @@ function getAvailableAnnotations(req, res) {
 
 function getAnnotation(req, res) {
     listAvailableAnnotations().then(function (results) {
-        var file = decodeURI(req.query.file);
-        if (_.includes(results, file)) {
-            return Promise.all(_.map(annotationFolders, function (folder) {
+        var files = req.query.annotations;
+        if (!Array.isArray(files) || _.difference(files, results).length) {
+            // Bad file access!
+            console.log('Denied file access: ' + JSON.stringify(files));
+            res.status(400).json([]);
+            return;
+        }
+
+        return Promise.all(_.map(annotationFolders, function (folder) {
+            return Promise.all(_.map(files, function (file) {
                 return new Promise(function (resolve, reject) {
                     var fullPath = path.join(folder, file);
                     fs.readFile(fullPath, "utf8", function (err, data) {
                         if (!err) {
                             try {
                                 var jsonData = JSON.parse(data);
-                                resolve(jsonData);
+                                resolve({folder: generateFolderName(folder), file: file, jsonData: jsonData});
                             } catch (err) {
                                 reject('Unable to parse file: ' + fullPath + '\n' + err);
                             }
@@ -64,15 +76,10 @@ function getAnnotation(req, res) {
                         }
                     })
                 });
-            })).then(function (dataList) {
-                res.json(dataList);
-            });
-        }
-        else {
-            // Unauthorized file access!
-            console.log('Denied file access: ' + file);
-            res.status(403).json([]);
-        }
+            }));
+        })).then(function (dataList) {
+            res.json({ folders: _.map(annotationFolders, generateFolderName), data: _.flatten(dataList) });
+        });
     }).catch(function (err) {
         console.log(err);
         res.status(500).json([]);
