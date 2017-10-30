@@ -2,7 +2,7 @@ var $ = require('jquery');
 
 var getTextAnnotation = function (pipelineConfiguration, text, views, api) {
     views = views || [];
-
+    console.log("[pipelineClient.js]: views: " + views);
     payload = {
         text: text,
         views: views.join(',')
@@ -15,7 +15,8 @@ var getTextAnnotation = function (pipelineConfiguration, text, views, api) {
         dataType: "json",
         success: function(data) {
             console.log("Received the response. . . ");
-            console.log(data);
+            console.log("[pipelineClient.js]: data: ");
+            console.log(data)
         },
         error: function() {
             console.log("error . . . ");

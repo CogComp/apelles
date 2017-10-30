@@ -114,9 +114,9 @@
         <div style="clear: both;"></div>
     </div>
     </p>
-</div>
-<div id="loader_container" style="height: 30px; margin-left: 50%">
-    <div class="loader" id="loader-main"></div>
+    <div id="loader_container" style="height: 30px; margin-left: 50%">
+        <div class="loader" id="loader-main"></div>
+    </div>
 </div>
 <div id="main-content" style="overflow: visible;">
     <div>Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
@@ -142,10 +142,9 @@
             <option value="POS" selected>POS</option>
             <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
             <option value="MENTION">Mention Detection</option>
-            <option value="RELATION_ACE">Relation Extraction (ACE-2005)</option>
-            <option value="MENTION_SEMEVAL">Relation Extraction (SemEval-2012)</option>
-            <option value="NER_CONLL">NER-CoNLL</option>
-            <option value="NER_ONTONOTES">NER-Ontonotes</option>
+            <option value="RELATION">Relation Extraction (ACE-2005)</option>
+            <option value="NER_CONLL">NER (CoNLL_</option>
+            <option value="NER_ONTONOTES">NER (Ontonotes)</option>
             <option value="TIMEX3">Temporal Normalizer</option>
             <option value="SRL_NOM">SRL (Nom)</option>
             <option value="SRL_VERB">SRL (Verb)</option>
@@ -162,103 +161,103 @@
             <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
             <!--<option value="PARSE_STANFORD">Parse Tree (Stanford) </option>-->
         </select>
-        <div id="transliteration-selector" style="display: none">
-            <select class="selectpicker" data-actions-box="true" data-live-search="true"
+        <div id="transliteration-selector-div" style="display: none">
+            <select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
                     data-header="Transliteration Language: ">
-                <option value="TRANSLITERATON_abk">Abkhazian</option>
-                <option value="TRANSLITERATON_afr">Afrikaans</option>
-                <option value="TRANSLITERATON_ara" selected>Arabic</option>
-                <option value="TRANSLITERATON_arg">Aragonese</option>
-                <option value="TRANSLITERATON_arz">Egyptian_Arabic</option>
-                <option value="TRANSLITERATON_ast">Asturian</option>
-                <option value="TRANSLITERATON_aze">Azerbaijani</option>
-                <option value="TRANSLITERATON_bak">Bashkir</option>
-                <option value="TRANSLITERATON_bel">Belarusian</option>
-                <option value="TRANSLITERATON_ben">Bengali</option>
-                <option value="TRANSLITERATON_bos">Bosnian</option>
-                <option value="TRANSLITERATON_bre">Breton</option>
-                <option value="TRANSLITERATON_bul">Bulgarian</option>
-                <option value="TRANSLITERATON_cat">Valencian</option>
-                <option value="TRANSLITERATON_ces">Czech</option>
-                <option value="TRANSLITERATON_che">Chechen</option>
-                <option value="TRANSLITERATON_chv">Chuvash</option>
-                <option value="TRANSLITERATON_ckb">Sorani</option>
-                <option value="TRANSLITERATON_dan">Danish</option>
-                <option value="TRANSLITERATON_ell">Greek</option>
-                <option value="TRANSLITERATON_epo">Esperanto</option>
-                <option value="TRANSLITERATON_est">Estonian</option>
-                <option value="TRANSLITERATON_eus">Basque</option>
-                <option value="TRANSLITERATON_fas">Persian</option>
-                <option value="TRANSLITERATON_fin">Finnish</option>
-                <option value="TRANSLITERATON_fra">French</option>
-                <option value="TRANSLITERATON_fry">Western_Frisian</option>
-                <option value="TRANSLITERATON_glg">Galician</option>
-                <option value="TRANSLITERATON_guj">Gujarati</option>
-                <option value="TRANSLITERATON_hat">Haitian</option>
-                <option value="TRANSLITERATON_heb">Hebrew</option>
-                <option value="TRANSLITERATON_hrv">Croatian</option>
-                <option value="TRANSLITERATON_hsb">Upper_Sorbian</option>
-                <option value="TRANSLITERATON_hun">Hungarian</option>
-                <option value="TRANSLITERATON_hye">Armenian</option>
-                <option value="TRANSLITERATON_ina">Interlingua</option>
-                <option value="TRANSLITERATON_ind">Indonesian</option>
-                <option value="TRANSLITERATON_isl">Icelandic</option>
-                <option value="TRANSLITERATON_jav">Javanese</option>
-                <option value="TRANSLITERATON_kat">Georgian</option>
-                <option value="TRANSLITERATON_kaz">Kazakh</option>
-                <option value="TRANSLITERATON_kbd">Kabardian</option>
-                <option value="TRANSLITERATON_kir">Kirghiz</option>
-                <option value="TRANSLITERATON_kur">Kurdish</option>
-                <option value="TRANSLITERATON_lat">Latin</option>
-                <option value="TRANSLITERATON_lav">Latvian</option>
-                <option value="TRANSLITERATON_lim">Limburgish</option>
-                <option value="TRANSLITERATON_lit">Lithuanian</option>
-                <option value="TRANSLITERATON_ltz">Luxembourgish</option>
-                <option value="TRANSLITERATON_mai">Maithili</option>
-                <option value="TRANSLITERATON_mar">Marathi</option>
-                <option value="TRANSLITERATON_mkd">Macedonian</option>
-                <option value="TRANSLITERATON_mlg">Malagasy</option>
-                <option value="TRANSLITERATON_mon">Mongolian</option>
-                <option value="TRANSLITERATON_msa">Malay</option>
-                <option value="TRANSLITERATON_mzn">Mazandarani</option>
-                <option value="TRANSLITERATON_nah">Nahuatl</option>
-                <option value="TRANSLITERATON_nep">Nepali</option>
-                <option value="TRANSLITERATON_nno">Norwegian_Nynorsk</option>
-                <option value="TRANSLITERATON_oci">Occitan</option>
-                <option value="TRANSLITERATON_ori">Oriya</option>
-                <option value="TRANSLITERATON_oss">Ossetian</option>
-                <option value="TRANSLITERATON_pan">Punjabi</option>
-                <option value="TRANSLITERATON_pol">Polish</option>
-                <option value="TRANSLITERATON_por">Portuguese</option>
-                <option value="TRANSLITERATON_que">Quechua</option>
-                <option value="TRANSLITERATON_roh">Romansh</option>
-                <option value="TRANSLITERATON_ron">Romanian</option>
-                <option value="TRANSLITERATON_rus">Russian</option>
-                <option value="TRANSLITERATON_scn">Sicilian</option>
-                <option value="TRANSLITERATON_sco">Scots</option>
-                <option value="TRANSLITERATON_slk">Slovak</option>
-                <option value="TRANSLITERATON_slv">Slovenian</option>
-                <option value="TRANSLITERATON_som">Somali</option>
-                <option value="TRANSLITERATON_spa">Castilian</option>
-                <option value="TRANSLITERATON_sqi">Albanian</option>
-                <option value="TRANSLITERATON_srp">Serbian</option>
-                <option value="TRANSLITERATON_sun">Sundanese</option>
-                <option value="TRANSLITERATON_swa">Swahili</option>
-                <option value="TRANSLITERATON_swe">Swedish</option>
-                <option value="TRANSLITERATON_tam">Tamil</option>
-                <option value="TRANSLITERATON_tel">Telugu</option>
-                <option value="TRANSLITERATON_tgk">Tajik</option>
-                <option value="TRANSLITERATON_tgl">Tagalog</option>
-                <option value="TRANSLITERATON_tuk">Turkmen</option>
-                <option value="TRANSLITERATON_tur">Turkish</option>
-                <option value="TRANSLITERATON_ukr">Ukrainian</option>
-                <option value="TRANSLITERATON_urd">Urdu</option>
-                <option value="TRANSLITERATON_uzb">Uzbek</option>
-                <option value="TRANSLITERATON_vie">Vietnamese</option>
-                <option value="TRANSLITERATON_war">Waray</option>
-                <option value="TRANSLITERATON_wln">Walloon</option>
-                <option value="TRANSLITERATON_yid">Yiddish</option>
-                <option value="TRANSLITERATON_zza">Zazaki</option>
+                <option value="TRANSLITERATION_abk">Abkhazian</option>
+                <option value="TRANSLITERATION_afr">Afrikaans</option>
+                <option value="TRANSLITERATION_ara" selected>Arabic</option>
+                <option value="TRANSLITERATION_arg">Aragonese</option>
+                <option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
+                <option value="TRANSLITERATION_ast">Asturian</option>
+                <option value="TRANSLITERATION_aze">Azerbaijani</option>
+                <option value="TRANSLITERATION_bak">Bashkir</option>
+                <option value="TRANSLITERATION_bel">Belarusian</option>
+                <option value="TRANSLITERATION_ben">Bengali</option>
+                <option value="TRANSLITERATION_bos">Bosnian</option>
+                <option value="TRANSLITERATION_bre">Breton</option>
+                <option value="TRANSLITERATION_bul">Bulgarian</option>
+                <option value="TRANSLITERATION_cat">Valencian</option>
+                <option value="TRANSLITERATION_ces">Czech</option>
+                <option value="TRANSLITERATION_che">Chechen</option>
+                <option value="TRANSLITERATION_chv">Chuvash</option>
+                <option value="TRANSLITERATION_ckb">Sorani</option>
+                <option value="TRANSLITERATION_dan">Danish</option>
+                <option value="TRANSLITERATION_ell">Greek</option>
+                <option value="TRANSLITERATION_epo">Esperanto</option>
+                <option value="TRANSLITERATION_est">Estonian</option>
+                <option value="TRANSLITERATION_eus">Basque</option>
+                <option value="TRANSLITERATION_fas">Persian</option>
+                <option value="TRANSLITERATION_fin">Finnish</option>
+                <option value="TRANSLITERATION_fra">French</option>
+                <option value="TRANSLITERATION_fry">Western_Frisian</option>
+                <option value="TRANSLITERATION_glg">Galician</option>
+                <option value="TRANSLITERATION_guj">Gujarati</option>
+                <option value="TRANSLITERATION_hat">Haitian</option>
+                <option value="TRANSLITERATION_heb">Hebrew</option>
+                <option value="TRANSLITERATION_hrv">Croatian</option>
+                <option value="TRANSLITERATION_hsb">Upper_Sorbian</option>
+                <option value="TRANSLITERATION_hun">Hungarian</option>
+                <option value="TRANSLITERATION_hye">Armenian</option>
+                <option value="TRANSLITERATION_ina">Interlingua</option>
+                <option value="TRANSLITERATION_ind">Indonesian</option>
+                <option value="TRANSLITERATION_isl">Icelandic</option>
+                <option value="TRANSLITERATION_jav">Javanese</option>
+                <option value="TRANSLITERATION_kat">Georgian</option>
+                <option value="TRANSLITERATION_kaz">Kazakh</option>
+                <option value="TRANSLITERATION_kbd">Kabardian</option>
+                <option value="TRANSLITERATION_kir">Kirghiz</option>
+                <option value="TRANSLITERATION_kur">Kurdish</option>
+                <option value="TRANSLITERATION_lat">Latin</option>
+                <option value="TRANSLITERATION_lav">Latvian</option>
+                <option value="TRANSLITERATION_lim">Limburgish</option>
+                <option value="TRANSLITERATION_lit">Lithuanian</option>
+                <option value="TRANSLITERATION_ltz">Luxembourgish</option>
+                <option value="TRANSLITERATION_mai">Maithili</option>
+                <option value="TRANSLITERATION_mar">Marathi</option>
+                <option value="TRANSLITERATION_mkd">Macedonian</option>
+                <option value="TRANSLITERATION_mlg">Malagasy</option>
+                <option value="TRANSLITERATION_mon">Mongolian</option>
+                <option value="TRANSLITERATION_msa">Malay</option>
+                <option value="TRANSLITERATION_mzn">Mazandarani</option>
+                <option value="TRANSLITERATION_nah">Nahuatl</option>
+                <option value="TRANSLITERATION_nep">Nepali</option>
+                <option value="TRANSLITERATION_nno">Norwegian_Nynorsk</option>
+                <option value="TRANSLITERATION_oci">Occitan</option>
+                <option value="TRANSLITERATION_ori">Oriya</option>
+                <option value="TRANSLITERATION_oss">Ossetian</option>
+                <option value="TRANSLITERATION_pan">Punjabi</option>
+                <option value="TRANSLITERATION_pol">Polish</option>
+                <option value="TRANSLITERATION_por">Portuguese</option>
+                <option value="TRANSLITERATION_que">Quechua</option>
+                <option value="TRANSLITERATION_roh">Romansh</option>
+                <option value="TRANSLITERATION_ron">Romanian</option>
+                <option value="TRANSLITERATION_rus">Russian</option>
+                <option value="TRANSLITERATION_scn">Sicilian</option>
+                <option value="TRANSLITERATION_sco">Scots</option>
+                <option value="TRANSLITERATION_slk">Slovak</option>
+                <option value="TRANSLITERATION_slv">Slovenian</option>
+                <option value="TRANSLITERATION_som">Somali</option>
+                <option value="TRANSLITERATION_spa">Castilian</option>
+                <option value="TRANSLITERATION_sqi">Albanian</option>
+                <option value="TRANSLITERATION_srp">Serbian</option>
+                <option value="TRANSLITERATION_sun">Sundanese</option>
+                <option value="TRANSLITERATION_swa">Swahili</option>
+                <option value="TRANSLITERATION_swe">Swedish</option>
+                <option value="TRANSLITERATION_tam">Tamil</option>
+                <option value="TRANSLITERATION_tel">Telugu</option>
+                <option value="TRANSLITERATION_tgk">Tajik</option>
+                <option value="TRANSLITERATION_tgl">Tagalog</option>
+                <option value="TRANSLITERATION_tuk">Turkmen</option>
+                <option value="TRANSLITERATION_tur">Turkish</option>
+                <option value="TRANSLITERATION_ukr">Ukrainian</option>
+                <option value="TRANSLITERATION_urd">Urdu</option>
+                <option value="TRANSLITERATION_uzb">Uzbek</option>
+                <option value="TRANSLITERATION_vie">Vietnamese</option>
+                <option value="TRANSLITERATION_war">Waray</option>
+                <option value="TRANSLITERATION_wln">Walloon</option>
+                <option value="TRANSLITERATION_yid">Yiddish</option>
+                <option value="TRANSLITERATION_zza">Zazaki</option>
             </select>
         </div>
         <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
@@ -294,10 +293,10 @@
         page_rendered = false;
     }
 
-    var pipelineServer = "http://austen.cs.illinois.edu:8080/annotate";
+    var pipelineServer = "http://localhost:8080/annotate";
     var externalAnnotatorServers = [
-        "http://bronte.cs.illinois.edu:1503/annotate", // stanford
-        "http://bronte.cs.illinois.edu:8009/annotate" // path-lstm
+        //"http://bronte.cs.illinois.edu:1503/annotate", // stanford
+        //"http://bronte.cs.illinois.edu:8009/annotate" // path-lstm
     ];
 
     // for each external annotator, add a loader
@@ -343,10 +342,10 @@
 
     $('.selectpicker').on('change', function () {
         if ($("#trans-opt")[0].selected) {
-            $("#transliteration-selector").css("display", "inline");
+            $("#transliteration-selector-div").css("display", "inline");
         }
         else {
-            $("#transliteration-selector").css("display", "none");
+            $("#transliteration-selector-div").css("display", "none");
         }
     });
 
@@ -426,10 +425,16 @@
             updatePage();
         }
 
+        function getAllActiveViews() {
+            var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
+            console.log(optionsMainpipeline);
+            var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
+            console.log(optionsTransliteration);
+            return optionsMainpipeline.concat(optionsTransliteration);
+        }
+
         function getDynamicLink() {
-            var views = getSelectValues(document.getElementById('view-selector')).concat(
-              getSelectValues(document.getElementById('transliteration-selector'))
-            ).join();
+            var views = getAllActiveViews().join();
             var text = $("#viz-text").val();
             return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
         }
@@ -451,7 +456,7 @@
             externalAnnotatorServers.forEach(function (url, i) {
                 document.getElementById("loader-ex-" + i).style.visibility = "visible";
             });
-            var pipelineViews = getSelectValues(document.getElementById('view-selector'));
+            var pipelineViews = getAllActiveViews();
 
             var text = $("#viz-text").val();
             console.log("Submit event: ");
@@ -464,8 +469,9 @@
                 var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
                 p.then(function (text) {
                     $("#render-area").empty();
-
+                    console.log("pipelineViews: " + pipelineViews);
                     return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
+                        console.log(jsonData);
                         return jsonData;
                     }, function (err) {
                         // return empty annotation
@@ -473,7 +479,8 @@
                     });
                 }).then(function (jsonData) {
                     var availableViews = apelles.getAvailableViews(jsonData);
-
+                    console.log("availableViews: ");
+                    console.log(availableViews);
                     var viewInfos = _.filter(availableViews, function (viewInfo) {
                         return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
                     });
