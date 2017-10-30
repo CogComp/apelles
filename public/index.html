@@ -50,7 +50,7 @@
 <body>
 <a href="https://github.com/CogComp/cogcomp-nlp/" class="github-corner" aria-label="View source on Github">
     <svg width="80" height="80" viewBox="0 0 250 250"
-         style="height: 60px; width: 60px; fill:#000000; color:#fff; position: absolute; top: 0; right: 0; border: 0;"
+         style="height: 100px; width: 100px; fill:#000000; color:#fff; position: absolute; top: 0; right: 0; border: 0;"
          aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path
@@ -136,11 +136,14 @@
                   class="form-control"> </textarea>
         <br>
         <input type="submit" class="btn btn-success" id="viz-submit">
-        <select class="selectpicker" id="view-selector" multiple data-actions-box="true" multiple>
+        <select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
+                data-header="Select at least one annotator" multiple>
             <option value="LEMMA">LEMMA</option>
             <option value="POS" selected>POS</option>
             <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
             <option value="MENTION">Mention Detection</option>
+            <option value="RELATION_ACE">Relation Extraction (ACE-2005)</option>
+            <option value="MENTION_SEMEVAL">Relation Extraction (SemEval-2012)</option>
             <option value="NER_CONLL">NER-CoNLL</option>
             <option value="NER_ONTONOTES">NER-Ontonotes</option>
             <option value="TIMEX3">Temporal Normalizer</option>
@@ -150,7 +153,8 @@
             <option value="SRL_PREP">SRL (preposition)</option>
             <option value="SRL_COMMA">SRL (Comma)</option>
             <option value="QUANTITIES">Quantities</option>
-            <option value="DEPENDENCY">Dependency Tree (CogComp)</option>
+            <option value="DEPENDENCY">Dependency Tree</option>
+            <option value="TRANSLITERATION" id="trans-opt">Transliteration</option>
             <option data-divider="true"></option>
             <option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
             <option value="STANFORD_COREF">Co-reference (Stanford)</option>
@@ -158,6 +162,105 @@
             <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
             <!--<option value="PARSE_STANFORD">Parse Tree (Stanford) </option>-->
         </select>
+        <div id="transliteration-selector" style="display: none">
+            <select class="selectpicker" data-actions-box="true" data-live-search="true"
+                    data-header="Transliteration Language: ">
+                <option value="TRANSLITERATON_abk">Abkhazian</option>
+                <option value="TRANSLITERATON_afr">Afrikaans</option>
+                <option value="TRANSLITERATON_ara" selected>Arabic</option>
+                <option value="TRANSLITERATON_arg">Aragonese</option>
+                <option value="TRANSLITERATON_arz">Egyptian_Arabic</option>
+                <option value="TRANSLITERATON_ast">Asturian</option>
+                <option value="TRANSLITERATON_aze">Azerbaijani</option>
+                <option value="TRANSLITERATON_bak">Bashkir</option>
+                <option value="TRANSLITERATON_bel">Belarusian</option>
+                <option value="TRANSLITERATON_ben">Bengali</option>
+                <option value="TRANSLITERATON_bos">Bosnian</option>
+                <option value="TRANSLITERATON_bre">Breton</option>
+                <option value="TRANSLITERATON_bul">Bulgarian</option>
+                <option value="TRANSLITERATON_cat">Valencian</option>
+                <option value="TRANSLITERATON_ces">Czech</option>
+                <option value="TRANSLITERATON_che">Chechen</option>
+                <option value="TRANSLITERATON_chv">Chuvash</option>
+                <option value="TRANSLITERATON_ckb">Sorani</option>
+                <option value="TRANSLITERATON_dan">Danish</option>
+                <option value="TRANSLITERATON_ell">Greek</option>
+                <option value="TRANSLITERATON_epo">Esperanto</option>
+                <option value="TRANSLITERATON_est">Estonian</option>
+                <option value="TRANSLITERATON_eus">Basque</option>
+                <option value="TRANSLITERATON_fas">Persian</option>
+                <option value="TRANSLITERATON_fin">Finnish</option>
+                <option value="TRANSLITERATON_fra">French</option>
+                <option value="TRANSLITERATON_fry">Western_Frisian</option>
+                <option value="TRANSLITERATON_glg">Galician</option>
+                <option value="TRANSLITERATON_guj">Gujarati</option>
+                <option value="TRANSLITERATON_hat">Haitian</option>
+                <option value="TRANSLITERATON_heb">Hebrew</option>
+                <option value="TRANSLITERATON_hrv">Croatian</option>
+                <option value="TRANSLITERATON_hsb">Upper_Sorbian</option>
+                <option value="TRANSLITERATON_hun">Hungarian</option>
+                <option value="TRANSLITERATON_hye">Armenian</option>
+                <option value="TRANSLITERATON_ina">Interlingua</option>
+                <option value="TRANSLITERATON_ind">Indonesian</option>
+                <option value="TRANSLITERATON_isl">Icelandic</option>
+                <option value="TRANSLITERATON_jav">Javanese</option>
+                <option value="TRANSLITERATON_kat">Georgian</option>
+                <option value="TRANSLITERATON_kaz">Kazakh</option>
+                <option value="TRANSLITERATON_kbd">Kabardian</option>
+                <option value="TRANSLITERATON_kir">Kirghiz</option>
+                <option value="TRANSLITERATON_kur">Kurdish</option>
+                <option value="TRANSLITERATON_lat">Latin</option>
+                <option value="TRANSLITERATON_lav">Latvian</option>
+                <option value="TRANSLITERATON_lim">Limburgish</option>
+                <option value="TRANSLITERATON_lit">Lithuanian</option>
+                <option value="TRANSLITERATON_ltz">Luxembourgish</option>
+                <option value="TRANSLITERATON_mai">Maithili</option>
+                <option value="TRANSLITERATON_mar">Marathi</option>
+                <option value="TRANSLITERATON_mkd">Macedonian</option>
+                <option value="TRANSLITERATON_mlg">Malagasy</option>
+                <option value="TRANSLITERATON_mon">Mongolian</option>
+                <option value="TRANSLITERATON_msa">Malay</option>
+                <option value="TRANSLITERATON_mzn">Mazandarani</option>
+                <option value="TRANSLITERATON_nah">Nahuatl</option>
+                <option value="TRANSLITERATON_nep">Nepali</option>
+                <option value="TRANSLITERATON_nno">Norwegian_Nynorsk</option>
+                <option value="TRANSLITERATON_oci">Occitan</option>
+                <option value="TRANSLITERATON_ori">Oriya</option>
+                <option value="TRANSLITERATON_oss">Ossetian</option>
+                <option value="TRANSLITERATON_pan">Punjabi</option>
+                <option value="TRANSLITERATON_pol">Polish</option>
+                <option value="TRANSLITERATON_por">Portuguese</option>
+                <option value="TRANSLITERATON_que">Quechua</option>
+                <option value="TRANSLITERATON_roh">Romansh</option>
+                <option value="TRANSLITERATON_ron">Romanian</option>
+                <option value="TRANSLITERATON_rus">Russian</option>
+                <option value="TRANSLITERATON_scn">Sicilian</option>
+                <option value="TRANSLITERATON_sco">Scots</option>
+                <option value="TRANSLITERATON_slk">Slovak</option>
+                <option value="TRANSLITERATON_slv">Slovenian</option>
+                <option value="TRANSLITERATON_som">Somali</option>
+                <option value="TRANSLITERATON_spa">Castilian</option>
+                <option value="TRANSLITERATON_sqi">Albanian</option>
+                <option value="TRANSLITERATON_srp">Serbian</option>
+                <option value="TRANSLITERATON_sun">Sundanese</option>
+                <option value="TRANSLITERATON_swa">Swahili</option>
+                <option value="TRANSLITERATON_swe">Swedish</option>
+                <option value="TRANSLITERATON_tam">Tamil</option>
+                <option value="TRANSLITERATON_tel">Telugu</option>
+                <option value="TRANSLITERATON_tgk">Tajik</option>
+                <option value="TRANSLITERATON_tgl">Tagalog</option>
+                <option value="TRANSLITERATON_tuk">Turkmen</option>
+                <option value="TRANSLITERATON_tur">Turkish</option>
+                <option value="TRANSLITERATON_ukr">Ukrainian</option>
+                <option value="TRANSLITERATON_urd">Urdu</option>
+                <option value="TRANSLITERATON_uzb">Uzbek</option>
+                <option value="TRANSLITERATON_vie">Vietnamese</option>
+                <option value="TRANSLITERATON_war">Waray</option>
+                <option value="TRANSLITERATON_wln">Walloon</option>
+                <option value="TRANSLITERATON_yid">Yiddish</option>
+                <option value="TRANSLITERATON_zza">Zazaki</option>
+            </select>
+        </div>
         <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
                 data-html="true" id="main-popover" data-content="">Link to page
         </button>
@@ -238,6 +341,15 @@
         }
     }
 
+    $('.selectpicker').on('change', function () {
+        if ($("#trans-opt")[0].selected) {
+            $("#transliteration-selector").css("display", "inline");
+        }
+        else {
+            $("#transliteration-selector").css("display", "none");
+        }
+    });
+
     fetch(pipelineServer)
       .then(function () {
           console.log("Connection works. ");
@@ -315,7 +427,9 @@
         }
 
         function getDynamicLink() {
-            var views = getSelectValues(document.getElementById('view-selector')).join();
+            var views = getSelectValues(document.getElementById('view-selector')).concat(
+              getSelectValues(document.getElementById('transliteration-selector'))
+            ).join();
             var text = $("#viz-text").val();
             return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
         }
@@ -399,7 +513,8 @@
         var createViewArea = function (renderDivId, viewName, viewType) {
             var outerDiv = $("<div>").attr("class", "view-area");
             var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
-            var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewType;
+            var viewTypeShort = viewType.split(".").pop();
+            var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
             var dropup = "<div class='dropup' id='dropup'> " +
               "<button class='btn btn-sm btn-success dropdown-toggle' type='button' data-toggle='dropdown'>" +
               "<span class='caret'></span></button> <ul class='dropdown-menu'> " +
