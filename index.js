@@ -12,7 +12,7 @@ var clipboard = require('clipboard');
 var getAvailableViews = function(jsonData) {
     return _.map(jsonData.views, function (view) {
         var requiredView = _.head(view.viewData);
-        return { name: requiredView.viewName, type: requiredView.viewType };
+        return { name: view.viewName, type: requiredView.viewType };
     });
 };
 

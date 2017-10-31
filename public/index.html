@@ -140,10 +140,10 @@
                 data-header="Select at least one annotator" multiple>
             <option value="LEMMA">LEMMA</option>
             <option value="POS" selected>POS</option>
-            <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
+            <option value="SHALLOW_PARSE">Shallow Parse</option>
             <option value="MENTION">Mention Detection</option>
             <option value="RELATION">Relation Extraction (ACE-2005)</option>
-            <option value="NER_CONLL">NER (CoNLL_</option>
+            <option value="NER_CONLL">NER (CoNLL)</option>
             <option value="NER_ONTONOTES">NER (Ontonotes)</option>
             <option value="TIMEX3">Temporal Normalizer</option>
             <option value="SRL_NOM">SRL (Nom)</option>
@@ -311,10 +311,8 @@
         var result = [];
         var options = select && select.options;
         var opt;
-
         for (var i = 0, iLen = options.length; i < iLen; i++) {
             opt = options[i];
-
             if (opt.selected) {
                 result.push(opt.value || opt.text);
             }
@@ -430,7 +428,9 @@
             console.log(optionsMainpipeline);
             var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
             console.log(optionsTransliteration);
-            return optionsMainpipeline.concat(optionsTransliteration);
+            return optionsMainpipeline.concat(optionsTransliteration).filter(function (e) {
+                return e !== 'TRANSLITERATION'
+            });
         }
 
         function getDynamicLink() {
@@ -471,7 +471,6 @@
                     $("#render-area").empty();
                     console.log("pipelineViews: " + pipelineViews);
                     return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
-                        console.log(jsonData);
                         return jsonData;
                     }, function (err) {
                         // return empty annotation
@@ -486,10 +485,11 @@
                     });
 
                     _.forEach(viewInfos, function (viewInfo) {
-                        //if(viewInfo.name == "DEPENDENCY_HEADFINDER:PARSE_STANFORD" || viewInfo.name == "PARSE_STANFORD") return;
+                        console.log("viewInfo: ");
+                        console.log(viewInfo);
                         if (!pipelineViews.includes(viewInfo.name)) return;
 
-                        console.log("Rendering");
+                        console.log("Rendering: " + viewInfo.name);
                         var divId = viewInfo.name;
                         var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
                         $("#render-area").append(newDiv);
@@ -514,8 +514,6 @@
                 sendRequest(url, "loader-ex-" + i);
             });
         }
-
-        // Util.profileEnable();
 
         var createViewArea = function (renderDivId, viewName, viewType) {
             var outerDiv = $("<div>").attr("class", "view-area");
