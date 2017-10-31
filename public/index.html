@@ -428,9 +428,9 @@
             console.log(optionsMainpipeline);
             var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
             console.log(optionsTransliteration);
-            return optionsMainpipeline.concat(optionsTransliteration).filter(function (e) {
+            return optionsMainpipeline.concat(optionsTransliteration);/*.filter(function (e) {
                 return e !== 'TRANSLITERATION'
-            });
+            });*/
         }
 
         function getDynamicLink() {
