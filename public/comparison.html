@@ -70,8 +70,8 @@
                 <option value="NER_CONLL" selected>NER-CoNLL</option>
                 <option value="NER_ONTONOTES" selected>NER-Ontonotes</option>
                 <option value="TIMEX3">Temporal Normalizer</option>
-                <option value="SRL_NOM" selected>SRL (Nom) </option>
-                <option value="SRL_VERB" selected>SRL (Verb) </option>
+                <option value="SRL_NOM">SRL (Nom) </option>
+                <option value="SRL_VERB">SRL (Verb) </option>
                 <option value="PATH_LSTM_SRL">SRL (Path-LSTM) </option>
                 <option value="SRL_PREP">SRL (preposition) </option>
                 <option value="SRL_COMMA">SRL (Comma) </option>
@@ -165,6 +165,17 @@
             apelles.render(fetchedData.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
         }
 
+        function fitColumn(columnCount) {
+            switch (columnCount) {
+                case 1:
+                    return 'col-xs-12';
+                case 2:
+                case 4:
+                    return 'col-md-6 col-xs-12';
+            }
+            return 'col-md-4 col-xs-12';
+        }
+
         loadAvailableAnnotations();
         $("#compare-submit").click(function (eventData) {
             $("#render-area").empty();
@@ -173,9 +184,11 @@
             var selectedViews = getSelectValues($('#view-selector'));
 
             loadAnnotation(selectedAnnotations).then(function (fetchedData) {
+                var columnClass = fitColumn(fetchedData.folders.length);
+
                 var headerDiv = createDiv($("#render-area"), { 'class': 'row' });
                 _.forEach(fetchedData.folders, function (folder) {
-                    var headerColumnDiv = createDiv(headerDiv, { 'class': 'col-md-6 col-xs-12' });
+                    var headerColumnDiv = createDiv(headerDiv, { 'class': columnClass });
                     createDiv(headerColumnDiv, {
                         'class': 'alert alert-info'
                     }, $("<p>", {
@@ -197,7 +210,7 @@
 
                     var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
                     _.forEach(viewInfoWithIndices.indices, function (index) {
-                        var renderColumnDiv = createDiv(renderRowDiv, { 'class': 'col-md-6 col-xs-12' });
+                        var renderColumnDiv = createDiv(renderRowDiv, { 'class': columnClass });
                         renderAnnotation(fetchedDataArray[index], viewInfo, renderColumnDiv);
                     });
                 });
