@@ -9,6 +9,8 @@ var sampleData = require('./public/sample.json');
 
 var clipboard = require('clipboard');
 
+require('brat-client');
+
 var getAvailableViews = function(jsonData) {
     return _.map(jsonData.views, function (view) {
         var requiredView = _.head(view.viewData);
