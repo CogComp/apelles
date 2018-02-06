@@ -93,6 +93,8 @@
                         text: file
                     }));
                 });
+                $("#annotation-selector").selectpicker("refresh");
+                $('#view-selector').selectpicker('selectAll');
             }, function (err) {
                 console.log(err);
             })
