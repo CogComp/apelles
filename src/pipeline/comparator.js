@@ -16,34 +16,42 @@ var mapKeysValues = function (array, keyValue) {
 // Destructive
 // Modify a set of views, removing common elements
 var compareViews = function (views) {
-    // Generate Key strings for fast equivalence comparison
+    // Generate constituent key strings for fast equivalence comparison
     // Two constituents are equivalent if they have the same start, end, and label
     var constituentKey = function (constituent) {
         return constituent.start + "<" + _.escape(constituent.label) + "<" + constituent.end;
     };
 
-    // Generate Key strings for fast equivalence comparison
-    // Two relations are equivalent if they have the same relationName and their src and target are equivalent
+    // Generate relation key strings for fast equivalence comparison
+    // Two relations are equivalent if they have the same relationName and their src and target constituents are equivalent
     var relationKey = function (relation) {
-        return relation.srcConstituentKey + ">" + _.escape(relation.relationName) + ">" + relation.targetConstituentKey;
+        return relation.srcConstituentKey + ">" + _.escape(relation.value.relationName) + ">" + relation.targetConstituentKey;
     };
 
+    // Convert the views into objects of view, a dictionary of constituents with keys, and a dictionary of relations with keys
     var viewConstituentRelationsArray = _.map(views, function (view) {
+        // Convert constituents into objects of constituent and its key
         var constituentArray = _.map(view.constituents || [], function (constituent, index) {
             return { key: constituentKey(constituent), value: constituent };
         });
 
-        var relationSet = mapKeysValues(view.relations || [], function (relation) {
-            relation.srcConstituentKey = constituentArray[relation.srcConstituent].key;
-            relation.targetConstituentKey = constituentArray[relation.targetConstituent].key;
-            return [relationKey(relation), relation];
+        // Convert relations into objects of relation and its constituent keys
+        var relationArray = _.map(view.relations || [], function (relation) {
+            return {
+                srcConstituentKey: constituentArray[relation.srcConstituent].key,
+                targetConstituentKey: constituentArray[relation.targetConstituent].key,
+                value: relation
+            };
         });
 
+        // Convert objects into a dictionary based on keys
         var constituentSet = _.mapKeys(constituentArray, _.property('key'));
+        var relationSet = _.mapKeys(relationArray, relationKey);
 
         return { view: view, constituents: constituentSet, relations: relationSet };
     });
 
+    // Find common constituents and relations across all views based on equivalence of their keys
     var duplicateConstituents = intersectionAll(_.map(viewConstituentRelationsArray, _.property('constituents')));
     var duplicateRelations = intersectionAll(_.map(viewConstituentRelationsArray, _.property('relations')));
 
@@ -51,61 +59,62 @@ var compareViews = function (views) {
         var view = viewConstituentRelations.view, constituents = viewConstituentRelations.constituents, relations = viewConstituentRelations.relations;
 
         // A relation is selected if it is not in all versions
-        var selectedRelations = _.values(_.pickBy(relations, function (relation, key) {
+        var selectedRelations = _.filter(relations, function (relation, key) {
             return !(key in duplicateRelations);
-        }));
+        });
+
+        // Find all constituents referenced by a selected relation
         var referencedConstituents = new Set(_.flatMap(selectedRelations, function (relation) {
             return [relation.srcConstituentKey, relation.targetConstituentKey];
         }));
 
         // A constituent is selected if it is not in all versions or it is referenced by a selected relation
-        var selectedConstituents = _.values(_.pickBy(constituents, function (constituent) {
+        var selectedConstituents = _.filter(constituents, function (constituent) {
             return !(constituent.key in duplicateConstituents) || referencedConstituents.has(constituent.key);
-        }));
+        });
+
+        // Update constituent ids in relations as some constituents are removed
         var constituentMapping = mapKeysValues(selectedConstituents, function (constituent, newIndex) {
             return [constituent.key, newIndex];
         });
-
         _.forEach(selectedRelations, function (relation) {
-            relation.srcConstituent = constituentMapping[relation.srcConstituentKey];
-            relation.targetConstituent = constituentMapping[relation.targetConstituentKey];
+            relation.value.srcConstituent = constituentMapping[relation.srcConstituentKey];
+            relation.value.targetConstituent = constituentMapping[relation.targetConstituentKey];
         });
 
-        view.relations = selectedRelations;
+        view.relations = _.map(selectedRelations, _.property('value'));
         view.constituents = _.map(selectedConstituents, _.property('value'));
     });
 };
 
 // Destructive
-// Modify a set of jsonData, removing common elements from the views in viewInfosArray
-// Returns an array of viewInfo to jsonData indices
-var compareJsonData = function (jsonDataArray, viewInfosArray) {
-    var viewInfos = _.uniqWith(_.flatten(viewInfosArray), _.isEqual);
-    var viewInfoWithIndicesArray = _.map(viewInfos, function (viewInfo) {
-        var indices = [];
-        _.forEach(viewInfosArray, function (viewInfos, index) {
-            if (_.some(viewInfos, _.partial(_.isEqual, viewInfo))) {
-                indices.push(index);
-            }
+// Modify an array of fetchedData, removing common elements from the views specified in viewInfos
+// Returns objects of viewInfo, its matching views, and their containing fetchedData
+var compareJsonData = function (fetchedDataArray, viewInfos) {
+    return _.map(viewInfos, function (viewInfo) {
+        // Find all views that matches viewInfo
+        var viewsWithData = _.flatMap(fetchedDataArray, function (fetchedData) {
+            // Make sure fetchedData matches viewInfo.file
+            return fetchedData.file !== viewInfo.file ? [] :
+                _.flatMap(fetchedData.jsonData.views, function (viewEntry) {
+                    // Make sure view matches viewInfo.name and viewInfo.type
+                    return viewEntry.viewName !== viewInfo.name ? [] :
+                        _.map(_.filter(viewEntry.viewData, function (viewDatum) {
+                            return viewDatum.viewType === viewInfo.type;
+                        }), function (view) {
+                            return { data: fetchedData, view: view };
+                        });
+                });
         });
-        return { viewInfo: viewInfo, indices: indices };
-    });
-    _.forEach(viewInfoWithIndicesArray, function (viewInfoWithIndices) {
-        var views = _.map(viewInfoWithIndices.indices, function (index) {
-            var jsonData = jsonDataArray[index];
-            var viewData = _.find(jsonData.views, function (view) {
-                return view.viewName === viewInfoWithIndices.viewInfo.name;
-            }).viewData;
-            return _.find(viewData, function (view) {
-                return view.viewType === viewInfoWithIndices.viewInfo.type &&
-                    view.viewName === viewInfoWithIndices.viewInfo.name;
-            });
-        });
+
+        var views = _.map(viewsWithData, _.property('view'));
+        // Perform comparison
         if (views.length >= 2) {
             compareViews(views);
         }
+
+        return { viewInfo: viewInfo, views: views, data: _.map(viewsWithData, _.property('data')) };
     });
-    return viewInfoWithIndicesArray;
 };
 
 module.exports = {

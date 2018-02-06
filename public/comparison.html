@@ -184,16 +184,15 @@
                     return findViewInfosToRender(selectedViews, fetchedData);
                 });
 
-                var jsonDataArray = _.map(fetchedDataArray, _.property('jsonData'));
-                var viewInfoWithIndicesArray = apelles.comparator.compareJsonData(jsonDataArray, viewInfosArray);
+                // Display all unique view types (unique type, name, and file name)
+                var viewInfos = _.uniqWith(_.flatten(viewInfosArray), _.isEqual);
+                var viewInfosWithData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
 
-                _.forEach(viewInfoWithIndicesArray, function (viewInfoWithIndices) {
-                    var viewInfo = viewInfoWithIndices.viewInfo;
-
+                _.forEach(viewInfosWithData, function (viewInfosWithData) {
                     var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
-                    _.forEach(viewInfoWithIndices.indices, function (index) {
+                    _.forEach(viewInfosWithData.data, function (fetchedData) {
                         var renderColumnDiv = createDiv(renderRowDiv, { 'class': columnClass });
-                        renderAnnotation(fetchedDataArray[index], viewInfo, renderColumnDiv);
+                        renderAnnotation(fetchedData, viewInfosWithData.viewInfo, renderColumnDiv);
                     });
                 });
             }, function (err) {
