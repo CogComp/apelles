@@ -13,13 +13,34 @@ var mapKeysValues = function (array, keyValue) {
     return _.fromPairs(_.map(array, keyValue));
 };
 
+// Find the starting position of tokens in the text
+var findTokenOffsets = function (text, tokens) {
+    var currentOffset = 0;
+    return _.map(tokens, function (token) {
+        var offset = text.indexOf(token, currentOffset);
+        if (offset >= 0) {
+            currentOffset = offset + token.length;
+        }
+        return { token: token, offset: offset };
+    });
+};
+
 // Destructive
 // Modify a set of views, removing common elements
-var compareViews = function (views) {
+var compareViews = function (viewsWithContext) {
+    // Assumes that the text is the same across views
+    var baselineText = _.head(viewsWithContext).text;
+
+    // Generate token key strings for fast equivalence comparison
+    // Two tokens are equivalent if they have the same length and offset in the text
+    var tokenKey = function (tokenWithOffset) {
+        return tokenWithOffset.offset + "+" + tokenWithOffset.token.length;
+    };
+
     // Generate constituent key strings for fast equivalence comparison
-    // Two constituents are equivalent if they have the same start, end, and label
-    var constituentKey = function (constituent) {
-        return constituent.start + "<" + _.escape(constituent.label) + "<" + constituent.end;
+    // Two constituents are equivalent if they have the same label and their covered tokens are equivalent
+    var constituentKey = function (constituent, tokenKeys) {
+        return _.escape(constituent.label) + "<" + _.join(_.slice(tokenKeys, constituent.start, constituent.end), ",");
     };
 
     // Generate relation key strings for fast equivalence comparison
@@ -29,14 +50,17 @@ var compareViews = function (views) {
     };
 
     // Convert the views into objects of view, a dictionary of constituents with keys, and a dictionary of relations with keys
-    var viewConstituentRelationsArray = _.map(views, function (view) {
+    var viewConstituentRelationsArray = _.map(viewsWithContext, function (viewWithContext) {
+        // Convert constituents into their keys
+        var tokenKeys = _.map(findTokenOffsets(baselineText, viewWithContext.tokens || []), tokenKey);
+
         // Convert constituents into objects of constituent and its key
-        var constituentArray = _.map(view.constituents || [], function (constituent, index) {
-            return { key: constituentKey(constituent), value: constituent };
+        var constituentArray = _.map(viewWithContext.view.constituents || [], function (constituent, index) {
+            return { key: constituentKey(constituent, tokenKeys), value: constituent };
         });
 
         // Convert relations into objects of relation and its constituent keys
-        var relationArray = _.map(view.relations || [], function (relation) {
+        var relationArray = _.map(viewWithContext.view.relations || [], function (relation) {
             return {
                 srcConstituentKey: constituentArray[relation.srcConstituent].key,
                 targetConstituentKey: constituentArray[relation.targetConstituent].key,
@@ -48,7 +72,7 @@ var compareViews = function (views) {
         var constituentSet = _.mapKeys(constituentArray, _.property('key'));
         var relationSet = _.mapKeys(relationArray, relationKey);
 
-        return { view: view, constituents: constituentSet, relations: relationSet };
+        return { view: viewWithContext.view, constituents: constituentSet, relations: relationSet };
     });
 
     // Find common constituents and relations across all views based on equivalence of their keys
@@ -93,7 +117,7 @@ var compareViews = function (views) {
 var compareJsonData = function (fetchedDataArray, viewInfos) {
     return _.map(viewInfos, function (viewInfo) {
         // Find all views that matches viewInfo
-        var viewsWithData = _.flatMap(fetchedDataArray, function (fetchedData) {
+        var viewsWithContext = _.flatMap(fetchedDataArray, function (fetchedData) {
             // Make sure fetchedData matches viewInfo.file
             return fetchedData.file !== viewInfo.file ? [] :
                 _.flatMap(fetchedData.jsonData.views, function (viewEntry) {
@@ -102,18 +126,22 @@ var compareJsonData = function (fetchedDataArray, viewInfos) {
                         _.map(_.filter(viewEntry.viewData, function (viewDatum) {
                             return viewDatum.viewType === viewInfo.type;
                         }), function (view) {
-                            return { data: fetchedData, view: view };
+                            return {
+                                data: fetchedData,
+                                view: view,
+                                text: fetchedData.jsonData.text,
+                                tokens: fetchedData.jsonData.tokens
+                            };
                         });
                 });
         });
 
-        var views = _.map(viewsWithData, _.property('view'));
         // Perform comparison
-        if (views.length >= 2) {
-            compareViews(views);
+        if (viewsWithContext.length >= 2) {
+            compareViews(viewsWithContext);
         }
 
-        return { viewInfo: viewInfo, views: views, data: _.map(viewsWithData, _.property('data')) };
+        return { viewInfo: viewInfo, views: _.map(viewsWithContext, 'view'), data: _.map(viewsWithContext, 'data') };
     });
 };
 
