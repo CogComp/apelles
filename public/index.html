@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>CogComp-NLP demo</title>
 
-    <link rel="stylesheet" type="text/css" href="./brat_client/style-vis.css"/>
+    <link rel="stylesheet" type="text/css" href="./brat_client/static/style-vis.css"/>
     <link rel="stylesheet" type="text/css" href="./main.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -13,38 +13,10 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
 
-    <script type="text/javascript" src="./brat_client/client/lib/head.load.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-
-    <script type="text/javascript">
-        var bratLocation = './brat_client';
-
-        head.js(
-          // External libraries
-          bratLocation + '/client/lib/jquery.min.js',
-          bratLocation + '/client/lib/jquery.svg.min.js',
-          bratLocation + '/client/lib/jquery.svgdom.min.js',
-
-          // brat helper modules
-          bratLocation + '/client/src/configuration.js',
-          bratLocation + '/client/src/util.js',
-          bratLocation + '/client/src/annotation_log.js',
-          bratLocation + '/client/lib/webfont.js',
-
-          // brat modules
-          bratLocation + '/client/src/dispatcher.js',
-          bratLocation + '/client/src/url_monitor.js',
-          bratLocation + '/client/src/visualizer.js'
-        );
-
-        var webFontURLs = [
-            // bratLocation + '/static/fonts/Astloch-Bold.ttf',
-            bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
-            bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
-        ];
-    </script>
     <script src="/apelles.js" type="text/javascript"></script>
 </head>
 <body>
@@ -367,9 +339,14 @@
         console.log('Loading and rendering');
 
         const _ = apelles.lodash;
+
+        const bratLocation = './brat_client';
         const brat_options = {
             'brat_util': Util,
-            'brat_webFontURLs': webFontURLs
+            'brat_webFontURLs': [
+                bratLocation + '/static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+                bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
+            ]
         };
 
         var sampleSentences = [
@@ -440,7 +417,6 @@
         }
 
         // set popover with links
-        $.noConflict();
         $('[data-toggle="popover"]').popover();
         var htmlContent = "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' style='width: 180pt'/>";
         $("#main-popover").attr("data-content", htmlContent);
