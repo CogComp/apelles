@@ -19,6 +19,7 @@
     "express": "^4.14.0"
   },
   "dependencies": {
+    "brat-client": "^0.0.2",
     "d3-color": "^1.0.3",
     "d3-scale": "^1.0.5",
     "jquery": "^3.1.1",
