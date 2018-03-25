@@ -4,10 +4,13 @@ var browserify = require('browserify-middleware');
 var express = require('express');
 var minimist = require('minimist');
 var _ = require('lodash');
+var read = require('fs-readdir-recursive');
 
 
-var argv = minimist(process.argv.slice(2));
+var argv = minimist(process.argv.slice(2), { boolean: ['r', 'f'] });
 var serverPort = argv['port'] || 8080;
+var recursiveList = argv['r'];
+var filterJson = argv['f'];
 var annotationFolders = argv['_'];
 if (annotationFolders.length == 0) {
     annotationFolders = [__dirname + '/public/comparison/prediction', __dirname + '/public/comparison/gold'];
@@ -18,17 +21,28 @@ if (annotationFolders.length == 0) {
 function listAvailableAnnotations() {
     return Promise.all(_.map(annotationFolders, function (folder) {
         return new Promise(function (resolve, reject) {
-            fs.readdir(folder, function (err, files) {
-                if (!err) {
-                    resolve(files);
-                }
-                else {
-                    reject('Unable to read folder. ' + err);
-                }
-            });
+            if (recursiveList) {
+                resolve(read(folder));
+            }
+            else {
+                fs.readdir(folder, function (err, files) {
+                    if (!err) {
+                        resolve(files);
+                    }
+                    else {
+                        reject('Unable to read folder. ' + err);
+                    }
+                });
+            }
         });
     })).then(function (results) {
-        return _.intersection.apply(_, results);
+        var commonFiles = _.intersection.apply(_, results);
+        if (filterJson) {
+            commonFiles = _.filter(commonFiles, function (file) {
+                return _.endsWith(file, ".json");
+            });
+        }
+        return commonFiles;
     });
 }
 
