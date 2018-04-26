@@ -217,3 +217,26 @@ body {
     }
 }
 
+@media (min-width: 1440px) {
+    .container#comparison_container {
+        width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container#comparison_container {
+        width: 1560px;
+    }
+}
+
+@media (min-width: 1680px) {
+    .container#comparison_container {
+        width: 1640px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container#comparison_container {
+        width: 1880px;
+    }
+}

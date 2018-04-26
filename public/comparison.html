@@ -5,10 +5,10 @@
     <title>CogComp-NLP Comparison Tool</title>
 
     <link rel="stylesheet" type="text/css" href="./brat_client/static/style-vis.css"/>
-    <link rel="stylesheet" type="text/css" href="./main.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="./main.css"/>
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-<div class="container">
+<div class="container" id="comparison_container">
     <div class="jumbotron">
         <div style="float: right">
             <iframe src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="margin-right: -20px"></iframe>
@@ -60,6 +60,11 @@
                 <option value="STANFORD_OPENIE">Open IE (Stanford) </option>
             </select>
             <input type="submit" class="btn btn-success pull-right col-md-1 col-xs-6" id="compare-submit">
+        </div>
+        <div class="row">
+            <p class="col-xs-12">In case the desired view type is not shown above,
+                please open <code>apelles/public/comparison.html</code> and
+                edit the <code>selectpicker</code> with <code>id="view-selector"</code></p>
         </div>
         <hr>
         <div id="render-area"></div>
@@ -134,7 +139,7 @@
             return div;
         }
 
-        function renderAnnotation(fetchedData, viewInfo, renderArea) {
+        function renderView(dataOfOneView, viewInfo, renderArea) {
             var div = createDiv(renderArea, {
                 'class': 'alert alert-success visualization-block',
                 role: 'alert',
@@ -144,9 +149,15 @@
                 text: _.escape(viewInfo.file)
             }));
 
-            apelles.render(fetchedData.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
+            apelles.render(dataOfOneView.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
         }
 
+        // Set the bootstrap column class for render area so that
+        // 1 folder takes entire width
+        // 2 folders each take half width
+        // 3 folders each take a third width
+        // 4 folders each take half width (to span two lines)
+        // more folders each take a third width (to span several lines)
         function fitColumn(columnCount) {
             switch (columnCount) {
                 case 1:
@@ -186,13 +197,22 @@
 
                 // Display all unique view types (unique type, name, and file name)
                 var viewInfos = _.uniqWith(_.flatten(viewInfosArray), _.isEqual);
-                var viewInfosWithData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
+                var comparisonResultData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
 
-                _.forEach(viewInfosWithData, function (viewInfosWithData) {
+                var folderToColumnMap = _.fromPairs(_.map(fetchedData.folders, function (folder, index) {
+                    return [folder, index];
+                }));
+
+                _.forEach(comparisonResultData, function (dataOfOneViewType) {
                     var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
-                    _.forEach(viewInfosWithData.data, function (fetchedData) {
-                        var renderColumnDiv = createDiv(renderRowDiv, { 'class': columnClass });
-                        renderAnnotation(fetchedData, viewInfosWithData.viewInfo, renderColumnDiv);
+                    var renderColumnDivs = _.map(fetchedData.folders, function (folder) {
+                        return createDiv(renderRowDiv, { 'class': columnClass });
+                    });
+
+                    _.forEach(dataOfOneViewType.data, function (dataOfOneView) {
+                        // The view from some files can be missing, so must find the correct column to render this view
+                        var renderColumnDiv = renderColumnDivs[folderToColumnMap[dataOfOneView.folder]];
+                        renderView(dataOfOneView, dataOfOneViewType.viewInfo, renderColumnDiv);
                     });
                 });
             }, function (err) {
