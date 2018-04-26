@@ -199,10 +199,19 @@
                 var viewInfos = _.uniqWith(_.flatten(viewInfosArray), _.isEqual);
                 var comparisonResultData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
 
+                var folderToColumnMap = _.fromPairs(_.map(fetchedData.folders, function (folder, index) {
+                    return [folder, index];
+                }));
+
                 _.forEach(comparisonResultData, function (dataOfOneViewType) {
                     var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
+                    var renderColumnDivs = _.map(fetchedData.folders, function (folder) {
+                        return createDiv(renderRowDiv, { 'class': columnClass });
+                    });
+
                     _.forEach(dataOfOneViewType.data, function (dataOfOneView) {
-                        var renderColumnDiv = createDiv(renderRowDiv, { 'class': columnClass });
+                        // The view from some files can be missing, so must find the correct column to render this view
+                        var renderColumnDiv = renderColumnDivs[folderToColumnMap[dataOfOneView.folder]];
                         renderView(dataOfOneView, dataOfOneViewType.viewInfo, renderColumnDiv);
                     });
                 });
