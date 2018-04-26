@@ -139,7 +139,7 @@
             return div;
         }
 
-        function renderAnnotation(fetchedData, viewInfo, renderArea) {
+        function renderView(dataOfOneView, viewInfo, renderArea) {
             var div = createDiv(renderArea, {
                 'class': 'alert alert-success visualization-block',
                 role: 'alert',
@@ -149,9 +149,15 @@
                 text: _.escape(viewInfo.file)
             }));
 
-            apelles.render(fetchedData.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
+            apelles.render(dataOfOneView.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
         }
 
+        // Set the bootstrap column class for render area so that
+        // 1 folder takes entire width
+        // 2 folders each take half width
+        // 3 folders each take a third width
+        // 4 folders each take half width (to span two lines)
+        // more folders each take a third width (to span several lines)
         function fitColumn(columnCount) {
             switch (columnCount) {
                 case 1:
@@ -191,13 +197,13 @@
 
                 // Display all unique view types (unique type, name, and file name)
                 var viewInfos = _.uniqWith(_.flatten(viewInfosArray), _.isEqual);
-                var viewInfosWithData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
+                var comparisonResultData = apelles.comparator.compareJsonData(fetchedDataArray, viewInfos);
 
-                _.forEach(viewInfosWithData, function (viewInfosWithData) {
+                _.forEach(comparisonResultData, function (dataOfOneViewType) {
                     var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
-                    _.forEach(viewInfosWithData.data, function (fetchedData) {
+                    _.forEach(dataOfOneViewType.data, function (dataOfOneView) {
                         var renderColumnDiv = createDiv(renderRowDiv, { 'class': columnClass });
-                        renderAnnotation(fetchedData, viewInfosWithData.viewInfo, renderColumnDiv);
+                        renderView(dataOfOneView, dataOfOneViewType.viewInfo, renderColumnDiv);
                     });
                 });
             }, function (err) {
