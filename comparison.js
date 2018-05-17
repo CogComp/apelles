@@ -8,7 +8,7 @@ var read = require('fs-readdir-recursive');
 
 
 var argv = minimist(process.argv.slice(2), { boolean: ['r', 'f'] });
-var serverPort = argv['port'] || 8080;
+var serverPort = argv['p'] || argv['port'] || 8080;
 var recursiveList = argv['r'];
 var filterJson = argv['f'];
 var annotationFolders = argv['_'];
@@ -56,10 +56,36 @@ function getAvailableAnnotations(req, res) {
     });
 }
 
+function trimView(view, tokenEnd) {
+    var keepConstituent = function (constituent) {
+        return constituent.end <= tokenEnd;
+    };
+    _.forEach(view.viewData, function (viewData) {
+        viewData.relations = _.filter(viewData.relations, function (relation) {
+            return keepConstituent(viewData.constituents[relation.srcConstituent]) && keepConstituent(viewData.constituents[relation.targetConstituent]);
+        });
+        viewData.constituents = _.filter(viewData.constituents, keepConstituent);
+    });
+}
+
+function trimData(jsonData, sentenceEnd) {
+    var sentenceEndPositions = jsonData.sentences.sentenceEndPositions;
+    var newSentenceEndPositions = _.slice(sentenceEndPositions, 0, sentenceEnd >= 0 ? sentenceEnd : sentenceEndPositions.length);
+    var tokenEnd = _.last(newSentenceEndPositions) || 0;
+
+    _.forEach(jsonData.views, function (view) {
+        trimView(view, tokenEnd);
+    });
+    jsonData.sentences.sentenceEndPositions = newSentenceEndPositions;
+    jsonData.tokenOffsets = _.slice(jsonData.tokenOffsets, 0, tokenEnd);
+    jsonData.tokens = _.slice(jsonData.tokens, 0, tokenEnd);
+}
+
 
 function getAnnotation(req, res) {
     listAvailableAnnotations().then(function (results) {
         var files = req.query.annotations;
+        var sentenceEnd = req.query.sentenceEnd || -1;
         if (!Array.isArray(files) || _.difference(files, results).length) {
             // Bad file access!
             console.log('Denied file access: ' + JSON.stringify(files));
@@ -75,6 +101,7 @@ function getAnnotation(req, res) {
                         if (!err) {
                             try {
                                 var jsonData = JSON.parse(data);
+                                trimData(jsonData, sentenceEnd);
                                 resolve({folder: folder, file: file, jsonData: jsonData});
                             } catch (err) {
                                 reject('Unable to parse file: ' + fullPath + '\n' + err);
