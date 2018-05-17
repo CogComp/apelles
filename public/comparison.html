@@ -186,7 +186,7 @@
                         'class': 'alert alert-info'
                     }, $("<p>", {
                         'class': 'text-center',
-                        text: _.escape(folder)
+                        text: _.escape(folder.split(/[\\/]/).pop())
                     }));
                 });
 

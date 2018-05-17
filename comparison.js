@@ -47,11 +47,6 @@ function listAvailableAnnotations() {
 }
 
 
-function generateFolderName(folder) {
-    return path.basename(folder);
-}
-
-
 function getAvailableAnnotations(req, res) {
     listAvailableAnnotations().then(function (results) {
         res.json(results);
@@ -80,7 +75,7 @@ function getAnnotation(req, res) {
                         if (!err) {
                             try {
                                 var jsonData = JSON.parse(data);
-                                resolve({folder: generateFolderName(folder), file: file, jsonData: jsonData});
+                                resolve({folder: folder, file: file, jsonData: jsonData});
                             } catch (err) {
                                 reject('Unable to parse file: ' + fullPath + '\n' + err);
                             }
@@ -92,7 +87,7 @@ function getAnnotation(req, res) {
                 });
             }));
         })).then(function (dataList) {
-            res.json({ folders: _.map(annotationFolders, generateFolderName), data: _.flatten(dataList) });
+            res.json({ folders: annotationFolders, data: _.flatten(dataList) });
         });
     }).catch(function (err) {
         console.log(err);
