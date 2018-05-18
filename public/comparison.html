@@ -88,6 +88,11 @@
                     <option value="10000">10000</option>
                 </select>
             </div>
+            <div class="col-md-5 col-xs-12">
+                <span class="col-xs-12">Choose to stack multiple views into a single one:</span>
+                <select class="selectpicker col-xs-12" id="multi-view-selector" data-actions-box="true" multiple>
+                </select>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -131,6 +136,11 @@
                 });
                 $("#annotation-selector").selectpicker("refresh");
                 $('#view-selector').selectpicker('selectAll');
+
+                var multiViewSelector = $('#multi-view-selector');
+                multiViewSelector.append($('#view-selector').html());
+                multiViewSelector.selectpicker('refresh');
+                multiViewSelector.selectpicker('deselectAll');
             }, function (err) {
                 console.log(err);
             })
@@ -206,9 +216,16 @@
 
             var selectedAnnotations = getSelectValues($('#annotation-selector'));
             var selectedViews = getSelectValues($('#view-selector'));
+            var selectedMultiViews = getSelectValues($('#multi-view-selector'));
             var sentencesLimit = parseInt(getSelectValues($('#sentences-limit-selector'))[0]);
 
             loadAnnotation(selectedAnnotations, sentencesLimit).then(function (fetchedData) {
+                var stackedViews = [];
+                _.forEach(fetchedData.data, function (data) {
+                    stackedViews = stackedViews.concat(apelles.comparator.createMultiViews(data.jsonData, selectedMultiViews));
+                });
+                selectedViews = selectedViews.concat(_.uniq(stackedViews));
+
                 var columnClass = fitColumn(fetchedData.folders.length);
 
                 var headerDiv = createDiv($("#render-area"), { 'class': 'row' });
