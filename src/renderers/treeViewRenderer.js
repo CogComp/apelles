@@ -39,11 +39,11 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
 
     var constituentLabelsTypes = collectTypes(constituents);
     var constituentTypes = _.keys(constituentLabelsTypes);
-    var constituentColors = _.zipObject(constituentTypes, utils.getColorScheme(constituentTypes.length));
+    var constituentColors = _.zipObject(constituentTypes, utils.getColorSchemeByText(constituentTypes));
 
     var relationLabelsTypes = collectTypes(relations);
     var relationTypes = _.keys(relationLabelsTypes);
-    var relationColors =_.zipObject(relationTypes, utils.getColorScheme(relationTypes.length));
+    var relationColors =_.zipObject(relationTypes, utils.getColorSchemeByText(relationTypes));
 
     var createTypesList = function (labelTypes, colors) {
         return _.flatMap(labelTypes, function (labels, type) {
