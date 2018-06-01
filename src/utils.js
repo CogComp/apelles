@@ -1,14 +1,23 @@
 /* eslint no-console:0 */
 
-const d3 = require('d3-scale');
+const _ = require('lodash');
 const randomcolor = require('randomcolor');
 
-var getColorScheme = function(count) {
-    if (count <= 10) return d3.schemeCategory10;
-    if (count <= 20) return d3.schemeCategory20;
-    return randomcolor({ count: count })
+const RANDOM_COLOR_STEP = 7;
+
+// Returns the same continuous colors every time
+var getContinuousColorScheme = function (count) {
+    return randomcolor({count: count, seed: "0", luminosity: "light"});
+};
+
+// Returns the same non-continuous colors every time
+var getColorScheme = function (count) {
+    return _.filter(getContinuousColorScheme(count * RANDOM_COLOR_STEP), function (color, index) {
+       return index % RANDOM_COLOR_STEP == 0;
+    });
 };
 
 module.exports = {
+    getContinuousColorScheme: getContinuousColorScheme,
     getColorScheme: getColorScheme
 };
