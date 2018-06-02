@@ -22,8 +22,8 @@
 </head>
 <body>
 <div class="container" id="comparison_container">
-    <div class="jumbotron">
-        <div style="float: right">
+    <div class="jumbotron row">
+        <div class="pull-right">
             <iframe src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" style="margin-right: -20px"></iframe>
             <iframe src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px" style="margin-right: -20px"></iframe>
         </div>
@@ -33,12 +33,16 @@
             <a href="https://github.com/CogComp/apelles" class="btn btn-danger btn-xs">Read More</a>
         </p>
     </div>
-    <div id="main-content" style="overflow: visible;">
-        <div id="input-area" class="row" style="width: 100%;">
-            <p class="col-xs-12">Choose some pairs of annotation files with the same name in the two comparison folders</p>
-            <select class="selectpicker col-md-5 col-xs-12" id="annotation-selector" data-actions-box="true" multiple>
+    <div id="input-area" style="width: 100%;">
+        <div class="row">
+        <div class="col-md-5 col-xs-12">
+            <span class="col-xs-12">Choose the annotation files (with the same name in the folders) to display:</span>
+            <select class="selectpicker col-xs-12" id="annotation-selector" data-actions-box="true" multiple>
             </select>
-            <select class="selectpicker col-md-5 col-xs-12" id="view-selector" data-actions-box="true" multiple>
+        </div>
+        <div class="col-md-5 col-xs-12">
+            <span class="col-xs-12">Choose the views to display:</span>
+            <select class="selectpicker col-xs-12" id="view-selector" data-actions-box="true" multiple>
                 <option value="LEMMA" selected>LEMMA</option>
                 <option value="POS" selected>POS</option>
                 <option value="SHALLOW_PARSE" selected>Shallow Parse</option>
@@ -59,16 +63,43 @@
                 <option value="STANFORD_RELATIONS">Relations (Stanford) </option>
                 <option value="STANFORD_OPENIE">Open IE (Stanford) </option>
             </select>
-            <input type="submit" class="btn btn-success pull-right col-md-1 col-xs-6" id="compare-submit">
         </div>
+        <div class="col-md-2 col-xs-6">
+            <span class="col-xs-12">&nbsp;</span>
+            <input type="submit" class="btn btn-success pull-right col-xs-12" id="compare-submit">
+        </div>
+        </div>
+        <br>
         <div class="row">
+            <div class="col-md-5 col-xs-6">
+                <span class="col-xs-12">Maximum number of sentences to display:</span>
+                <select class="selectpicker col-md-8 col-xs-12" id="sentences-limit-selector" data-actions-box="true">
+                    <option value="-1">Unlimited</option>
+                    <option data-divider="true"></option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100" selected>100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="2000">2000</option>
+                    <option value="5000">5000</option>
+                    <option value="10000">10000</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+        <div class="col-xs-12">
             <p class="col-xs-12">In case the desired view type is not shown above,
                 please open <code>apelles/public/comparison.html</code> and
                 edit the <code>selectpicker</code> with <code>id="view-selector"</code></p>
         </div>
-        <hr>
-        <div id="render-area"></div>
+        </div>
     </div>
+    <hr>
+    <div id="render-area"></div>
 </div>
 <script type="text/javascript">
     head.ready(function () {
@@ -105,8 +136,8 @@
             })
         }
 
-        function loadAnnotation(annotations) {
-            return $.ajax({ data: { annotations: annotations }, dataType: "json", type: "GET", url: "/get" }).then(function (data) {
+        function loadAnnotation(annotations, sentencesLimit) {
+            return $.ajax({ data: { annotations: annotations, sentenceEnd: sentencesLimit }, dataType: "json", type: "GET", url: "/get" }).then(function (data) {
                 return data;
             }, function (err) {
                 console.log(err);
@@ -175,8 +206,9 @@
 
             var selectedAnnotations = getSelectValues($('#annotation-selector'));
             var selectedViews = getSelectValues($('#view-selector'));
+            var sentencesLimit = parseInt(getSelectValues($('#sentences-limit-selector'))[0]);
 
-            loadAnnotation(selectedAnnotations).then(function (fetchedData) {
+            loadAnnotation(selectedAnnotations, sentencesLimit).then(function (fetchedData) {
                 var columnClass = fitColumn(fetchedData.folders.length);
 
                 var headerDiv = createDiv($("#render-area"), { 'class': 'row' });
@@ -186,7 +218,7 @@
                         'class': 'alert alert-info'
                     }, $("<p>", {
                         'class': 'text-center',
-                        text: _.escape(folder)
+                        text: _.escape(folder.split(/[\\/]/).pop())
                     }));
                 });
 
