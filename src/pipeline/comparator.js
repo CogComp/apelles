@@ -210,7 +210,62 @@ function createMultiViews(jsonData, multiViews) {
     return [stackedViewName];
 }
 
+function splitBySentence(fetchedData) {
+    var sentenceEndPositions = [0].concat(fetchedData.jsonData.sentences.sentenceEndPositions);
+    var sentencePositions = [];
+    for (var i = 1; i < sentenceEndPositions.length; ++i) {
+        sentencePositions.push({start: sentenceEndPositions[i - 1], end: sentenceEndPositions[i]});
+    }
+
+    return _.map(sentencePositions, function (sentencePosition) {
+        var includeConstituent = function (constituent) {
+            return sentencePosition.start <= constituent.start && constituent.end <= sentencePosition.end;
+        };
+
+        var newViews = _.map(fetchedData.jsonData.views, function (view) {
+            var newViewData = _.map(view.viewData, function (data) {
+                var oldConstituents = data.constituents;
+
+                var newConstituents = _.filter(oldConstituents, includeConstituent);
+                newConstituents = _.map(newConstituents, function (constituent, index) {
+                    constituent.newIndex = index;
+
+                    return _.assign({}, constituent, {
+                        start: constituent.start - sentencePosition.start,
+                        end: constituent.end - sentencePosition.start,
+                        original: constituent
+                    });
+                });
+
+                var newRelations = _.map(_.filter(data.relations, function (relation) {
+                    return includeConstituent(oldConstituents[relation.srcConstituent]) && includeConstituent(oldConstituents[relation.targetConstituent]);
+                }), function (relation) {
+                    return _.assign({}, relation, {
+                        srcConstituent: oldConstituents[relation.srcConstituent].newIndex,
+                        targetConstituent: oldConstituents[relation.targetConstituent].newIndex
+                    });
+                });
+                return _.assign({}, data, {constituents: newConstituents, relations: newRelations});
+            });
+            return _.assign({}, view, {viewData: newViewData});
+        });
+
+        var newJsonData = _.assign({}, fetchedData.jsonData, {
+            sentences: _.assign({}, fetchedData.jsonData.sentences, {sentenceEndPositions: [sentencePosition.end - sentencePosition.start]}),
+            // TODO text:
+            // TODO tokenOffsets:
+            tokens: _.slice(fetchedData.jsonData.tokens, sentencePosition.start, sentencePosition.end),
+            views: newViews
+        });
+
+        return _.assign({}, fetchedData, {
+            jsonData: newJsonData
+        });
+    });
+}
+
 module.exports = {
     compareJsonData: compareJsonData,
-    createMultiViews: createMultiViews
+    createMultiViews: createMultiViews,
+    splitBySentence: splitBySentence
 };
