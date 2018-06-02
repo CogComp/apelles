@@ -192,8 +192,14 @@ function createMultiViews(jsonData, multiViews) {
             var constituents = [], relations = [];
             _.forEach(oldViews.views, function (viewName) {
                 _.forEach(mapConstituentsRelations[viewName], function (view) {
+                    var constituentOffset = constituents.length;
                     Array.prototype.push.apply(constituents, view.constituents);
-                    Array.prototype.push.apply(relations, view.relations);
+                    Array.prototype.push.apply(relations, _.map(view.relations, function (relation) {
+                        var copy = _.assign({}, relation);
+                        copy.srcConstituent += constituentOffset;
+                        copy.targetConstituent += constituentOffset;
+                        return copy;
+                    }));
                 });
             });
             var combinedView = createView(newViewName, oldViews.viewType, constituents, relations);
