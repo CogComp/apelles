@@ -20,51 +20,28 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
 
     var treeView = _.head(_.head(treeViewOuter).viewData);
 
-    var constituents = _.map(treeView.constituents, function (constituent) {
-        var type = _.has(constituent, "type") ? constituent.type : constituent.label;
-        return _.assign({}, constituent, {type: type});
+    var labels = _.uniq(_.map(treeView.constituents, function (constituent) {
+        return constituent.label;
+    }));
+
+    var relationLabels = _.uniq(_.map(treeView.relations, function (relation) {
+        return relation.relationName;
+    }));
+
+    var colors = utils.getColorScheme(labels.length);
+    var relationColors = utils.getColorScheme(relationLabels.length);
+
+    var entityTypesList = _.zipWith(labels, colors, function (label, color) {
+        return {
+            type: label,
+            labels: [label],
+            bgColor: color,
+            borderColor: 'darken'
+        }
     });
 
-    var relations = _.map(treeView.relations, function (relation) {
-        var type = _.has(relation, "type") ? relation.type : relation.relationName;
-        var label = relation.relationName;
-        return _.assign({}, relation, {label: label, type: type});
-    });
-
-    var collectTypes = function (labelTypePairs) {
-        return _.mapValues(_.groupBy(labelTypePairs, 'type'), function (pairs) {
-            return _.uniq(_.map(pairs, 'label'));
-        });
-    };
-
-    var constituentLabelsTypes = collectTypes(constituents);
-    var constituentTypes = _.keys(constituentLabelsTypes);
-    var constituentColors = _.zipObject(constituentTypes, utils.getColorSchemeByText(constituentTypes));
-
-    var relationLabelsTypes = collectTypes(relations);
-    var relationTypes = _.keys(relationLabelsTypes);
-    var relationColors =_.zipObject(relationTypes, utils.getColorSchemeByText(relationTypes));
-
-    var createTypesList = function (labelTypes, colors) {
-        return _.flatMap(labelTypes, function (labels, type) {
-            return _.map(labels, function (label) {
-                return {
-                    type: type + "::" + label,
-                    labels: [label],
-                    bgColor: colors[type],
-                    borderColor: 'darken'
-                };
-            });
-        });
-    };
-
-    var entityTypesList = createTypesList(constituentLabelsTypes, constituentColors);
-
-    var relationTypesList = createTypesList(relationLabelsTypes, relationColors);
-
-    var entityList = _.map(constituents, function (constituent) {
-        var constituentLabel = constituent.type + "::" + constituent.label;
-        var uniqueId = 'entity_' +  constituent.start + '_' + constituent.end + "_" + constituentLabel;
+    var entityList = _.map(treeView.constituents, function (constituent) {
+        var uniqueId = 'entity_' +  constituent.start + '_' + constituent.end;
 
         var tokenStart = tokenMap[constituent.start];
         var tokenEnd = tokenMap[constituent.end - 1];
@@ -73,17 +50,25 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
             return false;
         }
 
-        return [uniqueId, constituentLabel, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
+        return [uniqueId, constituent.label, [[tokenStart.charStart, tokenEnd.charEnd - 1]]];
     });
 
-    var relationList = _.map(relations, function (relation) {
-        var relationLabel = relation.type + "::" + relation.label;
-        var uniqueId = 'relation_' +  relation.srcConstituent + '_' + relation.targetConstituent + "_" + relationLabel;
-
+    var relations = _.map(treeView.relations, function (relation) {
+        var uniqueId = 'relation_' +  relation.srcConstituent + '_' + relation.targetConstituent;
         var srcConstituentId = entityList[relation.srcConstituent][0];
         var targetConstituentId = entityList[relation.targetConstituent][0];
+        var relationName = relation.relationName;
 
-        return [uniqueId, relationLabel, [["", srcConstituentId], ["", targetConstituentId]]];
+        return [uniqueId, relationName, [["", srcConstituentId], ["", targetConstituentId]]];
+    });
+
+    var relationTypesList = _.zipWith(relationLabels, relationColors, function (label, color) {
+        return {
+            type: label,
+            labels: [label],
+            bgColor: color,
+            borderColor: 'darken'
+        }
     });
 
     var collectionData = {
@@ -94,7 +79,7 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
     var documentData = {
         text: rawText,
         entities: _.compact(entityList) || [],
-        relations: relationList || []
+        relations: relations || []
     };
 
     var bratUtil = options['brat_util'];
