@@ -145,7 +145,72 @@ var compareJsonData = function (fetchedDataArray, viewInfos) {
     });
 };
 
+function createView(viewName, viewType, constituents, relations) {
+    return {
+        viewName: viewName,
+        viewData: [{
+            viewType: viewType,
+            viewName: viewName,
+            score: 1,
+            generator: "Apelles",
+            constituents: constituents,
+            relations: relations
+        }]
+    };
+}
+
+function createMultiViews(jsonData, multiViews) {
+    if (_.isEmpty(multiViews)) {
+        return [];
+    }
+
+    var stackedViewName = multiViews.join(" / ");
+    var stackingConfig = {};
+    var basisView = _.find(jsonData.views, function (view) {
+        return _.includes(multiViews, view.viewName);
+    });
+    stackingConfig[stackedViewName] = {
+        views: multiViews,
+        viewType: _.head(basisView.viewData).viewType
+    };
+
+    var mapConstituentsRelations = _.fromPairs(_.map(jsonData.views, function (view) {
+        var assignLabelType = function (obj) {
+            return _.assign({}, obj, {type: view.viewName});
+        };
+        return [view.viewName, _.map(view.viewData, function (viewData) {
+            var constituents = _.map(viewData.constituents || [], assignLabelType);
+            var relations = _.map(viewData.relations || [], assignLabelType);
+            return {constituents: constituents, relations: relations};
+        })];
+    }));
+
+    _.forEach(stackingConfig, function (oldViews, newViewName) {
+        if (_.some(oldViews.views, function (viewName) {
+                return _.has(mapConstituentsRelations, viewName);
+            })) {
+            var constituents = [], relations = [];
+            _.forEach(oldViews.views, function (viewName) {
+                _.forEach(mapConstituentsRelations[viewName], function (view) {
+                    var constituentOffset = constituents.length;
+                    Array.prototype.push.apply(constituents, view.constituents);
+                    Array.prototype.push.apply(relations, _.map(view.relations, function (relation) {
+                        var copy = _.assign({}, relation);
+                        copy.srcConstituent += constituentOffset;
+                        copy.targetConstituent += constituentOffset;
+                        return copy;
+                    }));
+                });
+            });
+            var combinedView = createView(newViewName, oldViews.viewType, constituents, relations);
+            jsonData.views.push(combinedView);
+        }
+    });
+
+    return [stackedViewName];
+}
+
 module.exports = {
-    compareViews: compareViews,
-    compareJsonData: compareJsonData
+    compareJsonData: compareJsonData,
+    createMultiViews: createMultiViews
 };
