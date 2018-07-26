@@ -2,17 +2,24 @@
 
 This is a visualization library designed around cogcomp's NLP datastructures.
 
-## Getting started
+## Basics 
 
 Requirements: NodeJS, NPM should be installed.
 
 To install dependencies:
 `npm install` in the root directory to install required NodeJS modules.
 
+There are two use-cases for the system: 
+
+ - Demo for visualization of annotations (served over networks) 
+ - Diff-ing tool for local files containing annotations 
+
+### Running the demo server 
+
 To start the dev server:
 `node server.js`
 
-## Local comparison and display tool
+### Local comparison and display tool
 
 `comparison.js` provides a tool for comparing several annotation versions of the same text.
 
