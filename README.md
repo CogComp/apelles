@@ -11,8 +11,8 @@ To install dependencies:
 
 There are two use-cases for the system: 
 
- - Demo for visualization of annotations (served over networks) 
- - Diff-ing tool for local files containing annotations 
+ 1. Demo for visualization of annotations (served over networks) 
+ 2. Diff-ing tool for local files containing annotations 
 
 ### Running the demo server 
 
