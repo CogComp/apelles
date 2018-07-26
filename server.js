@@ -4,11 +4,16 @@ var app = express();
 var path = require("path");
 var hogan = require('hogan.js');
 var requireText = require('require-text');
+var minimist = require('minimist');
+
+var argv = minimist(process.argv.slice(2), { boolean: ['r', 'f'] });
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080);
-console.log('Listening at http://localhost:8080');
+var serverPort = argv['p'] || argv['port'] || 8080;
+
+app.listen(serverPort);
+console.log('Listening at http://localhost:' + serverPort);
 
 app.get('/embed.css', browserify('./public/embed.css', {}));
 app.get('/apelles.js', browserify('./index.js', {standalone: 'apelles'}));
