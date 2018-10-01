@@ -129,6 +129,7 @@
             <option value="MENTION">Mention Detection</option>
             <option value="RELATION">Relation Extraction (ACE-2005)</option>
             <option value="NER_CONLL">NER (CoNLL)</option>
+            <!-- <option value="DUMMYVIEW">DUMMYVIEW</option> <\!-- for testing purposes with python server wrapper -\-> -->
             <option value="NER_ONTONOTES">NER (Ontonotes)</option>
             <option value="TIMEX3">Temporal Normalizer</option>
             <option value="QUESTION_TYPE">Question Type</option>
@@ -152,7 +153,7 @@
                     data-header="Transliteration Language: ">
                 <option value="TRANSLITERATION_abk">Abkhazian</option>
                 <option value="TRANSLITERATION_afr">Afrikaans</option>
-                <option value="TRANSLITERATION_ara" selected>Arabic</option>
+		<option value="TRANSLITERATION_ara" selected>Arabic</option>
                 <option value="TRANSLITERATION_arg">Aragonese</option>
                 <option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
                 <option value="TRANSLITERATION_ast">Asturian</option>
@@ -365,7 +366,8 @@ print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you)
     var pipelineServerVersionAPI = "http://macniece.seas.upenn.edu:4001/version";
     var externalAnnotatorServers = [
         "http://bronte.cs.illinois.edu:1503/annotate", // stanford
-        "http://bronte.cs.illinois.edu:8009/annotate" // path-lstm
+        "http://bronte.cs.illinois.edu:8009/annotate", // path-lstm
+        // "http://localhost:5000/annotate" // for testing purposes with the python server wrapper
     ];
 
     function httpGetAsync(theUrl, callback) {
