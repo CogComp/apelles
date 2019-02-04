@@ -129,8 +129,9 @@
             <option value="MENTION">Mention Detection</option>
             <option value="RELATION">Relation Extraction (ACE-2005)</option>
             <option value="NER_CONLL">NER (CoNLL)</option>
+            <option value="NEURAL_XEL" id="neural-xel-opt">Cross-lingual Entity Linking (XEL)</option> <!-- for testing purposes with python server wrapper -->
             <option value="HMA_TRANSLIT" id="hma-trans-opt">Transliteration (HMA-Seq2Seq)</option> <!-- for testing purposes with python server wrapper -->
-            <option data-divider="true"></option>
+            <!-- <option data-divider="true"></option> -->
             <option value="NER_ONTONOTES">NER (Ontonotes)</option>
             <option value="TIMEX3">Temporal Normalizer</option>
             <option value="QUESTION_TYPE">Question Type</option>
@@ -154,7 +155,7 @@
                     data-header="Transliteration Language: ">
                 <option value="TRANSLITERATION_abk">Abkhazian</option>
                 <option value="TRANSLITERATION_afr">Afrikaans</option>
-		      <option value="TRANSLITERATION_ara" selected>Arabic</option>
+		<option value="TRANSLITERATION_ara" selected>Arabic</option>
                 <option value="TRANSLITERATION_arg">Aragonese</option>
                 <option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
                 <option value="TRANSLITERATION_ast">Asturian</option>
@@ -258,6 +259,15 @@
                 <option value="HMA_TRANSLIT_ta">Tamil</option>
                 <option value="HMA_TRANSLIT_pa">Punjabi</option>
                 <option value="HMA_TRANSLIT_hy">Armenian</option>
+            </select>
+        </div>
+	<div id="neural-xel-selector-div" style="display: none">
+            <select class="selectpicker" id="neural-xel-selector" data-actions-box="true" data-live-search="true"
+                    data-header="Entity Linking Language: ">
+                <option value="NEURAL_XEL_de">German</option>
+                <option value="NEURAL_XEL_es">Spanish</option>
+                <option value="NEURAL_XEL_fr">French</option>
+                <option value="NEURAL_XEL_it">Italian</option>
             </select>
         </div>
         <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
@@ -379,7 +389,8 @@ print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you)
     var pipelineServerVersionAPI = "http://macniece.seas.upenn.edu:4001/version";
     var externalAnnotatorServers = [
         "http://bronte.cs.illinois.edu:1503/annotate", // stanford
-        "http://bronte.cs.illinois.edu:8009/annotate", // path-lstm
+        "http://bronte.cs.illinois.edu:8009/annotate", // neural-xel
+        "http://macniece.seas.upenn.edu:4003/annotate", // hma transliteration
         "http://localhost:5000/annotate" // for testing purposes with the python server wrapper
     ];
 
@@ -459,6 +470,9 @@ print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you)
 	else if ($("#hma-trans-opt")[0].selected) {
             $("#hma-transliteration-selector-div").css("display", "inline");
         }
+	else if ($("#neural-xel-opt")[0].selected) {
+	    $("#neural-xel-selector-div").css("display", "inline");
+	}
         else {
             $("#transliteration-selector-div").css("display", "none");
         }
@@ -548,11 +562,19 @@ print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you)
         function getAllActiveViews() {
             var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
             console.log(optionsMainpipeline);
+
             var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
-            var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
             console.log(optionsTransliteration);
             optionsMainpipeline = optionsMainpipeline.concat(optionsTransliteration);
+
+	    var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
+            console.log(optionsHMATransliteration);
             optionsMainpipeline = optionsMainpipeline.concat(optionsHMATransliteration);
+
+	    var optionsXEL = getSelectValues(document.getElementById('neural-xel-selector'));
+            console.log(optionsXEL);
+            optionsMainpipeline = optionsMainpipeline.concat(optionsXEL);
+
             return optionsMainpipeline;
             /*.filter(function (e) {
                 return e !== 'TRANSLITERATION'
