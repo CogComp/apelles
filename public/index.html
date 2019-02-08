@@ -129,8 +129,8 @@
             <option value="MENTION">Mention Detection</option>
             <option value="RELATION">Relation Extraction (ACE-2005)</option>
             <option value="NER_CONLL">NER (CoNLL)</option>
-            <option value="NEURAL_XEL" id="neural-xel-opt">Cross-lingual Entity Linking (XEL)</option> <!-- for testing purposes with python server wrapper -->
-            <option value="HMA_TRANSLIT" id="hma-trans-opt">Transliteration (HMA-Seq2Seq)</option> <!-- for testing purposes with python server wrapper -->
+            <option value="NEURAL_XEL" id="neural-xel-opt">Cross-lingual Entity Linking (XEL)</option>
+            <option value="HMA_TRANSLIT" id="hma-trans-opt">Transliteration (HMA-Seq2Seq)</option>
             <!-- <option data-divider="true"></option> -->
             <option value="NER_ONTONOTES">NER (Ontonotes)</option>
             <option value="TIMEX3">Temporal Normalizer</option>
@@ -153,9 +153,10 @@
         <div id="transliteration-selector-div" style="display: none">
             <select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
                     data-header="Transliteration Language: ">
+                <option style="display:none" value="TRANSLITERATION" selected></option>
                 <option value="TRANSLITERATION_abk">Abkhazian</option>
                 <option value="TRANSLITERATION_afr">Afrikaans</option>
-		<option value="TRANSLITERATION_ara" selected>Arabic</option>
+		<option value="TRANSLITERATION_ara">Arabic</option>
                 <option value="TRANSLITERATION_arg">Aragonese</option>
                 <option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
                 <option value="TRANSLITERATION_ast">Asturian</option>
@@ -252,6 +253,7 @@
         <div id="hma-transliteration-selector-div" style="display: none">
             <select class="selectpicker" id="hma-transliteration-selector" data-actions-box="true" data-live-search="true"
                     data-header="Transliteration Language: ">
+                <option style="display:none" value="HMA_TRANSLIT" selected></option>
                 <option value="HMA_TRANSLIT_hi">Hindi</option>
                 <option value="HMA_TRANSLIT_bn">Bengali</option>
                 <option value="HMA_TRANSLIT_kn">Kannada</option>
@@ -268,6 +270,7 @@
                 <option value="NEURAL_XEL_es">Spanish</option>
                 <option value="NEURAL_XEL_fr">French</option>
                 <option value="NEURAL_XEL_it">Italian</option>
+                <option value="NEURAL_XEL_zh">Chinese</option>
             </select>
         </div>
         <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
@@ -467,17 +470,38 @@ print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you)
         if ($("#trans-opt")[0].selected) {
             $("#transliteration-selector-div").css("display", "inline");
         }
-	else if ($("#hma-trans-opt")[0].selected) {
+	else
+	{
+	    $("#transliteration-selector-div").css("display", "none");
+	}
+	if ($("#hma-trans-opt")[0].selected) {
             $("#hma-transliteration-selector-div").css("display", "inline");
         }
-	else if ($("#neural-xel-opt")[0].selected) {
-	    $("#neural-xel-selector-div").css("display", "inline");
+	else
+	{
+	    $("#hma-transliteration-selector-div").css("display", "none");
 	}
-        else {
-            $("#transliteration-selector-div").css("display", "none");
-            $("#hma-transliteration-selector-div").css("display", "none");
-	    $("#neural-xel-selector-div").css("display", "none");
+	if ($("#neural-xel-opt")[0].selected) {
+            $("#neural-xel-selector-div").css("display", "inline");
         }
+	else
+	{
+	    $("#neural-xel-selector-div").css("display", "none");
+	}
+        // if ($("#trans-opt")[0].selected) {
+        //     $("#transliteration-selector-div").css("display", "inline");
+        // }
+	// else if ($("#hma-trans-opt")[0].selected) {
+        //     $("#hma-transliteration-selector-div").css("display", "inline");
+        // }
+	// else if ($("#neural-xel-opt")[0].selected) {
+	//     $("#neural-xel-selector-div").css("display", "inline");
+	// }
+        // else {
+        //     $("#transliteration-selector-div").css("display", "none");
+        //     $("#hma-transliteration-selector-div").css("display", "none");
+	//     $("#neural-xel-selector-div").css("display", "none");
+        // }
     });
 
     fetch(pipelineServer)
