@@ -22,7 +22,7 @@ var getAvailableViews = function(jsonData) {
         return { name: view.viewName, type: requiredView.viewType };
     });
 };
-var testing = function() {
+var getSampleSentences = function() {
      
       return sampleSentences;
 };
@@ -104,7 +104,7 @@ var annotateAndRender = function (text, viewName, options) {
 
 module.exports = {
     getAvailableViews: getAvailableViews,
-    testing: testing,
+    getSampleSentences: getSampleSentences,
     annotateAndRender: annotateAndRender,
     lodash: _,
     pipelineClient: pipelineClient,

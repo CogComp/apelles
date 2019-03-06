@@ -506,7 +506,7 @@
         var sampleSentences = [];
         var area = $("#dropdownMenuArea1");    
         var area2 = area.clone();
-        var SampleSentencesjson = apelles.testing();
+        var SampleSentencesjson = apelles.getSampleSentences();
         $.each(SampleSentencesjson, function(index, record) 
         {
             //index is the key,
@@ -527,8 +527,9 @@
             $.each(sampleSentences, function(i, sent) 
             {
                 var sentence = sent;
-                if (sent.length > 50) {
-                            sentence = sent.substring(0, 50) + " ...";
+                if (sent.length > 50) 
+                {
+                    sentence = sent.substring(0, 50) + " ...";
                 }
                 area.append("<li><a href='#' id='action-" + i + "'>" + sentence + "</a></li>");
                 // default text
@@ -544,6 +545,26 @@
             });
             
             
+        }
+        function isEmpty(obj) 
+        {     
+            if (obj == null) 
+                return true;
+            if (obj === undefined)
+                return true;
+
+            if (obj.length === 0)  
+                return true;
+
+            if (obj.length > 0)    
+                return false;
+
+            for (var key in obj) {
+                if(obj.hasOwnProperty(prop))
+                return false;
+            }
+
+            return true;
         }
         
         $('.selectpicker').on('change', function () 
@@ -587,7 +608,11 @@
                 }
             }
             tagsKey.sort();
+            tagsKey = tagsKey.toString();
+            console.log(tagsKey);
             var sampleSentencesIndices = SampleSentencesjson[tagsKey]
+            var bool = sampleSentencesIndices.hasOwnProperty("length");
+            alert(bool);
             var sampleSentences = [];
             for(i = 0; i < sampleSentencesIndices.length; i++)
             {
