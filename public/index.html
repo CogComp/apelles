@@ -469,30 +469,8 @@
 		}
             }
 	}
-
-	$('.selectpicker').on('change', function () {
-            if ($("#trans-opt")[0].selected) {
-		$("#transliteration-selector-div").css("display", "inline");
-            }
-	    else
-	    {
-		$("#transliteration-selector-div").css("display", "none");
-	    }
-	    if ($("#hma-trans-opt")[0].selected) {
-		$("#hma-transliteration-selector-div").css("display", "inline");
-            }
-	    else
-	    {
-		$("#hma-transliteration-selector-div").css("display", "none");
-	    }
-	    if ($("#neural-xel-opt")[0].selected) {
-		$("#neural-xel-selector-div").css("display", "inline");
-            }
-	    else
-	    {
-		$("#neural-xel-selector-div").css("display", "none");
-	    }
-	});
+    
+    
 
 	fetch(pipelineServer)
     .then(function () {
@@ -524,39 +502,108 @@
 		]
             };
 
+        var allSentences = [];
         var sampleSentences = [];
+        var area = $("#dropdownMenuArea1");    
+        var area2 = area.clone();
         var SampleSentencesjson = apelles.testing();
         $.each(SampleSentencesjson, function(index, record) 
         {
             //index is the key,
-            //record is the value (the list of tags)
-            sampleSentences.push(index);
-            $.each(record, function(key, value) {
-                //console.log(key + ': ' + value);
-            });
+            if (record === parseInt(record, 10))
+                allSentences.push(index);
+            else
+            {
+                $.each(record, function(key, value) {
+                    //console.log(key + ': ' + value);
+                });
+            }
         });
+        function updateSampleSentencesDropDown(sampleSentences)
+        {
+            area.empty();
+            
             // fill out the senetnces to the dropdown
-            sampleSentences.forEach(function (sent, i) {
-		var area = $("#dropdownMenuArea1");
-		var sentence = sent;
-		if (sent.length > 50) {
-                    sentence = sent.substring(0, 50) + " ...";
-		}
-		area.append("<li><a href='#' id='action-" + i + "'>" + sentence + "</a></li>");
-
-		// default text
-		if (i == 0 && !page_rendered) {
-        console.log("page not rendered");
-                    $("#viz-text").val(sent);
-		}
-
-		// set the sentence in the text-area
-		jQuery("#action-" + i).click(function (e) {
-                    e.preventDefault();
-                    $("#viz-text").val(sent);
-		});
+            $.each(sampleSentences, function(i, sent) 
+            {
+                var sentence = sent;
+                if (sent.length > 50) {
+                            sentence = sent.substring(0, 50) + " ...";
+                }
+                area.append("<li><a href='#' id='action-" + i + "'>" + sentence + "</a></li>");
+                // default text
+                if (i == 0 && !page_rendered) {
+                console.log("page not rendered");
+                            $("#viz-text").val(sent);
+                }
+                // set the sentence in the text-area
+                jQuery("#action-" + i).click(function (e) {
+                            e.preventDefault();
+                            $("#viz-text").val(sent);
+                });
             });
-            if (page_rendered) {
+            
+            
+        }
+        
+        $('.selectpicker').on('change', function () 
+        {
+            if ($("#trans-opt")[0].selected) 
+            {
+                $("#transliteration-selector-div").css("display", "inline");
+            }
+            else
+            {
+                $("#transliteration-selector-div").css("display", "none");
+            }
+            if ($("#hma-trans-opt")[0].selected) 
+            {
+                $("#hma-transliteration-selector-div").css("display", "inline");
+            }
+            else
+            {
+                $("#hma-transliteration-selector-div").css("display", "none");
+            }
+            if ($("#neural-xel-opt")[0].selected) 
+            {
+                $("#neural-xel-selector-div").css("display", "inline");
+            }
+            else
+            {
+                $("#neural-xel-selector-div").css("display", "none");
+            }
+            
+            
+            var trends = document.getElementById('view-selector'), trend, i;
+
+            var tagsKey = [];
+            for(i = 0; i < trends.length; i++) 
+            {
+                trend = trends[i];
+                
+                if (trend.selected) 
+                {
+                    tagsKey.push(trend.value);
+                }
+            }
+            tagsKey.sort();
+            var sampleSentencesIndices = SampleSentencesjson[tagsKey]
+            var sampleSentences = [];
+            for(i = 0; i < sampleSentencesIndices.length; i++)
+            {
+                var index = sampleSentencesIndices[i];
+                var sentence = allSentences[index];
+                sampleSentences.push(sentence);
+            }
+            //alert(sampleSentences.length);
+            
+            updateSampleSentencesDropDown(sampleSentences);
+            
+        });
+        
+        updateSampleSentencesDropDown(allSentences);
+        
+        if (page_rendered) {
 		$("#viz-text").val($("#render-text").text());
 		// select the views
         

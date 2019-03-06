@@ -14,8 +14,6 @@ var clipboard = require('clipboard');
 
 require('brat-client');
 
-var fs = require('fs');
-
 var sampleSentences = require('./public/tagged_samples.json');
 
 var getAvailableViews = function(jsonData) {
@@ -114,6 +112,5 @@ module.exports = {
     render: render,
     sampleData: sampleData,
     supportedTypes: renderFactory.supportedTypes,
-    fs: fs,
     cb: clipboard
 };
