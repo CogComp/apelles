@@ -519,8 +519,19 @@
                 });
             }
         });
+        
+        function objToStrMap(obj) {
+            let strMap = new Map();
+            for (let k of Object.keys(obj)) {
+                strMap.set(k, obj[k]);
+            }
+            return strMap;
+        }
+        //turns it into a map object
+        SampleSentencesjson = objToStrMap(SampleSentencesjson);
         function updateSampleSentencesDropDown(sampleSentences)
         {
+            //clears the options
             area.empty();
             
             // fill out the senetnces to the dropdown
@@ -544,28 +555,15 @@
                 });
             });
             
+            //clear text area if
+            if(sampleSentences.length == 0)
+            {
+                $("#viz-text").val("");
+            }
+            
             
         }
-        function isEmpty(obj) 
-        {     
-            if (obj == null) 
-                return true;
-            if (obj === undefined)
-                return true;
-
-            if (obj.length === 0)  
-                return true;
-
-            if (obj.length > 0)    
-                return false;
-
-            for (var key in obj) {
-                if(obj.hasOwnProperty(prop))
-                return false;
-            }
-
-            return true;
-        }
+        
         
         $('.selectpicker').on('change', function () 
         {
@@ -595,44 +593,46 @@
             }
             
             
-            var trends = document.getElementById('view-selector'), trend, i;
+            var allTags = document.getElementById('view-selector'), tag, i;
 
             var tagsKey = [];
-            for(i = 0; i < trends.length; i++) 
+            for(i = 0; i < allTags.length; i++) 
             {
-                trend = trends[i];
+                tag = allTags[i];
                 
-                if (trend.selected) 
+                if (tag.selected) 
                 {
-                    tagsKey.push(trend.value);
+                    tagsKey.push(tag.value);
                 }
             }
+            
+            //puts the key in the proper format
             tagsKey.sort();
             tagsKey = tagsKey.toString();
-            console.log(tagsKey);
-            var sampleSentencesIndices = SampleSentencesjson[tagsKey]
-            var bool = sampleSentencesIndices.hasOwnProperty("length");
-            alert(bool);
+            
+            var sampleSentencesIndices = SampleSentencesjson.get(tagsKey);
+            
             var sampleSentences = [];
-            for(i = 0; i < sampleSentencesIndices.length; i++)
+            if( sampleSentencesIndices!=null && sampleSentencesIndices.hasOwnProperty("length"))
             {
-                var index = sampleSentencesIndices[i];
-                var sentence = allSentences[index];
-                sampleSentences.push(sentence);
+                for(i = 0; i < sampleSentencesIndices.length; i++)
+                {
+                    var index = sampleSentencesIndices[i];
+                    var sentence = allSentences[index];
+                    sampleSentences.push(sentence);
+                }
             }
-            //alert(sampleSentences.length);
             
             updateSampleSentencesDropDown(sampleSentences);
             
         });
         
         updateSampleSentencesDropDown(allSentences);
-        
+
         if (page_rendered) {
 		$("#viz-text").val($("#render-text").text());
 		// select the views
         
-        console.log("take on me");
 		var viewNamesToCheck = $("#render-views").text().split(",");
 		setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
 		updatePage();
