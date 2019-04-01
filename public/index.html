@@ -107,21 +107,8 @@
 	<div>Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
           sample document:
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Sample Documents
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
-            </ul>
-          </div>
-	</div>
-	<div id="input-area" style="width: 100%">
-          <textarea id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"
-                    class="form-control"> </textarea>
-          <br>
-          <input type="submit" class="btn btn-success" id="viz-submit">
-          <select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
+
+            <select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
                   data-header="Select at least one annotator" multiple>
             <option value="LEMMA">LEMMA</option>
             <option value="POS" selected>POS</option>
@@ -148,6 +135,23 @@
             <option value="STANFORD_RELATIONS">Relations (Stanford)</option>
             <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
           </select>
+          
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Sample Documents
+              <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
+            </ul>
+          </div>
+	</div>
+	<div id="input-area" style="width: 100%">
+          <textarea id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"
+                    class="form-control"> </textarea>
+          <br>
+          <input type="submit" class="btn btn-success" id="viz-submit">
+          
           <div id="transliteration-selector-div" style="display: none">
             <select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
                     data-header="Transliteration Language: ">
@@ -387,10 +391,7 @@
             page_rendered = false;
 	}
     
-	if ($("#sample-sentence-data").text().includes("sampleSentences")) {
-        var gg = $("#sample-sentence-data").text();
-        
-	}
+	
 
 	var pipelineServer = "http://macniece.seas.upenn.edu:4001/annotate";
 	var pipelineServerVersionAPI = "http://macniece.seas.upenn.edu:4001/version";
@@ -721,14 +722,24 @@
                             $("#render-area").append(newDiv);
 
                             apelles.render(jsonData, divId, viewInfo, brat_options);
+                            
 			});
 			document.getElementById(loaderId).style.visibility = "hidden";
 
 			// then reset it
 			console.log("reset the page");
+            //if(viewInfo.type == "SpanLabelView")
+                            {
+                                console.log("test44");
+                                var x = document.querySelectorAll("g");
+                                console.log("test");
+                                console.log(x);
+                                
+                            }
 			$("#render-info").text("_content_rendered_");
                     }, function (err) {
 			// do nothing
+            console.log("aaaa");
                     });
 		}
 
@@ -738,11 +749,14 @@
 		// external annotations server
 		externalAnnotatorServers.forEach(function (url, i) {
                     sendRequest(url, "loader-ex-" + i);
+                    
+                    
 		});
             }
 
             var createViewArea = function (renderDivId, viewName, viewType) {
 		var outerDiv = $("<div>").attr("class", "view-area");
+        outerDiv.append("<p>yoyoyoyoy</p>");
 		var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
 		var viewTypeShort = viewType.split(".").pop();
 		var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
@@ -763,6 +777,7 @@
 
             $("#viz-submit").click(function (eventData) {
 		updatePage()
+        console.log("ffff");
             });
 	});
 	function sleep(time) {
