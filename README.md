@@ -21,9 +21,11 @@ To start the dev server:
 
 ### Local comparison and display tool
 
-`comparison.js` provides a tool for comparing several annotation versions of the same text.
+`comparison.js` provides a tool for viewing annotations from static 
+files (TextAnnotations serialized as json}, including comparing several 
+different versions of the same annotation of the same text.
 
-Usage:
+Usage for comparing multiple annotation versions:
 
 1. Create two or more folders, representing versions, of annotation JSON files with identical file names.
 
@@ -38,4 +40,12 @@ Usage:
 
    Example: `localhost:3154`
 
-This tool can also be used to display annotation files if only one version is specified.
+Usage for visualizing a single version of annotations:
+
+Same as for multiple versions, but specify a single directory.
+
+## Adding a new annotation type
+If the name is not already in the available view list, in apelles/public/comparison.html edit the selectpicker element
+`<select class="selectpicker col-xs-12" id="view-selector" data-actions-box="true" multiple>`
+by adding a new option:
+`<option value="MENU_VERSION_OF_YOUR_VIEW_NAME" selected>YOUR_VIEW_NAME</option>`
