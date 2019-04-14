@@ -90,6 +90,7 @@ var render = function (jsonData, domElement, spanInfo, options) {
     options['rawText'] = rawText;
     options['tokenMap'] = tokenMap;
 
+	
     return Promise.resolve(renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options));
 };
 
@@ -98,6 +99,8 @@ var annotateAndRender = function (text, viewName, options) {
 
     return pipelineClient.annotateText(pipelineConfiguration, text, [viewName])
         .then(function (jsonData) {
+			alert("hi");
+			console.log("render is complete");
             return render(jsonData, {}, options);
         });
 };

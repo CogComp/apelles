@@ -686,16 +686,17 @@
 		var pipelineViews = getAllActiveViews();
 
 		var text = $("#viz-text").val();
-		console.log("Submit event: ");
-		console.log(text);
-		console.log($("#viz-text"));
-		console.log("pipelineViews: ");
-		console.log(pipelineViews);
+		//console.log("Submit event: ");
+		//console.log(text);
+		//console.log($("#viz-text"));
+		//console.log("pipelineViews: ");
+		//console.log(pipelineViews);
 
 		function sendRequest(api, loaderId) {
                     var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
                     p.then(function (text) {
 			$("#render-area").empty();
+			
 			console.log("pipelineViews: " + pipelineViews);
 			return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
                             return jsonData;
@@ -704,39 +705,41 @@
                             return [];
 			});
                     }).then(function (jsonData) {
+					
 			var availableViews = apelles.getAvailableViews(jsonData);
-			console.log("availableViews: ");
-			console.log(availableViews);
+			
+			
 			var viewInfos = _.filter(availableViews, function (viewInfo) {
                             return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
+							
 			});
 
 			_.forEach(viewInfos, function (viewInfo) {
-                            console.log("viewInfo: ");
-                            console.log(viewInfo);
+                            
                             if (!pipelineViews.includes(viewInfo.name)) return;
 
+							
                             console.log("Rendering: " + viewInfo.name);
                             var divId = viewInfo.name;
                             var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
-                            $("#render-area").append(newDiv);
-
-                            apelles.render(jsonData, divId, viewInfo, brat_options);
+							
+                            $("#render-area").append(newDiv).ready(function () {
+    
+  });
+//viewInfo.onload = mike(viewInfo);
+	
+                            apelles.render(jsonData, divId, viewInfo, brat_options).then(function() {
+    //console.log("resolved");
+});
+							
+							
                             
 			});
 			document.getElementById(loaderId).style.visibility = "hidden";
 
-			// then reset it
-			console.log("reset the page");
-            //if(viewInfo.type == "SpanLabelView")
-                            {
-                                console.log("test44");
-                                var x = document.querySelectorAll("g");
-                                console.log("test");
-                                console.log(x);
-                                
-                            }
+			
 			$("#render-info").text("_content_rendered_");
+
                     }, function (err) {
 			// do nothing
             console.log("aaaa");
@@ -756,8 +759,9 @@
 
             var createViewArea = function (renderDivId, viewName, viewType) {
 		var outerDiv = $("<div>").attr("class", "view-area");
-        outerDiv.append("<p>yoyoyoyoy</p>");
+        //outerDiv.append("<p>yoyoyoyoy</p>");
 		var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
+		
 		var viewTypeShort = viewType.split(".").pop();
 		var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
 		var dropup = "<div class='dropup' id='dropup'> " +
@@ -772,26 +776,104 @@
 		    "</div><div class='form-group' style='margin-left: 0.3cm'>" + text + "</div>" + closeButton + "</form>";
 		newblock.append(headerContent);
 		outerDiv.append(newblock);
+		setTimeout(addPossibleLinks,500);
+		
 		return outerDiv;
             };
 
+	
             $("#viz-submit").click(function (eventData) {
 		updatePage()
-        console.log("ffff");
+		newLinksToCheck = true;
+		//alert("clicked");
             });
 	});
-	function sleep(time) {
+	function sleep(time) 
+	{
+						
             return new Promise((resolve) => setTimeout(resolve, time));
 	}
-
+	
+var newLinksToCheck = true;
 	function setTextArea(id) {
             var mySVG = $("#" + id)[0];
             var text = mySVG.innerHTML;
             text = '<link rel="stylesheet" type="text/css" href="http://nlp.cogcomp.org/embed.css">' + text.substring(text.indexOf("<svg"));
             text = text.replace("width: 908px; ", "");
             $("#svg-code").val(text);
+			
             return false;
 	}
+	
+	var observer = new MutationObserver(function(mutations) {
+		//alert("mut");
+		addPossibleLinks();
+});
+function addPossibleLinks()
+{
+		var toBeWrapped = document.getElementsByTagName("text");
+		//alert(toBeWrapped.length);
+		
+		var wrappers = [];
+		
+			
+		if(toBeWrapped.length >0)
+		{
+			//alert("mutations");
+			if(newLinksToCheck ==true)
+			{	
+				for (var index = 0; index < toBeWrapped.length; index++) 
+				{
+					if(!toBeWrapped[index].children || toBeWrapped[index].children.length==0 && toBeWrapped[index].nextSibling && toBeWrapped[index].nextSibling.tagName == "path")
+					{
+						var someText = toBeWrapped[index];
+						console.log(someText.innerHTML);
+						//In October 2018, Angela Merkel announced that she would not seek reelection
+						if(someText.innerHTML.includes("en.wikipedia.org"))
+						{
+							someText.setAttribute("fill","blue");
+							//console.log(toBeWrapped[index].previousSibling);
+							
+							var node = toBeWrapped[index].previousSibling;
+							
+							
+							wrapper = document.createElement("a");
+							  //alert(node.nodeName);
+
+
+							  wrapper.href = "https://"+someText.innerHTML;
+							 
+							var oldparent =  node.parentNode;
+
+							  oldparent.insertBefore(wrapper, node);
+
+								
+							  oldparent.removeChild(node);
+							  wrapper.appendChild(node)
+							  console.log(wrapper.nodeName);
+							  //alert(node.nodeName);
+							  
+							var tmp = document.createElement("div");
+							tmp.appendChild(wrapper);
+							//alert(tmp.innerHTML); // <p>Test</p>
+
+							oldparent.innerHTML=tmp.innerHTML+oldparent.innerHTML;
+						}
+					}
+				
+				}
+				//dont check anything until submit gets clicked again
+				newLinksToCheck =false;
+			}
+		}
+}
+var config = {
+    attributes: true,
+    childList: true,
+    characterData: true
+};
+
+observer.observe(document.body, config);
 	</script>
   </body>
 </html>
