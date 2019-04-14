@@ -508,28 +508,31 @@
         var area = $("#dropdownMenuArea1");    
         var area2 = area.clone();
         var SampleSentencesjson = apelles.getSampleSentences();
+		var tagDict = {};
         $.each(SampleSentencesjson, function(index, record) 
         {
             //index is the key,
-            if (record === parseInt(record, 10))
-                allSentences.push(index);
-            else
-            {
-                $.each(record, function(key, value) {
-                    //console.log(key + ': ' + value);
-                });
-            }
+            allSentences.push(index);
+            
+			var l;
+			$.each(record, function(key, value)
+			{
+				if(value in tagDict)
+				{
+					l = tagDict[value]
+				}
+				else
+				{
+					var  l = []
+				}
+				
+				l.push(index);
+				tagDict[value] = l;
+			});
+            
         });
         
-        function objToStrMap(obj) {
-            let strMap = new Map();
-            for (let k of Object.keys(obj)) {
-                strMap.set(k, obj[k]);
-            }
-            return strMap;
-        }
-        //turns it into a map object
-        SampleSentencesjson = objToStrMap(SampleSentencesjson);
+        
         function updateSampleSentencesDropDown(sampleSentences)
         {
             //clears the options
@@ -596,34 +599,24 @@
             
             var allTags = document.getElementById('view-selector'), tag, i;
 
-            var tagsKey = [];
+
+			var tagArrays = [];
+
             for(i = 0; i < allTags.length; i++) 
             {
                 tag = allTags[i];
                 
                 if (tag.selected) 
                 {
-                    tagsKey.push(tag.value);
+					var value = tagDict[tag.value];
+					if(value==null)
+						value = [];
+					tagArrays.push(value);
                 }
             }
-            
-            //puts the key in the proper format
-            tagsKey.sort();
-            tagsKey = tagsKey.toString();
-            
-            var sampleSentencesIndices = SampleSentencesjson.get(tagsKey);
-            
-            var sampleSentences = [];
-            if( sampleSentencesIndices!=null && sampleSentencesIndices.hasOwnProperty("length"))
-            {
-                for(i = 0; i < sampleSentencesIndices.length; i++)
-                {
-                    var index = sampleSentencesIndices[i];
-                    var sentence = allSentences[index];
-                    sampleSentences.push(sentence);
-                }
-            }
-            
+            var sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
+			
+
             updateSampleSentencesDropDown(sampleSentences);
             
         });
@@ -726,10 +719,10 @@
                             $("#render-area").append(newDiv).ready(function () {
     
   });
-//viewInfo.onload = mike(viewInfo);
+
 	
                             apelles.render(jsonData, divId, viewInfo, brat_options).then(function() {
-    //console.log("resolved");
+    
 });
 							
 							
@@ -742,7 +735,7 @@
 
                     }, function (err) {
 			// do nothing
-            console.log("aaaa");
+            
                     });
 		}
 
@@ -827,12 +820,10 @@ function addPossibleLinks()
 					if(!toBeWrapped[index].children || toBeWrapped[index].children.length==0 && toBeWrapped[index].nextSibling && toBeWrapped[index].nextSibling.tagName == "path")
 					{
 						var someText = toBeWrapped[index];
-						console.log(someText.innerHTML);
-						//In October 2018, Angela Merkel announced that she would not seek reelection
+						
 						if(someText.innerHTML.includes("en.wikipedia.org"))
 						{
 							someText.setAttribute("fill","blue");
-							//console.log(toBeWrapped[index].previousSibling);
 							
 							var node = toBeWrapped[index].previousSibling;
 							
@@ -841,21 +832,20 @@ function addPossibleLinks()
 							  //alert(node.nodeName);
 
 
-							  wrapper.href = "https://"+someText.innerHTML;
+							wrapper.href = "https://"+someText.innerHTML;
 							 
 							var oldparent =  node.parentNode;
 
-							  oldparent.insertBefore(wrapper, node);
+							oldparent.insertBefore(wrapper, node);
 
-								
-							  oldparent.removeChild(node);
-							  wrapper.appendChild(node)
-							  console.log(wrapper.nodeName);
-							  //alert(node.nodeName);
+
+							oldparent.removeChild(node);
+							wrapper.appendChild(node)
+							console.log(wrapper.nodeName);
+							//alert(node.nodeName);
 							  
 							var tmp = document.createElement("div");
 							tmp.appendChild(wrapper);
-							//alert(tmp.innerHTML); // <p>Test</p>
 
 							oldparent.innerHTML=tmp.innerHTML+oldparent.innerHTML;
 						}
