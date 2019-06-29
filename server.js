@@ -25,6 +25,9 @@ app.get('/render', function (req, res) {
     var viewNames = req.param('viewNames');
 
     var index = requireText('./public/index.html', require);
+    
+  
+    
     var template = hogan.compile(index);
 
     var context = {_content_rendered_: "true", text: text, viewNames: viewNames};

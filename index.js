@@ -1,6 +1,7 @@
 /* eslint no-console:0 */
 
 var _ = require('lodash');
+
 var renderFactory = require('./src/renderFactory');
 
 var pipelineClient = require('./src/pipeline/pipelineClient');
@@ -13,11 +14,17 @@ var clipboard = require('clipboard');
 
 require('brat-client');
 
+var sampleSentences = require('./public/tagged_samples.json');
+
 var getAvailableViews = function(jsonData) {
     return _.map(jsonData.views, function (view) {
         var requiredView = _.head(view.viewData);
         return { name: view.viewName, type: requiredView.viewType };
     });
+};
+var getSampleSentences = function() {
+     
+      return sampleSentences;
 };
 
 var render = function (jsonData, domElement, spanInfo, options) {
@@ -83,6 +90,7 @@ var render = function (jsonData, domElement, spanInfo, options) {
     options['rawText'] = rawText;
     options['tokenMap'] = tokenMap;
 
+	
     return Promise.resolve(renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options));
 };
 
@@ -91,12 +99,15 @@ var annotateAndRender = function (text, viewName, options) {
 
     return pipelineClient.annotateText(pipelineConfiguration, text, [viewName])
         .then(function (jsonData) {
+			alert("hi");
+			console.log("render is complete");
             return render(jsonData, {}, options);
         });
 };
 
 module.exports = {
     getAvailableViews: getAvailableViews,
+    getSampleSentences: getSampleSentences,
     annotateAndRender: annotateAndRender,
     lodash: _,
     pipelineClient: pipelineClient,
