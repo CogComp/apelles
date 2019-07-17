@@ -108,7 +108,17 @@
           sample document:
           <div class="dropdown">
 
-            <select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
+            
+          
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Sample Documents
+              <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
+            </ul>
+			<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
                   data-header="Select at least one annotator" multiple>
             <option value="LEMMA">LEMMA</option>
             <option value="POS" selected>POS</option>
@@ -135,15 +145,6 @@
             <option value="STANFORD_RELATIONS">Relations (Stanford)</option>
             <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
           </select>
-          
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Sample Documents
-              <span class="caret"></span>
-            </button>
-
-            <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
-            </ul>
           </div>
 	</div>
 	<div id="input-area" style="width: 100%">
@@ -532,7 +533,32 @@
             
         });
         
-        
+        function filterSampleSentences()
+		{
+			var allTags = document.getElementById('view-selector'), tag, i;
+
+
+			var tagArrays = [];
+
+			var sampleSentences = allSentences;
+			for(i = 0; i < allTags.length; i++) 
+			{
+				tag = allTags[i];
+				
+				if (tag.selected) 
+				{
+					var value = tagDict[tag.value];
+					if(value==null)
+						value = [];
+					tagArrays.push(value);
+				}
+			}
+			if(tagArrays.length>0)
+				sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
+
+
+			updateSampleSentencesDropDown(sampleSentences);
+		}
         function updateSampleSentencesDropDown(sampleSentences)
         {
             //clears the options
@@ -597,27 +623,7 @@
             }
             
             
-            var allTags = document.getElementById('view-selector'), tag, i;
-
-
-			var tagArrays = [];
-
-            for(i = 0; i < allTags.length; i++) 
-            {
-                tag = allTags[i];
-                
-                if (tag.selected) 
-                {
-					var value = tagDict[tag.value];
-					if(value==null)
-						value = [];
-					tagArrays.push(value);
-                }
-            }
-            var sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
-			
-
-            updateSampleSentencesDropDown(sampleSentences);
+            filterSampleSentences();
             
         });
         
@@ -655,6 +661,7 @@
             }
 
             function getDynamicLink() {
+			console.log("dynamic link!!!");
 		var views = getAllActiveViews().join();
 		var text = $("#viz-text").val();
 		return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
@@ -670,200 +677,204 @@
 		$("#dynamic-link").val(link);
             });
 
-            function updatePage() {
-		// loader active
-		document.getElementById("loader-main").style.visibility = "visible";
-		externalAnnotatorServers.forEach(function (url, i) {
-                    document.getElementById("loader-ex-" + i).style.visibility = "visible";
-		});
-		var pipelineViews = getAllActiveViews();
-
-		var text = $("#viz-text").val();
-		//console.log("Submit event: ");
-		//console.log(text);
-		//console.log($("#viz-text"));
-		//console.log("pipelineViews: ");
-		//console.log(pipelineViews);
-
-		function sendRequest(api, loaderId) {
-                    var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
-                    p.then(function (text) {
-			$("#render-area").empty();
-			
-			console.log("pipelineViews: " + pipelineViews);
-			return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
-                            return jsonData;
-			}, function (err) {
-                            // return empty annotation
-                            return [];
+		function updatePage() {
+			// loader active
+			document.getElementById("loader-main").style.visibility = "visible";
+			externalAnnotatorServers.forEach(function (url, i) {
+				document.getElementById("loader-ex-" + i).style.visibility = "visible";
 			});
-                    }).then(function (jsonData) {
-					
-			var availableViews = apelles.getAvailableViews(jsonData);
-			
-			
-			var viewInfos = _.filter(availableViews, function (viewInfo) {
-                            return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
-							
+			var pipelineViews = getAllActiveViews();
+
+			var text = $("#viz-text").val();
+			//console.log("Submit event: ");
+			//console.log(text);
+			//console.log($("#viz-text"));
+			//console.log("pipelineViews: ");
+			//console.log(pipelineViews);
+
+			function sendRequest(api, loaderId) {
+				var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
+				p.then(function (text) {
+					$("#render-area").empty();
+
+//console.log("text: " + text);
+					//console.log("pipelineViews: " + pipelineViews);
+					return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
+					console.log("jsonData: " + jsonData);
+						return jsonData;
+					}, function (err) {
+						// return empty annotation
+						return [];
+					});
+				}).then(function (jsonData) {
+
+					var availableViews = apelles.getAvailableViews(jsonData);
+					var obj = availableViews[0]
+//console.log("availableViews: " + Object.keys(obj));
+
+					var viewInfos = _.filter(availableViews, function (viewInfo) {
+						return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
+
+					});
+
+					_.forEach(viewInfos, function (viewInfo) {
+
+						if (!pipelineViews.includes(viewInfo.name)) return;
+
+
+						//console.log("Rendering: " + viewInfo.name);
+						var divId = viewInfo.name;
+						var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
+
+						$("#render-area").append(newDiv).ready(function () {
+
+						});
+
+//console.log("viewInfo " + Object.keys(viewInfo));
+						apelles.render(jsonData, divId, viewInfo, brat_options).then(function () {
+
+//console.log("after "+divId);
+//console.log("after render");
+						});
+
+
+					});
+					document.getElementById(loaderId).style.visibility = "hidden";
+
+
+					$("#render-info").text("_content_rendered_");
+
+				}, function (err) {
+					// do nothing
+
+				});
+			}
+
+			// main server
+			sendRequest(pipelineServer, "loader-main");
+
+			// external annotations server
+			externalAnnotatorServers.forEach(function (url, i) {
+				sendRequest(url, "loader-ex-" + i);
+
+
 			});
-
-			_.forEach(viewInfos, function (viewInfo) {
-                            
-                            if (!pipelineViews.includes(viewInfo.name)) return;
-
-							
-                            console.log("Rendering: " + viewInfo.name);
-                            var divId = viewInfo.name;
-                            var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
-							
-                            $("#render-area").append(newDiv).ready(function () {
-    
-  });
-
-	
-                            apelles.render(jsonData, divId, viewInfo, brat_options).then(function() {
-    
-});
-							
-							
-                            
-			});
-			document.getElementById(loaderId).style.visibility = "hidden";
-
-			
-			$("#render-info").text("_content_rendered_");
-
-                    }, function (err) {
-			// do nothing
-            
-                    });
 		}
 
-		// main server
-		sendRequest(pipelineServer, "loader-main");
+		var createViewArea = function (renderDivId, viewName, viewType) {
+			var outerDiv = $("<div>").attr("class", "view-area");
+			//outerDiv.append("<p>yoyoyoyoy</p>");
+			var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
 
-		// external annotations server
-		externalAnnotatorServers.forEach(function (url, i) {
-                    sendRequest(url, "loader-ex-" + i);
-                    
-                    
-		});
-            }
+			var viewTypeShort = viewType.split(".").pop();
+			var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
+			var dropup = "<div class='dropup' id='dropup'> " +
+				"<button class='btn btn-sm btn-success dropdown-toggle' type='button' data-toggle='dropdown'>" +
+				"<span class='caret'></span></button> <ul class='dropdown-menu'> " +
+				//              "<li><a href='#' onclick='downloadImage(`" + viewName + "`);'>Download as PNG</a></li>" +
+				'<li><button class="btn" data-clipboard-action="cut" data-clipboard-target="#svg-code" style="background-color: transparent; color: #333" onclick="return setTextArea(`' + viewName + '`);">Copy embeddable html to clipboard</button> </li>' +
+				"</ul>" +
+				"</div>";
+			var closeButton = "<a href='' class='close' data-dismiss='alert' aria-label='close'><b>×</b></a>";
+			var headerContent = "<form class='form-inline' role='form'> <div class='form-group'> " + dropup +
+				"</div><div class='form-group' style='margin-left: 0.3cm'>" + text + "</div>" + closeButton + "</form>";
+			newblock.append(headerContent);
+			outerDiv.append(newblock);
+			
+			console.log("added");
+			setTimeout(addPossibleLinks, 500);
 
-            var createViewArea = function (renderDivId, viewName, viewType) {
-		var outerDiv = $("<div>").attr("class", "view-area");
-        //outerDiv.append("<p>yoyoyoyoy</p>");
-		var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
-		
-		var viewTypeShort = viewType.split(".").pop();
-		var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
-		var dropup = "<div class='dropup' id='dropup'> " +
-		    "<button class='btn btn-sm btn-success dropdown-toggle' type='button' data-toggle='dropdown'>" +
-		    "<span class='caret'></span></button> <ul class='dropdown-menu'> " +
-		    //              "<li><a href='#' onclick='downloadImage(`" + viewName + "`);'>Download as PNG</a></li>" +
-		'<li><button class="btn" data-clipboard-action="cut" data-clipboard-target="#svg-code" style="background-color: transparent; color: #333" onclick="return setTextArea(`' + viewName + '`);">Copy embeddable html to clipboard</button> </li>' +
-		    "</ul>" +
-		    "</div>";
-		var closeButton = "<a href='' class='close' data-dismiss='alert' aria-label='close'><b>&times;</b></a>";
-		var headerContent = "<form class='form-inline' role='form'> <div class='form-group'> " + dropup +
-		    "</div><div class='form-group' style='margin-left: 0.3cm'>" + text + "</div>" + closeButton + "</form>";
-		newblock.append(headerContent);
-		outerDiv.append(newblock);
-		setTimeout(addPossibleLinks,500);
-		
-		return outerDiv;
-            };
+			return outerDiv;
+		};
 
-	
-            $("#viz-submit").click(function (eventData) {
-		updatePage()
-		newLinksToCheck = true;
-		//alert("clicked");
-            });
+
+		$("#viz-submit").click(
+			function (eventData) {
+			updatePage()
+			newLinksToCheck = true;
+			//alert("clicked");
+			});
 	});
-	function sleep(time) 
-	{
-						
-            return new Promise((resolve) => setTimeout(resolve, time));
-	}
-	
-var newLinksToCheck = true;
-	function setTextArea(id) {
-            var mySVG = $("#" + id)[0];
-            var text = mySVG.innerHTML;
-            text = '<link rel="stylesheet" type="text/css" href="http://nlp.cogcomp.org/embed.css">' + text.substring(text.indexOf("<svg"));
-            text = text.replace("width: 908px; ", "");
-            $("#svg-code").val(text);
-			
-            return false;
-	}
-	
-	var observer = new MutationObserver(function(mutations) {
-		//alert("mut");
-		addPossibleLinks();
-});
-function addPossibleLinks()
-{
-		var toBeWrapped = document.getElementsByTagName("text");
-		//alert(toBeWrapped.length);
-		
-		var wrappers = [];
-		
-			
-		if(toBeWrapped.length >0)
-		{
-			//alert("mutations");
-			if(newLinksToCheck ==true)
-			{	
-				for (var index = 0; index < toBeWrapped.length; index++) 
-				{
-					if(!toBeWrapped[index].children || toBeWrapped[index].children.length==0 && toBeWrapped[index].nextSibling && toBeWrapped[index].nextSibling.tagName == "path")
-					{
-						var someText = toBeWrapped[index];
-						
-						if(someText.innerHTML.includes("en.wikipedia.org"))
-						{
-							someText.setAttribute("fill","blue");
-							
-							var node = toBeWrapped[index].previousSibling;
-							
-							
-							wrapper = document.createElement("a");
-							  //alert(node.nodeName);
+
+		function sleep(time) {
+
+			return new Promise((resolve) => setTimeout(resolve, time));
+		}
+
+		var newLinksToCheck = true;
+
+		function setTextArea(id) {
+			var mySVG = $("#" + id)[0];
+			var text = mySVG.innerHTML;
+			text = '<link rel="stylesheet" type="text/css" href="http://nlp.cogcomp.org/embed.css">' + text.substring(text.indexOf("<svg"));
+			text = text.replace("width: 908px; ", "");
+			$("#svg-code").val(text);
+			console.log(text);
+			return false;
+		}
+
+		var observer = new MutationObserver(function (mutations) {
+			//alert("mut");
+			addPossibleLinks();
+		});
+
+		function addPossibleLinks() {
+			var toBeWrapped = document.getElementsByTagName("text");
+			//alert(toBeWrapped.length);
+
+			var wrappers = [];
 
 
-							wrapper.href = "https://"+someText.innerHTML;
-							 
-							var oldparent =  node.parentNode;
+			if (toBeWrapped.length > 0) {
+				//alert("mutations");
+				if (newLinksToCheck == true) {
+					for (var index = 0; index < toBeWrapped.length; index++) {
+						if (!toBeWrapped[index].children || toBeWrapped[index].children.length == 0 && toBeWrapped[index].nextSibling && toBeWrapped[index].nextSibling.tagName == "path") {
+							var someText = toBeWrapped[index];
 
-							oldparent.insertBefore(wrapper, node);
+							if (someText.innerHTML.includes("en.wikipedia.org")) {
+								someText.setAttribute("fill", "blue");
+
+								var node = toBeWrapped[index].previousSibling;
 
 
-							oldparent.removeChild(node);
-							wrapper.appendChild(node)
-							console.log(wrapper.nodeName);
-							//alert(node.nodeName);
-							  
-							var tmp = document.createElement("div");
-							tmp.appendChild(wrapper);
+								wrapper = document.createElement("a");
+								//alert(node.nodeName);
 
-							oldparent.innerHTML=tmp.innerHTML+oldparent.innerHTML;
+
+								wrapper.href = "https://" + someText.innerHTML;
+
+								var oldparent = node.parentNode;
+
+								oldparent.insertBefore(wrapper, node);
+
+
+								oldparent.removeChild(node);
+								wrapper.appendChild(node)
+								console.log(wrapper.nodeName);
+								//alert(node.nodeName);
+
+								var tmp = document.createElement("div");
+								tmp.appendChild(wrapper);
+
+								oldparent.innerHTML = tmp.innerHTML + oldparent.innerHTML;
+							}
 						}
+
 					}
-				
+					//dont check anything until submit gets clicked again
+					newLinksToCheck = false;
 				}
-				//dont check anything until submit gets clicked again
-				newLinksToCheck =false;
 			}
 		}
-}
-var config = {
-    attributes: true,
-    childList: true,
-    characterData: true
-};
+		var config = {
+			attributes: true,
+			childList: true,
+			characterData: true
+		};
 
-observer.observe(document.body, config);
+		observer.observe(document.body, config);
+		
 	</script>
   </body>
 </html>

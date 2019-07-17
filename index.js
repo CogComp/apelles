@@ -90,8 +90,11 @@ var render = function (jsonData, domElement, spanInfo, options) {
     options['rawText'] = rawText;
     options['tokenMap'] = tokenMap;
 
-	
-    return Promise.resolve(renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options));
+	var renderResult = renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options);
+	console.log(renderResult);
+	var promiseResult = Promise.resolve(renderResult);
+	console.log(promiseResult);
+    return promiseResult;
 };
 
 var annotateAndRender = function (text, viewName, options) {
