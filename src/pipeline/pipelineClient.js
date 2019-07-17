@@ -19,7 +19,7 @@ var getTextAnnotation = function (pipelineConfiguration, text, views, api) {
             console.log(data);
 			//console.log("hi");
 			//console.log(data.views);
-			
+			/*
 			var viewArray = data.views;
 			for (var i = 0; i < viewArray.length; i++) 
 			{
@@ -38,6 +38,7 @@ var getTextAnnotation = function (pipelineConfiguration, text, views, api) {
 					}
 				}
 			}
+			*/
         },
         error: function() {
             console.log("error . . . ");
