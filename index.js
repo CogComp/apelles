@@ -91,9 +91,9 @@ var render = function (jsonData, domElement, spanInfo, options) {
     options['tokenMap'] = tokenMap;
 
 	var renderResult = renderer.render(spanInfo.name, spanInfo.type, jsonData, domElement, options);
-	console.log(renderResult);
+	//console.log(renderResult);
 	var promiseResult = Promise.resolve(renderResult);
-	console.log(promiseResult);
+	//console.log(promiseResult);
     return promiseResult;
 };
 
@@ -102,8 +102,8 @@ var annotateAndRender = function (text, viewName, options) {
 
     return pipelineClient.annotateText(pipelineConfiguration, text, [viewName])
         .then(function (jsonData) {
-			alert("hi");
-			console.log("render is complete");
+			//alert("hi");
+			//console.log("render is complete");
             return render(jsonData, {}, options);
         });
 };

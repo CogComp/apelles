@@ -700,7 +700,7 @@
 //console.log("text: " + text);
 					//console.log("pipelineViews: " + pipelineViews);
 					return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
-					console.log("jsonData: " + jsonData);
+					//console.log("jsonData: " + jsonData);
 						return jsonData;
 					}, function (err) {
 						// return empty annotation
@@ -726,6 +726,41 @@
 						var divId = viewInfo.name;
 						var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
 
+console.log(newDiv[0]);
+console.log(newDiv[0].nodeType); 
+// target element that we will observe
+const target = newDiv[0];
+
+// config object
+const config = {
+  attributes: true,
+  attributeOldValue: true,
+  characterData: true,
+  characterDataOldValue: true,
+  childList: true,
+  subtree: true
+};
+
+// subscriber function
+function subscriber(mutations) {
+  mutations.forEach((mutation) => {
+    // handle mutations here
+	
+	if(mutation.oldValue =='' && mutation.target.nodeName=='DIV')
+	{
+		console.log(mutation.target.lastChild.nodeName);
+		console.log(mutation);
+		console.log("mutation handle");
+		addPossibleLinks();
+	}
+  });
+}
+
+// instantiating observer
+const observer = new MutationObserver(subscriber);
+
+// observing target
+observer.observe(target, config);
 						$("#render-area").append(newDiv).ready(function () {
 
 						});
@@ -782,7 +817,7 @@
 			outerDiv.append(newblock);
 			
 			console.log("added");
-			setTimeout(addPossibleLinks, 500);
+			//setTimeout(addPossibleLinks, 500);
 
 			return outerDiv;
 		};
@@ -813,10 +848,7 @@
 			return false;
 		}
 
-		var observer = new MutationObserver(function (mutations) {
-			//alert("mut");
-			addPossibleLinks();
-		});
+
 
 		function addPossibleLinks() {
 			var toBeWrapped = document.getElementsByTagName("text");
@@ -867,13 +899,6 @@
 				}
 			}
 		}
-		var config = {
-			attributes: true,
-			childList: true,
-			characterData: true
-		};
-
-		observer.observe(document.body, config);
 		
 	</script>
   </body>

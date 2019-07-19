@@ -99,14 +99,14 @@ var render = function(viewName, viewType, jsonData, domElement, options) {
 
     var bratUtil = options['brat_util'];
 
-	console.log(domElement);
-	console.log(collectionData);
-	console.log(documentData);
-	console.log(options['brat_webFontURLs']);
+	//console.log(domElement);
+	//console.log(collectionData);
+	//console.log(documentData);
+	//console.log(options['brat_webFontURLs']);
 	
 	var returnValue = bratUtil.embed(domElement, collectionData, documentData, options['brat_webFontURLs']);
 	
-	console.log(returnValue);
+	//console.log(returnValue);
     return returnValue;
 };
 
