@@ -850,7 +850,8 @@ observer.observe(target, config);
 
 
 
-		function addPossibleLinks() {
+		function addPossibleLinks() 
+		{
 			var toBeWrapped = document.getElementsByTagName("text");
 			//alert(toBeWrapped.length);
 
@@ -876,6 +877,8 @@ observer.observe(target, config);
 
 								wrapper.href = "https://" + someText.innerHTML;
 
+								wrapper.target = "_blank";
+								
 								var oldparent = node.parentNode;
 
 								oldparent.insertBefore(wrapper, node);
