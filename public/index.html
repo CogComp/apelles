@@ -507,7 +507,7 @@
         var allSentences = [];
         var sampleSentences = [];
         var area = $("#dropdownMenuArea1");    
-        var area2 = area.clone();
+
         var SampleSentencesjson = apelles.getSampleSentences();
 		var tagDict = {};
         $.each(SampleSentencesjson, function(index, record) 
@@ -535,6 +535,7 @@
         
         function filterSampleSentences()
 		{
+			
 			var allTags = document.getElementById('view-selector'), tag, i;
 
 
@@ -559,6 +560,7 @@
 
 			updateSampleSentencesDropDown(sampleSentences);
 		}
+		
         function updateSampleSentencesDropDown(sampleSentences)
         {
             //clears the options
@@ -573,11 +575,7 @@
                     sentence = sent.substring(0, 50) + " ...";
                 }
                 area.append("<li><a href='#' id='action-" + i + "'>" + sentence + "</a></li>");
-                // default text
-                if (i == 0 && !page_rendered) {
-                console.log("page not rendered");
-                            $("#viz-text").val(sent);
-                }
+               
                 // set the sentence in the text-area
                 jQuery("#action-" + i).click(function (e) {
                             e.preventDefault();
@@ -629,7 +627,9 @@
         });
         
         updateSampleSentencesDropDown(allSentences);
-
+		//sets the default text in the text area to be the first example
+		$("#viz-text").val(allSentences[0]);
+		
         if (page_rendered) {
 		$("#viz-text").val($("#render-text").text());
 		// select the views
