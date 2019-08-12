@@ -104,178 +104,192 @@
 	</div>
       </div>
       <div id="main-content" style="overflow: visible;">
-	<div>Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
+	  Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
           sample document:
-          <div class="dropdown">
+		
+		
+			<div class="row">
+				<div class="col-md-4">
+					<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
+					data-header="Select at least one annotator" multiple>
+						<option value="LEMMA">LEMMA</option>
+						<option value="POS" selected>POS</option>
+						<option value="SHALLOW_PARSE">Shallow Parse</option>
+						<option value="MENTION">Mention Detection</option>
+						<option value="RELATION">Relation Extraction (ACE-2005)</option>
+						<option value="NER_CONLL">NER (CoNLL)</option>
+						<option value="NEURAL_XEL" id="neural-xel-opt">Cross-lingual Entity Linking (XEL)</option>
+						<option value="HMA_TRANSLIT" id="hma-trans-opt">Transliteration (HMA-Seq2Seq)</option>
+						<option value="NER_ONTONOTES">NER (Ontonotes)</option>
+						<option value="TIMEX3">Temporal Normalizer</option>
+						<option value="QUESTION_TYPE">Question Type</option>
+						<option value="SRL_NOM">SRL (Nom)</option>
+						<option value="SRL_VERB">SRL (Verb)</option>
+						<option value="PATH_LSTM_SRL">SRL (Path-LSTM)</option>
+						<option value="SRL_PREP">SRL (preposition)</option>
+						<option value="SRL_COMMA">SRL (Comma)</option>
+						<option value="QUANTITIES">Quantities</option>
+						<option value="DEPENDENCY">Dependency Tree</option>
+						<option value="TRANSLITERATION" id="trans-opt">Transliteration</option>
+						<option data-divider="true"></option>
+						<option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
+						<option value="STANFORD_COREF">Co-reference (Stanford)</option>
+						<option value="STANFORD_RELATIONS">Relations (Stanford)</option>
+						<option value="STANFORD_OPENIE">Open IE (Stanford)</option>
+					</select>
+					<div id="transliteration-selector-div" style="display: none">
+						<select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
+							data-header="Transliteration Language: ">
+							<option style="display:none" value="TRANSLITERATION" selected></option>
+							<option value="TRANSLITERATION_abk">Abkhazian</option>
+							<option value="TRANSLITERATION_afr">Afrikaans</option>
+							<option value="TRANSLITERATION_ara">Arabic</option>
+							<option value="TRANSLITERATION_arg">Aragonese</option>
+							<option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
+							<option value="TRANSLITERATION_ast">Asturian</option>
+							<option value="TRANSLITERATION_aze">Azerbaijani</option>
+							<option value="TRANSLITERATION_bak">Bashkir</option>
+							<option value="TRANSLITERATION_bel">Belarusian</option>
+							<option value="TRANSLITERATION_ben">Bengali</option>
+							<option value="TRANSLITERATION_bos">Bosnian</option>
+							<option value="TRANSLITERATION_bre">Breton</option>
+							<option value="TRANSLITERATION_bul">Bulgarian</option>
+							<option value="TRANSLITERATION_cat">Valencian</option>
+							<option value="TRANSLITERATION_ces">Czech</option>
+							<option value="TRANSLITERATION_che">Chechen</option>
+							<option value="TRANSLITERATION_chv">Chuvash</option>
+							<option value="TRANSLITERATION_ckb">Sorani</option>
+							<option value="TRANSLITERATION_dan">Danish</option>
+							<option value="TRANSLITERATION_ell">Greek</option>
+							<option value="TRANSLITERATION_epo">Esperanto</option>
+							<option value="TRANSLITERATION_est">Estonian</option>
+							<option value="TRANSLITERATION_eus">Basque</option>
+							<option value="TRANSLITERATION_fas">Persian</option>
+							<option value="TRANSLITERATION_fin">Finnish</option>
+							<option value="TRANSLITERATION_fra">French</option>
+							<option value="TRANSLITERATION_fry">Western_Frisian</option>
+							<option value="TRANSLITERATION_glg">Galician</option>
+							<option value="TRANSLITERATION_guj">Gujarati</option>
+							<option value="TRANSLITERATION_hat">Haitian</option>
+							<option value="TRANSLITERATION_heb">Hebrew</option>
+							<option value="TRANSLITERATION_hrv">Croatian</option>
+							<option value="TRANSLITERATION_hsb">Upper_Sorbian</option>
+							<option value="TRANSLITERATION_hun">Hungarian</option>
+							<option value="TRANSLITERATION_hye">Armenian</option>
+							<option value="TRANSLITERATION_ina">Interlingua</option>
+							<option value="TRANSLITERATION_ind">Indonesian</option>
+							<option value="TRANSLITERATION_isl">Icelandic</option>
+							<option value="TRANSLITERATION_jav">Javanese</option>
+							<option value="TRANSLITERATION_kat">Georgian</option>
+							<option value="TRANSLITERATION_kaz">Kazakh</option>
+							<option value="TRANSLITERATION_kbd">Kabardian</option>
+							<option value="TRANSLITERATION_kir">Kirghiz</option>
+							<option value="TRANSLITERATION_kur">Kurdish</option>
+							<option value="TRANSLITERATION_lat">Latin</option>
+							<option value="TRANSLITERATION_lav">Latvian</option>
+							<option value="TRANSLITERATION_lim">Limburgish</option>
+							<option value="TRANSLITERATION_lit">Lithuanian</option>
+							<option value="TRANSLITERATION_ltz">Luxembourgish</option>
+							<option value="TRANSLITERATION_mai">Maithili</option>
+							<option value="TRANSLITERATION_mar">Marathi</option>
+							<option value="TRANSLITERATION_mkd">Macedonian</option>
+							<option value="TRANSLITERATION_mlg">Malagasy</option>
+							<option value="TRANSLITERATION_mon">Mongolian</option>
+							<option value="TRANSLITERATION_msa">Malay</option>
+							<option value="TRANSLITERATION_mzn">Mazandarani</option>
+							<option value="TRANSLITERATION_nah">Nahuatl</option>
+							<option value="TRANSLITERATION_nep">Nepali</option>
+							<option value="TRANSLITERATION_nno">Norwegian_Nynorsk</option>
+							<option value="TRANSLITERATION_oci">Occitan</option>
+							<option value="TRANSLITERATION_ori">Oriya</option>
+							<option value="TRANSLITERATION_oss">Ossetian</option>
+							<option value="TRANSLITERATION_pan">Punjabi</option>
+							<option value="TRANSLITERATION_pol">Polish</option>
+							<option value="TRANSLITERATION_por">Portuguese</option>
+							<option value="TRANSLITERATION_que">Quechua</option>
+							<option value="TRANSLITERATION_roh">Romansh</option>
+							<option value="TRANSLITERATION_ron">Romanian</option>
+							<option value="TRANSLITERATION_rus">Russian</option>
+							<option value="TRANSLITERATION_scn">Sicilian</option>
+							<option value="TRANSLITERATION_sco">Scots</option>
+							<option value="TRANSLITERATION_slk">Slovak</option>
+							<option value="TRANSLITERATION_slv">Slovenian</option>
+							<option value="TRANSLITERATION_som">Somali</option>
+							<option value="TRANSLITERATION_spa">Castilian</option>
+							<option value="TRANSLITERATION_sqi">Albanian</option>
+							<option value="TRANSLITERATION_srp">Serbian</option>
+							<option value="TRANSLITERATION_sun">Sundanese</option>
+							<option value="TRANSLITERATION_swa">Swahili</option>
+							<option value="TRANSLITERATION_swe">Swedish</option>
+							<option value="TRANSLITERATION_tam">Tamil</option>
+							<option value="TRANSLITERATION_tel">Telugu</option>
+							<option value="TRANSLITERATION_tgk">Tajik</option>
+							<option value="TRANSLITERATION_tgl">Tagalog</option>
+							<option value="TRANSLITERATION_tuk">Turkmen</option>
+							<option value="TRANSLITERATION_tur">Turkish</option>
+							<option value="TRANSLITERATION_ukr">Ukrainian</option>
+							<option value="TRANSLITERATION_urd">Urdu</option>
+							<option value="TRANSLITERATION_uzb">Uzbek</option>
+							<option value="TRANSLITERATION_vie">Vietnamese</option>
+							<option value="TRANSLITERATION_war">Waray</option>
+							<option value="TRANSLITERATION_wln">Walloon</option>
+							<option value="TRANSLITERATION_yid">Yiddish</option>
+							<option value="TRANSLITERATION_zza">Zazaki</option>
+						</select>
+					</div>
+					<div id="hma-transliteration-selector-div" style="display: none">
+						<select class="selectpicker" id="hma-transliteration-selector" data-actions-box="true" data-live-search="true"
+								data-header="HMA-Transliteration Language: ">
+							  <option style="display:none" value="HMA_TRANSLIT" selected></option>
+							  <option value="HMA_TRANSLIT_hi">Hindi</option>
+							  <option value="HMA_TRANSLIT_bn">Bengali</option>
+							  <option value="HMA_TRANSLIT_kn">Kannada</option>
+							  <option value="HMA_TRANSLIT_he">Hebrew</option>
+							  <option value="HMA_TRANSLIT_ta">Tamil</option>
+							  <option value="HMA_TRANSLIT_pa">Punjabi</option>
+							  <option value="HMA_TRANSLIT_hy">Armenian</option>
+						</select>
+					</div>
+					<div id="neural-xel-selector-div" style="display: none">
+						<select class="selectpicker" id="neural-xel-selector" data-actions-box="true" data-live-search="true"
+								data-header="Entity Linking Language: ">
+							<option value="NEURAL_XEL_de">German</option>
+							<option value="NEURAL_XEL_es">Spanish</option>
+							<option value="NEURAL_XEL_fr">French</option>
+							<option value="NEURAL_XEL_it">Italian</option>
+							<option value="NEURAL_XEL_zh">Chinese</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-8 text-right">
+					
+					
+					<div class="dropdown">
+						<button type="button" class="btn btn-primary">Random Example</button>
+						
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							Sample Documents
+							<span class="caret"></span>
+						</button>
 
-            
-          
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Sample Documents
-              <span class="caret"></span>
-            </button>
+						<ul class="dropdown-menu dropdown-menu-right" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
+						</ul>
+							
+					</div>
+					 
+				</div>
+			</div>
+		
 
-            <ul class="dropdown-menu" id="dropdownMenuArea1" aria-labelledby="dropdownMenu1">
-            </ul>
-			<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
-                  data-header="Select at least one annotator" multiple>
-            <option value="LEMMA">LEMMA</option>
-            <option value="POS" selected>POS</option>
-            <option value="SHALLOW_PARSE">Shallow Parse</option>
-            <option value="MENTION">Mention Detection</option>
-            <option value="RELATION">Relation Extraction (ACE-2005)</option>
-            <option value="NER_CONLL">NER (CoNLL)</option>
-            <option value="NEURAL_XEL" id="neural-xel-opt">Cross-lingual Entity Linking (XEL)</option>
-            <option value="HMA_TRANSLIT" id="hma-trans-opt">Transliteration (HMA-Seq2Seq)</option>
-            <option value="NER_ONTONOTES">NER (Ontonotes)</option>
-            <option value="TIMEX3">Temporal Normalizer</option>
-            <option value="QUESTION_TYPE">Question Type</option>
-            <option value="SRL_NOM">SRL (Nom)</option>
-            <option value="SRL_VERB">SRL (Verb)</option>
-            <option value="PATH_LSTM_SRL">SRL (Path-LSTM)</option>
-            <option value="SRL_PREP">SRL (preposition)</option>
-            <option value="SRL_COMMA">SRL (Comma)</option>
-            <option value="QUANTITIES">Quantities</option>
-            <option value="DEPENDENCY">Dependency Tree</option>
-            <option value="TRANSLITERATION" id="trans-opt">Transliteration</option>
-            <option data-divider="true"></option>
-            <option value="DEPENDENCY_STANFORD">Dependency Tree (Stanford)</option>
-            <option value="STANFORD_COREF">Co-reference (Stanford)</option>
-            <option value="STANFORD_RELATIONS">Relations (Stanford)</option>
-            <option value="STANFORD_OPENIE">Open IE (Stanford)</option>
-          </select>
-          </div>
-	</div>
+
 	<div id="input-area" style="width: 100%">
           <textarea id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"
                     class="form-control"> </textarea>
           <br>
           <input type="submit" class="btn btn-success" id="viz-submit">
           
-          <div id="transliteration-selector-div" style="display: none">
-            <select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
-                    data-header="Transliteration Language: ">
-              <option style="display:none" value="TRANSLITERATION" selected></option>
-              <option value="TRANSLITERATION_abk">Abkhazian</option>
-              <option value="TRANSLITERATION_afr">Afrikaans</option>
-	      <option value="TRANSLITERATION_ara">Arabic</option>
-              <option value="TRANSLITERATION_arg">Aragonese</option>
-              <option value="TRANSLITERATION_arz">Egyptian_Arabic</option>
-              <option value="TRANSLITERATION_ast">Asturian</option>
-              <option value="TRANSLITERATION_aze">Azerbaijani</option>
-              <option value="TRANSLITERATION_bak">Bashkir</option>
-              <option value="TRANSLITERATION_bel">Belarusian</option>
-              <option value="TRANSLITERATION_ben">Bengali</option>
-              <option value="TRANSLITERATION_bos">Bosnian</option>
-              <option value="TRANSLITERATION_bre">Breton</option>
-              <option value="TRANSLITERATION_bul">Bulgarian</option>
-              <option value="TRANSLITERATION_cat">Valencian</option>
-              <option value="TRANSLITERATION_ces">Czech</option>
-              <option value="TRANSLITERATION_che">Chechen</option>
-              <option value="TRANSLITERATION_chv">Chuvash</option>
-              <option value="TRANSLITERATION_ckb">Sorani</option>
-              <option value="TRANSLITERATION_dan">Danish</option>
-              <option value="TRANSLITERATION_ell">Greek</option>
-              <option value="TRANSLITERATION_epo">Esperanto</option>
-              <option value="TRANSLITERATION_est">Estonian</option>
-              <option value="TRANSLITERATION_eus">Basque</option>
-              <option value="TRANSLITERATION_fas">Persian</option>
-              <option value="TRANSLITERATION_fin">Finnish</option>
-              <option value="TRANSLITERATION_fra">French</option>
-              <option value="TRANSLITERATION_fry">Western_Frisian</option>
-              <option value="TRANSLITERATION_glg">Galician</option>
-              <option value="TRANSLITERATION_guj">Gujarati</option>
-              <option value="TRANSLITERATION_hat">Haitian</option>
-              <option value="TRANSLITERATION_heb">Hebrew</option>
-              <option value="TRANSLITERATION_hrv">Croatian</option>
-              <option value="TRANSLITERATION_hsb">Upper_Sorbian</option>
-              <option value="TRANSLITERATION_hun">Hungarian</option>
-              <option value="TRANSLITERATION_hye">Armenian</option>
-              <option value="TRANSLITERATION_ina">Interlingua</option>
-              <option value="TRANSLITERATION_ind">Indonesian</option>
-              <option value="TRANSLITERATION_isl">Icelandic</option>
-              <option value="TRANSLITERATION_jav">Javanese</option>
-              <option value="TRANSLITERATION_kat">Georgian</option>
-              <option value="TRANSLITERATION_kaz">Kazakh</option>
-              <option value="TRANSLITERATION_kbd">Kabardian</option>
-              <option value="TRANSLITERATION_kir">Kirghiz</option>
-              <option value="TRANSLITERATION_kur">Kurdish</option>
-              <option value="TRANSLITERATION_lat">Latin</option>
-              <option value="TRANSLITERATION_lav">Latvian</option>
-              <option value="TRANSLITERATION_lim">Limburgish</option>
-              <option value="TRANSLITERATION_lit">Lithuanian</option>
-              <option value="TRANSLITERATION_ltz">Luxembourgish</option>
-              <option value="TRANSLITERATION_mai">Maithili</option>
-              <option value="TRANSLITERATION_mar">Marathi</option>
-              <option value="TRANSLITERATION_mkd">Macedonian</option>
-              <option value="TRANSLITERATION_mlg">Malagasy</option>
-              <option value="TRANSLITERATION_mon">Mongolian</option>
-              <option value="TRANSLITERATION_msa">Malay</option>
-              <option value="TRANSLITERATION_mzn">Mazandarani</option>
-              <option value="TRANSLITERATION_nah">Nahuatl</option>
-              <option value="TRANSLITERATION_nep">Nepali</option>
-              <option value="TRANSLITERATION_nno">Norwegian_Nynorsk</option>
-              <option value="TRANSLITERATION_oci">Occitan</option>
-              <option value="TRANSLITERATION_ori">Oriya</option>
-              <option value="TRANSLITERATION_oss">Ossetian</option>
-              <option value="TRANSLITERATION_pan">Punjabi</option>
-              <option value="TRANSLITERATION_pol">Polish</option>
-              <option value="TRANSLITERATION_por">Portuguese</option>
-              <option value="TRANSLITERATION_que">Quechua</option>
-              <option value="TRANSLITERATION_roh">Romansh</option>
-              <option value="TRANSLITERATION_ron">Romanian</option>
-              <option value="TRANSLITERATION_rus">Russian</option>
-              <option value="TRANSLITERATION_scn">Sicilian</option>
-              <option value="TRANSLITERATION_sco">Scots</option>
-              <option value="TRANSLITERATION_slk">Slovak</option>
-              <option value="TRANSLITERATION_slv">Slovenian</option>
-              <option value="TRANSLITERATION_som">Somali</option>
-              <option value="TRANSLITERATION_spa">Castilian</option>
-              <option value="TRANSLITERATION_sqi">Albanian</option>
-              <option value="TRANSLITERATION_srp">Serbian</option>
-              <option value="TRANSLITERATION_sun">Sundanese</option>
-              <option value="TRANSLITERATION_swa">Swahili</option>
-              <option value="TRANSLITERATION_swe">Swedish</option>
-              <option value="TRANSLITERATION_tam">Tamil</option>
-              <option value="TRANSLITERATION_tel">Telugu</option>
-              <option value="TRANSLITERATION_tgk">Tajik</option>
-              <option value="TRANSLITERATION_tgl">Tagalog</option>
-              <option value="TRANSLITERATION_tuk">Turkmen</option>
-              <option value="TRANSLITERATION_tur">Turkish</option>
-              <option value="TRANSLITERATION_ukr">Ukrainian</option>
-              <option value="TRANSLITERATION_urd">Urdu</option>
-              <option value="TRANSLITERATION_uzb">Uzbek</option>
-              <option value="TRANSLITERATION_vie">Vietnamese</option>
-              <option value="TRANSLITERATION_war">Waray</option>
-              <option value="TRANSLITERATION_wln">Walloon</option>
-              <option value="TRANSLITERATION_yid">Yiddish</option>
-              <option value="TRANSLITERATION_zza">Zazaki</option>
-            </select>
-          </div>
-          <div id="hma-transliteration-selector-div" style="display: none">
-            <select class="selectpicker" id="hma-transliteration-selector" data-actions-box="true" data-live-search="true"
-                    data-header="Transliteration Language: ">
-              <option style="display:none" value="HMA_TRANSLIT" selected></option>
-              <option value="HMA_TRANSLIT_hi">Hindi</option>
-              <option value="HMA_TRANSLIT_bn">Bengali</option>
-              <option value="HMA_TRANSLIT_kn">Kannada</option>
-              <option value="HMA_TRANSLIT_he">Hebrew</option>
-              <option value="HMA_TRANSLIT_ta">Tamil</option>
-              <option value="HMA_TRANSLIT_pa">Punjabi</option>
-              <option value="HMA_TRANSLIT_hy">Armenian</option>
-            </select>
-          </div>
-	  <div id="neural-xel-selector-div" style="display: none">
-            <select class="selectpicker" id="neural-xel-selector" data-actions-box="true" data-live-search="true"
-                    data-header="Entity Linking Language: ">
-              <option value="NEURAL_XEL_de">German</option>
-              <option value="NEURAL_XEL_es">Spanish</option>
-              <option value="NEURAL_XEL_fr">French</option>
-              <option value="NEURAL_XEL_it">Italian</option>
-              <option value="NEURAL_XEL_zh">Chinese</option>
-            </select>
-          </div>
+          
           <button type="button" class="btn btn-default" data-toggle="popover" title="Share the content"
                   data-html="true" id="main-popover" data-content="">Link to page
           </button>
