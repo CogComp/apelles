@@ -265,7 +265,7 @@
 					
 					
 					<div class="dropdown">
-						<button type="button" class="btn btn-primary">Random Example</button>
+						<button id = "random-example" class="btn btn-primary">Random Example</button>
 						
 						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -456,16 +456,16 @@
 	// Return an array of the selected opion values
 	// select is an HTML select element
 	function getSelectValues(select) {
-            var result = [];
-            var options = select && select.options;
-            var opt;
-            for (var i = 0, iLen = options.length; i < iLen; i++) {
-		opt = options[i];
-		if (opt.selected) {
-                    result.push(opt.value || opt.text);
+		var result = [];
+		var options = select && select.options;
+		var opt;
+		for (var i = 0, iLen = options.length; i < iLen; i++) {
+			opt = options[i];
+			if (opt.selected) {
+						result.push(opt.value || opt.text);
+			}
 		}
-            }
-            return result;
+		return result;
 	}
 
 	/**
@@ -504,6 +504,7 @@
 		});
 	});
 
+	
 	head.ready(function () {
             console.log('Loading and rendering');
 
@@ -518,10 +519,11 @@
 		]
             };
 
-        var allSentences = [];
-        var sampleSentences = [];
+        
         var area = $("#dropdownMenuArea1");    
-
+		var allSentences = [];
+		var sampleSentences = [];
+	
         var SampleSentencesjson = apelles.getSampleSentences();
 		var tagDict = {};
         $.each(SampleSentencesjson, function(index, record) 
@@ -546,7 +548,8 @@
 			});
             
         });
-        
+        sampleSentences = allSentences;
+		
         function filterSampleSentences()
 		{
 			
@@ -555,7 +558,7 @@
 
 			var tagArrays = [];
 
-			var sampleSentences = allSentences;
+			sampleSentences = allSentences;
 			for(i = 0; i < allTags.length; i++) 
 			{
 				tag = allTags[i];
@@ -644,53 +647,55 @@
 		//sets the default text in the text area to be the first example
 		$("#viz-text").val(allSentences[0]);
 		
-        if (page_rendered) {
-		$("#viz-text").val($("#render-text").text());
-		// select the views
-        
-		var viewNamesToCheck = $("#render-views").text().split(",");
-		setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
-		updatePage();
-            }
+        if (page_rendered) 
+		{
+			$("#viz-text").val($("#render-text").text());
+			// select the views
+			
+			var viewNamesToCheck = $("#render-views").text().split(",");
+			setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
+			updatePage();
+        }
 
-            function getAllActiveViews() {
-		var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
-		console.log(optionsMainpipeline);
+		function getAllActiveViews() {
+			var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
+			console.log(optionsMainpipeline);
 
-		var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
-		console.log(optionsTransliteration);
-		optionsMainpipeline = optionsMainpipeline.concat(optionsTransliteration);
+			var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
+			console.log(optionsTransliteration);
+			optionsMainpipeline = optionsMainpipeline.concat(optionsTransliteration);
 
-		var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
-		console.log(optionsHMATransliteration);
-		optionsMainpipeline = optionsMainpipeline.concat(optionsHMATransliteration);
+			var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
+			console.log(optionsHMATransliteration);
+			optionsMainpipeline = optionsMainpipeline.concat(optionsHMATransliteration);
 
-		var optionsXEL = getSelectValues(document.getElementById('neural-xel-selector'));
-		console.log(optionsXEL);
-		optionsMainpipeline = optionsMainpipeline.concat(optionsXEL);
+			var optionsXEL = getSelectValues(document.getElementById('neural-xel-selector'));
+			console.log(optionsXEL);
+			optionsMainpipeline = optionsMainpipeline.concat(optionsXEL);
 
-		return optionsMainpipeline;
-		/*.filter(function (e) {
-                 return e !== 'TRANSLITERATION'
-		 });*/
-            }
+			return optionsMainpipeline;
+			/*.filter(function (e) {
+					 return e !== 'TRANSLITERATION'
+			 });*/
+		}
 
-            function getDynamicLink() {
+		function getDynamicLink() 
+		{
 			console.log("dynamic link!!!");
-		var views = getAllActiveViews().join();
-		var text = $("#viz-text").val();
-		return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
-            }
+			var views = getAllActiveViews().join();
+			var text = $("#viz-text").val();
+			return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
+		}
 
-            // set popover with links
-            $('[data-toggle="popover"]').popover();
-            var htmlContent = "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' style='width: 180pt'/>";
-            $("#main-popover").attr("data-content", htmlContent);
-            $("#main-popover").click(function () {
-		var link = getDynamicLink();
-		console.log(link);
-		$("#dynamic-link").val(link);
-            });
+		// set popover with links
+		$('[data-toggle="popover"]').popover();
+		var htmlContent = "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' style='width: 180pt'/>";
+		$("#main-popover").attr("data-content", htmlContent);
+		$("#main-popover").click(function () {
+			var link = getDynamicLink();
+			console.log(link);
+			$("#dynamic-link").val(link);
+		});
 
 		function updatePage() {
 			// loader active
@@ -741,41 +746,41 @@
 						var divId = viewInfo.name;
 						var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
 
-console.log(newDiv[0]);
-console.log(newDiv[0].nodeType); 
-// target element that we will observe
-const target = newDiv[0];
+						//console.log(newDiv[0]);
+						//console.log(newDiv[0].nodeType); 
+						// target element that we will observe
+						const target = newDiv[0];
 
-// config object
-const config = {
-  attributes: true,
-  attributeOldValue: true,
-  characterData: true,
-  characterDataOldValue: true,
-  childList: true,
-  subtree: true
-};
+						// config object
+						const config = {
+						  attributes: true,
+						  attributeOldValue: true,
+						  characterData: true,
+						  characterDataOldValue: true,
+						  childList: true,
+						  subtree: true
+						};
 
-// subscriber function
-function subscriber(mutations) {
-  mutations.forEach((mutation) => {
-    // handle mutations here
-	
-	if(mutation.oldValue =='' && mutation.target.nodeName=='DIV')
-	{
-		console.log(mutation.target.lastChild.nodeName);
-		console.log(mutation);
-		console.log("mutation handle");
-		addPossibleLinks();
-	}
-  });
-}
+						// subscriber function
+						function subscriber(mutations) {
+						  mutations.forEach((mutation) => {
+							// handle mutations here
+							
+							if(mutation.oldValue =='' && mutation.target.nodeName=='DIV')
+							{
+								//console.log(mutation.target.lastChild.nodeName);
+								//console.log(mutation);
+								//console.log("mutation handle");
+								addPossibleLinks();
+							}
+						  });
+						}
 
-// instantiating observer
-const observer = new MutationObserver(subscriber);
+						// instantiating observer
+						const observer = new MutationObserver(subscriber);
 
-// observing target
-observer.observe(target, config);
+						// observing target
+						observer.observe(target, config);
 						$("#render-area").append(newDiv).ready(function () {
 
 						});
@@ -831,19 +836,31 @@ observer.observe(target, config);
 			newblock.append(headerContent);
 			outerDiv.append(newblock);
 			
-			console.log("added");
+			//console.log("added");
 			//setTimeout(addPossibleLinks, 500);
 
 			return outerDiv;
 		};
 
-
 		$("#viz-submit").click(
 			function (eventData) {
-			updatePage()
-			newLinksToCheck = true;
-			//alert("clicked");
-			});
+				updatePage()
+				newLinksToCheck = true;
+				//alert("clicked");
+			}
+		);
+			
+		$("#random-example").click(
+			function (eventData) {
+				
+				if(sampleSentences.length==0)
+					return;
+				var ranIndex = Math.floor(Math.random()*sampleSentences.length);
+				var randomElement = sampleSentences[ranIndex];
+				$("#viz-text").val(randomElement);
+			}
+		);
+		
 	});
 
 		function sleep(time) {
@@ -901,7 +918,7 @@ observer.observe(target, config);
 
 								oldparent.removeChild(node);
 								wrapper.appendChild(node)
-								console.log(wrapper.nodeName);
+								//console.log(wrapper.nodeName);
 								//alert(node.nodeName);
 
 								var tmp = document.createElement("div");
@@ -917,7 +934,7 @@ observer.observe(target, config);
 				}
 			}
 		}
-		
+
 	</script>
   </body>
 </html>
