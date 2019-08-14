@@ -9,7 +9,10 @@
         "POS",
         "LEMMA",
         "DEPENDENCY",
-        "SHALLOW_PARSE"
+        "SHALLOW_PARSE",
+		"DEPENDENCY_STANFORD",
+		"SRL_VERB"
+		
     ],
     "The construction of the John Smith library finished on time.": [
         "POS",
@@ -24,7 +27,10 @@
         "DEPENDENCY",
         "SHALLOW_PARSE",
         "QUANTITIES",
-        "NER_CONLL"
+        "NER_CONLL",
+		"NER_ONTONOTES",
+		"SRL_COMMA",
+		"SRL_VERB"
     ],
     "Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": [
         "POS",
@@ -55,7 +61,8 @@
         "DEPENDENCY",
         "SHALLOW_PARSE",
         "QUANTITIES",
-        "NER_CONLL"
+        "NER_CONLL",
+		"TIMEX3"
     ],
     "Babar wonders how he can get new clothing. Luckily, a very rich old man who has always been fond of little elephants understands right away that he is longing for a fine suit. As he likes to make people happy, he gives him his wallet. ": [
         "POS",
@@ -75,7 +82,8 @@
         "LEMMA",
         "DEPENDENCY",
         "SHALLOW_PARSE",
-        "NER_CONLL"
+        "NER_CONLL",
+		"NER_ONTONOTES"
     ],
     "A half hour later the Vice President arrived .": [
         "POS",
@@ -88,14 +96,19 @@
         "LEMMA",
         "DEPENDENCY",
         "SHALLOW_PARSE",
-        "NER_CONLL"
+        "NER_CONLL",
+		"SRL_NOM",
+		"SRL_PREP",
+		"SRL_VERB",
+		"MENTION",
+		"NER_ONTONOTES"
+		
     ],
     "Poverty imposes a kind of chastity on the ambitious .": [
         "POS",
         "LEMMA",
         "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL"
+        "SHALLOW_PARSE"
     ],
     "This meant sorting out press clippings and the like .": [
         "POS",
@@ -115,14 +128,17 @@
         "LEMMA",
         "DEPENDENCY",
         "SHALLOW_PARSE",
-        "NER_CONLL"
+		"QUANTITIES",
+        "NER_CONLL",
+        "TIMEX3"
     ],
     "He and Warren had traveled together for four days .": [
         "POS",
         "LEMMA",
         "DEPENDENCY",
         "SHALLOW_PARSE",
-        "NER_CONLL"
+        "NER_CONLL",
+        "TIMEX3"
     ],
     "With leather cups fitted in his handlebars , he steered his bicycle .": [
         "POS",
@@ -142,5 +158,14 @@
         "DEPENDENCY",
         "SHALLOW_PARSE",
         "TIMEX3"
+    ]
+	,
+    "When will David arrive at JFK airport?": [
+        "POS",
+        "LEMMA",
+        "DEPENDENCY",
+        "SHALLOW_PARSE",
+        "QUESTION_TYPE",
+		"MENTION"
     ]
 }
