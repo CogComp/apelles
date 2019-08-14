@@ -33,7 +33,8 @@
 		"NER_ONTONOTES",
 		"SRL_COMMA",
 		"SRL_VERB",
-		"TRANSLITERATION"
+		"TRANSLITERATION",
+		"RELATION"
     ],
     "Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": [
         "POS",
