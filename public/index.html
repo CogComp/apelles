@@ -284,7 +284,7 @@
 
 
 	<div id="input-area" style="width: 100%">
-          <textarea id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"
+          <textarea onchange="disableAutoUpdate()" id="viz-text" maxlength="1500" rows="8" cols="80" style="width: 100%"
                     class="form-control"> </textarea>
           <br>
           <input type="submit" class="btn btn-success" id="viz-submit">
@@ -504,7 +504,7 @@
 		});
 	});
 
-	
+	var CHANGE_TEXTAREA = true;
 	head.ready(function () {
             console.log('Loading and rendering');
 
@@ -523,7 +523,7 @@
         var area = $("#dropdownMenuArea1");    
 		var allSentences = [];
 		var sampleSentences = [];
-	
+		
         var SampleSentencesjson = apelles.getSampleSentences();
 		var tagDict = {};
         $.each(SampleSentencesjson, function(index, record) 
@@ -597,17 +597,21 @@
                 jQuery("#action-" + i).click(function (e) {
                             e.preventDefault();
                             $("#viz-text").val(sent);
+							CHANGE_TEXTAREA = true;
                 });
             });
             
-			/*
+			
             //clear text area if
-            if(sampleSentences.length == 0)
-            {
-                $("#viz-text").val("");
+            if(CHANGE_TEXTAREA)
+            {	
+				if(sampleSentences.length == 0)
+					$("#viz-text").val("");
+				else
+					$("#viz-text").val(sampleSentences[0]);
             }
             
-            */
+            
         }
         
         
@@ -858,6 +862,7 @@
 				var ranIndex = Math.floor(Math.random()*sampleSentences.length);
 				var randomElement = sampleSentences[ranIndex];
 				$("#viz-text").val(randomElement);
+				CHANGE_TEXTAREA = true;
 			}
 		);
 		
@@ -934,7 +939,11 @@
 				}
 			}
 		}
-
+		function disableAutoUpdate()
+		{
+			alert("text area changed");
+			CHANGE_TEXTAREA = false;
+		}
 	</script>
   </body>
 </html>
