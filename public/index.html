@@ -526,6 +526,7 @@
 		
         var SampleSentencesjson = apelles.getSampleSentences();
 		var tagDict = {};
+		
         $.each(SampleSentencesjson, function(index, record) 
         {
             //index is the key,
@@ -534,23 +535,51 @@
 			var l;
 			$.each(record, function(key, value)
 			{
-				if(value in tagDict)
+				key = key.toLowerCase()
+				console.log(key);
+				if(key=="annotations")
 				{
-					l = tagDict[value]
+					for(var i = 0;i<value.length;i++)
+					{
+						//console.log(value);
+						var annotationLabel = value[i];
+						if(annotationLabel in tagDict)
+						{
+							l = tagDict[annotationLabel]
+						}
+						else
+						{
+							l = []
+						}
+						
+						l.push(index);
+						tagDict[annotationLabel] = l;
+					}
 				}
-				else
+				else if(key=="language")
 				{
-					var  l = []
-				}
 				
-				l.push(index);
-				tagDict[value] = l;
+					//console.log(value);
+					var annotationLabel = value.toUpperCase();
+					if(annotationLabel in tagDict)
+					{
+						l = tagDict[annotationLabel]
+					}
+					else
+					{
+						l = []
+					}
+					
+					l.push(index);
+					tagDict[annotationLabel] = l;
+				}
 			});
             
         });
+		
         sampleSentences = allSentences;
 		
-        function filterSampleSentences()
+        function filterSampleSentences(language)
 		{
 			
 			var allTags = document.getElementById('view-selector'), tag, i;
@@ -571,6 +600,15 @@
 					tagArrays.push(value);
 				}
 			}
+			
+			if(language!= null)
+			{
+				var value = tagDict[language.toUpperCase()];
+				if(value==null)
+					value = [];
+				tagArrays.push(value);
+			}
+			
 			if(tagArrays.length>0)
 				sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
 
@@ -615,37 +653,7 @@
         }
         
         
-        $('.selectpicker').on('change', function () 
-        {
-            if ($("#trans-opt")[0].selected) 
-            {
-                $("#transliteration-selector-div").css("display", "inline");
-            }
-            else
-            {
-                $("#transliteration-selector-div").css("display", "none");
-            }
-            if ($("#hma-trans-opt")[0].selected) 
-            {
-                $("#hma-transliteration-selector-div").css("display", "inline");
-            }
-            else
-            {
-                $("#hma-transliteration-selector-div").css("display", "none");
-            }
-            if ($("#neural-xel-opt")[0].selected) 
-            {
-                $("#neural-xel-selector-div").css("display", "inline");
-            }
-            else
-            {
-                $("#neural-xel-selector-div").css("display", "none");
-            }
-            
-            
-            filterSampleSentences();
-            
-        });
+        $('.selectpicker').on('change', changeAnnotations);
         
         updateSampleSentencesDropDown(allSentences);
 		//sets the default text in the text area to be the first example
@@ -700,7 +708,46 @@
 			console.log(link);
 			$("#dynamic-link").val(link);
 		});
-
+		
+		function changeAnnotations()
+		{
+		
+			var additionalLanguageMenuId = null; 
+			var optionalLanguageArg = null; 
+            if ($("#trans-opt")[0].selected) 
+            {
+                $("#transliteration-selector-div").css("display", "inline");
+				additionalLanguageMenuId = "transliteration-selector";
+            }
+            else
+            {
+                $("#transliteration-selector-div").css("display", "none");
+            }
+            if ($("#hma-trans-opt")[0].selected) 
+            {
+                $("#hma-transliteration-selector-div").css("display", "inline");
+				additionalLanguageMenuId = "hma-transliteration-selector";
+            }
+            else
+            {
+                $("#hma-transliteration-selector-div").css("display", "none");
+            }
+            if ($("#neural-xel-opt")[0].selected) 
+            {
+                $("#neural-xel-selector-div").css("display", "inline");
+				additionalLanguageMenuId = "neural-xel-selector";
+            }
+            else
+            {
+                $("#neural-xel-selector-div").css("display", "none");
+            }
+            
+            var e = document.getElementById(additionalLanguageMenuId);
+			optionalLanguageArg = e.options[e.selectedIndex].innerHTML;
+            filterSampleSentences(optionalLanguageArg);
+            
+        
+		}
 		function updatePage() {
 			// loader active
 			document.getElementById("loader-main").style.visibility = "visible";

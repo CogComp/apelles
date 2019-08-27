@@ -1,208 +1,334 @@
 {
-    "The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. ": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"SRL_VERB"
-    ],
-    "A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. ": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"DEPENDENCY_STANFORD",
-		"SRL_VERB"
-		
-    ],
-    "The construction of the John Smith library finished on time.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "QUANTITIES",
-        "NER_CONLL",
-		"NER_ONTONOTES",
-		"SRL_COMMA",
-		"SRL_VERB",
-		"TRANSLITERATION",
-		"RELATION"
-    ],
-    "Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "QUANTITIES",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "Harvey made landfall Friday night near Rockport, Texas, north of Corpus Christi, as the first Category 4 hurricane to landfall in the U.S. since Charley in August 2004.  Harvey's center of circulation is currently located near Victoria, Texas, only roughly 50 miles from where it made landfall late Friday night. mph reported Saturday morning near Victoria. A Texas Coastal Ocean Observing Network station at Aransas Pass reported sustained winds of 102 mph and a wind gust of 132 mph Friday night. Rainfall amounts of more than 10 inches have already accumulated in southeast Texas, including 14.46 inches near Austwell.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "QUANTITIES",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "The stocks declined on Tuesday . John declined the cake .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "The flu season is winding down, and it has killed 105 children so far - about the average toll. The season started about a month earlier than usual, sparking concerns it might turn into the worst in a decade. It ended up being very hard on the elderly, but was moderately severe overall, according to the Centers for Disease Control and Prevention. Six of the pediatric deaths were reported in the last week, and it's possible there will be more, said the CDC's Dr. Michael Jhung said Friday. All but four of the children who died were old enough to be vaccinated, but 90 percent of them did not get vaccinated, CDC officials said. This year's vaccine was considered effective in children, though it didn't work very well in older people. In that group, 177 out of every 100,000 were hospitalized with flu-related illness in the past several months. That's more than 2 1/2 times higher than any other recent season. This flu season started in early December, a month earlier than usual, and peaked by the end of year. Since then, flu reports have been dropping off throughout the country.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "QUANTITIES",
-        "NER_CONLL",
-		"TIMEX3",
-		"TRANSLITERATION"
-    ],
-    "Babar wonders how he can get new clothing. Luckily, a very rich old man who has always been fond of little elephants understands right away that he is longing for a fine suit. As he likes to make people happy, he gives him his wallet. ": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "The city councilmen refused the demonstrators a permit because they feared violence.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "Dan tried to stop Bill from getting help for the injured bird. He is very callous.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"NER_ONTONOTES",
-		"TRANSLITERATION",
-		"HMA_TRANSLIT"
-    ],
-    "A half hour later the Vice President arrived .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "Lawrence stared a minute at the lighted ribbon of traffic , hoping that a clue to his dislike of the Vice President would appear .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"SRL_NOM",
-		"SRL_PREP",
-		"SRL_VERB",
-		"MENTION",
-		"NER_ONTONOTES",
-		"TRANSLITERATION"
-		
-    ],
-    "Poverty imposes a kind of chastity on the ambitious .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "This meant sorting out press clippings and the like .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "Mickie sat over his second whisky-on-the-rocks in a little bar next to the funeral parlor on Pennsylvania Avenue": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-		"TRANSLITERATION"
-    ],
-    "Within two weeks Warren was ringing the bell at the abbey gate .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"QUANTITIES",
-        "NER_CONLL",
-        "TIMEX3",
-		"TRANSLITERATION"
-    ],
-    "He and Warren had traveled together for four days .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NER_CONLL",
-        "TIMEX3",
-		"TRANSLITERATION"
-    ],
-    "With leather cups fitted in his handlebars , he steered his bicycle .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "The warped , broken trees in the valley assumed wraith-like shapes .": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-		"TRANSLITERATION"
-    ],
-    "He went swimming last night.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "TIMEX3",
-		"TRANSLITERATION"
-    ]
-	,
-    "When will David arrive at JFK airport?": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "QUESTION_TYPE",
-		"MENTION",
-		"TRANSLITERATION"
-    ],
-    "Barack Hussein Obama II is an American politician serving as the 44th President of the United States. He is the first African American to hold the office, as well as the first president born outside of the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he served as president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at University of Chicago Law School between 1992 and 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, and ran unsuccessfully in the Democratic primary for the United States House of Representatives in 2000 against incumbent Bobby Rush.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NEURAL_XEL"
-    ],
-    "Barack Obama es el cuadragésimo cuarto presidente de los Estados Unidos de América.4 Fue senador por el estado de Illinois desde el 3 de enero de 2005 hasta su renuncia el 16 de noviembre de 2008.5 Además, es el quinto legislador afroamericano en el Senado de los Estados Unidos, tercero desde la era de reconstrucción. También fue el primer candidato afroamericano nominado a la presidencia por el Partido Demócrata y es el primero en ejercer el cargo presidencial.": [
-        "POS",
-        "LEMMA",
-        "DEPENDENCY",
-        "SHALLOW_PARSE",
-        "NEURAL_XEL"
-    ]
+    "The boy gave the frog to the girl. The boy's gift was to the girl. The girl was given a frog. ": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"SRL_VERB"
+		],
+		"language":"English"
+
+	},
+    "A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. ": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"DEPENDENCY_STANFORD",
+			"SRL_VERB"
+		],
+		"language":"English"
+
+	},
+    "The construction of the John Smith library finished on time.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Amanda found herself in the Winnebago with her ex-boyfriend, an herbalist and a pet detective. Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUANTITIES",
+			"NER_CONLL",
+			"NER_ONTONOTES",
+			"SRL_COMMA",
+			"SRL_VERB",
+			"TRANSLITERATION",
+			"RELATION"
+		],
+		"language":"English"
+
+	},
+    "Rome is in Lazio province and Naples in Campania. The region at the end of 2014 had a population of around 5,869,000 people, making it the third-most-populous region of Italy. ": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUANTITIES",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Harvey made landfall Friday night near Rockport, Texas, north of Corpus Christi, as the first Category 4 hurricane to landfall in the U.S. since Charley in August 2004.  Harvey's center of circulation is currently located near Victoria, Texas, only roughly 50 miles from where it made landfall late Friday night. mph reported Saturday morning near Victoria. A Texas Coastal Ocean Observing Network station at Aransas Pass reported sustained winds of 102 mph and a wind gust of 132 mph Friday night. Rainfall amounts of more than 10 inches have already accumulated in southeast Texas, including 14.46 inches near Austwell.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUANTITIES",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "The stocks declined on Tuesday . John declined the cake .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "The flu season is winding down, and it has killed 105 children so far - about the average toll. The season started about a month earlier than usual, sparking concerns it might turn into the worst in a decade. It ended up being very hard on the elderly, but was moderately severe overall, according to the Centers for Disease Control and Prevention. Six of the pediatric deaths were reported in the last week, and it's possible there will be more, said the CDC's Dr. Michael Jhung said Friday. All but four of the children who died were old enough to be vaccinated, but 90 percent of them did not get vaccinated, CDC officials said. This year's vaccine was considered effective in children, though it didn't work very well in older people. In that group, 177 out of every 100,000 were hospitalized with flu-related illness in the past several months. That's more than 2 1/2 times higher than any other recent season. This flu season started in early December, a month earlier than usual, and peaked by the end of year. Since then, flu reports have been dropping off throughout the country.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUANTITIES",
+			"NER_CONLL",
+			"TIMEX3",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Babar wonders how he can get new clothing. Luckily, a very rich old man who has always been fond of little elephants understands right away that he is longing for a fine suit. As he likes to make people happy, he gives him his wallet. ": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "The city councilmen refused the demonstrators a permit because they feared violence.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Dan tried to stop Bill from getting help for the injured bird. He is very callous.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"NER_ONTONOTES",
+			"TRANSLITERATION",
+			"HMA_TRANSLIT"
+		],
+		"language":"English"
+
+	},
+    "A half hour later the Vice President arrived .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Lawrence stared a minute at the lighted ribbon of traffic , hoping that a clue to his dislike of the Vice President would appear .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"SRL_NOM",
+			"SRL_PREP",
+			"SRL_VERB",
+			"MENTION",
+			"NER_ONTONOTES",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Poverty imposes a kind of chastity on the ambitious .":  {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "This meant sorting out press clippings and the like .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Mickie sat over his second whisky-on-the-rocks in a little bar next to the funeral parlor on Pennsylvania Avenue": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Within two weeks Warren was ringing the bell at the abbey gate .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUANTITIES",
+			"NER_CONLL",
+			"TIMEX3",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "He and Warren had traveled together for four days .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER_CONLL",
+			"TIMEX3",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "With leather cups fitted in his handlebars , he steered his bicycle .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "The warped , broken trees in the valley assumed wraith-like shapes .": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "He went swimming last night.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"TIMEX3",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "When will David arrive at JFK airport?": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"QUESTION_TYPE",
+			"MENTION",
+			"TRANSLITERATION"
+		],
+		"language":"English"
+
+	},
+    "Barack Obama Zum Anhören bitte klicken! ist ein US-amerikanischer Politiker und seit dem 20. Januar 2009 der 44. Präsident der Vereinigten Staaten. Obama ist ein auf US-Verfassungsrecht spezialisierter Rechtsanwalt. Im Jahr 1992 schloss er sich der Demokratischen Partei an, für die er 1997 Mitglied im Senat von Illinois wurde. Im Anschluss gehörte er von 2005 bis 2008 als Junior Senator für diesen US-Bundesstaat dem Senat der Vereinigten Staaten an. Bei der Präsidentschaftswahl des Jahres 2008 errang er die Kandidatur seiner Partei und setzte sich dann gegen den Republikaner John McCain durch.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NEURAL_XEL"
+		],
+		"language":"German"
+
+	},
+    "Barack Obama es el cuadragésimo cuarto presidente de los Estados Unidos de América.4 Fue senador por el estado de Illinois desde el 3 de enero de 2005 hasta su renuncia el 16 de noviembre de 2008.5 Además, es el quinto legislador afroamericano en el Senado de los Estados Unidos, tercero desde la era de reconstrucción. También fue el primer candidato afroamericano nominado a la presidencia por el Partido Demócrata y es el primero en ejercer el cargo presidencial.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NEURAL_XEL"
+		],
+		"language":"Spanish"
+
+	},
+    "Barack Obama, né le 4 août 1961 à Honolulu (Hawaï), est un homme d'État américain. Il est le 44e et actuel président des États-Unis, après avoir été élu pour un premier mandat le 4 novembre 2008 et pour un second le 6 novembre 2012. Fils d'un Kényan noir et d'une Américaine blanche du Kansas de souche irlandaise, il est le premier Afro-Américain ayant accédé à la présidence des États-Unis. Son parcours a suscité chez les électeurs comme dans les médias du monde entier un grand intérêt.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NEURAL_XEL"
+		],
+		"language":"French"
+
+	},
+    "Barack Obama è un politico statunitense, 44º presidente degli Stati Uniti d'America dal 20 gennaio 2009, primo afroamericano a ricoprire tale carica. Figlio di un'antropologa originaria del Kansas e di un economista kenyota, Obama si è laureato in scienze politiche alla Columbia University (1983) e in giurisprudenza alla Harvard Law School (1991), dove è stato il primo afroamericano a dirigere la rivista Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NEURAL_XEL"
+		],
+		"language":"Italian"
+
+	},
+    "巴拉克·欧巴马是美国民主党籍政治家，也是第44任美国总统。欧巴马是第一位非裔美国总统。他1961年出生于美国夏威夷州檀香山。1991年，以优等生荣誉从哈佛法学院毕业。1996年开始参选公职，在补选中，当选伊利诺州参议员。": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NEURAL_XEL"
+		],
+		"language":"Chinese"
+
+	}
 }
