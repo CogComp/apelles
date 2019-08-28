@@ -741,9 +741,11 @@
             {
                 $("#neural-xel-selector-div").css("display", "none");
             }
-            
+            if(additionalLanguageMenuId!=null)
+			{
             var e = document.getElementById(additionalLanguageMenuId);
 			optionalLanguageArg = e.options[e.selectedIndex].innerHTML;
+			}
             filterSampleSentences(optionalLanguageArg);
             
         
