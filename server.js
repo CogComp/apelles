@@ -7,8 +7,9 @@ var requireText = require('require-text');
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(4006);
-console.log('Listening at http://localhost:4006');
+var PORT = process.env.PORT || 5000
+app.listen(PORT);
+console.log('Listening at http://localhost:'+PORT);
 
 app.get('/embed.css', browserify('./public/embed.css', {}));
 app.get('/apelles.js', browserify('./index.js', {standalone: 'apelles'}));
