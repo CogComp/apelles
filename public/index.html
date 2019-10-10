@@ -71,14 +71,13 @@
     <div class="container">
 
       <div id="main-content" style="overflow: visible;">
+	  <br>
 	  Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
           sample document:
-		<div id="loader_container" style="height: 30px; margin-left: 50%">
-			  <div class="loader" id="loader-main"></div>
-		</div>
+
 		<div class="row">
 			<div class="col-md-9">
-				<h2>Checkbox nested in label</h2>
+				<h3>Select desired Annotations</h3>
 				<label for="checkbox-nested-1">POS
 				  <input checked class ="checkbox-nested" type="checkbox" name="POS" id="checkbox-nested-1">
 				</label>
@@ -316,8 +315,12 @@
                   data-html="true" id="main-popover" data-content="">Link to page
           </button>
 	</div>
-	<div id="render-area"></div>
-      </div>
+		<div id="loader_container" style="height: 30px; margin-left: 50%">
+				  <div class="loader" id="loader-main"></div>
+		</div>
+		<div id="render-area"></div>
+	
+    </div>
       <div class="alert alert-danger" id="comeLater" style="text-align: center; display: none" role="alert">
 		Servers unresponsive. Come back later!
 		<div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
@@ -578,7 +581,7 @@
         }
         
         
-        //$('.selectpicker').on('change', changeAnnotations);
+        $('.selectpicker').on('change', changeAnnotations);
 		$('.checkbox-nested').on('click', changeAnnotations);
         
         updateSampleSentencesDropDown(allSentences);
@@ -591,20 +594,21 @@
 			// select the views
 			
 			var viewNamesToCheck = $("#render-views").text().split(",");
-			setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
+			//setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
 			updatePage();
         }
 		function getAllActiveViews() {
-			var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
-			console.log(optionsMainpipeline);
+			//optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
+			var optionsMainpipeline = getSelectedAnnotationValues();
+			//console.log(optionsMainpipeline);
 			var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
-			console.log(optionsTransliteration);
+			//console.log(optionsTransliteration);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsTransliteration);
 			var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
-			console.log(optionsHMATransliteration);
+			//console.log(optionsHMATransliteration);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsHMATransliteration);
 			var optionsXEL = getSelectValues(document.getElementById('neural-xel-selector'));
-			console.log(optionsXEL);
+			//console.log(optionsXEL);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsXEL);
 			return optionsMainpipeline;
 			/*.filter(function (e) {
@@ -633,7 +637,8 @@
 		
 			var additionalLanguageMenuId = null; 
 			var optionalLanguageArg = null; 
-            if ($("#trans-opt")[0].selected) 
+			
+            if ($("#checkbox-nested-8")[0].checked) 
             {
                 $("#transliteration-selector-div").css("display", "inline");
 				additionalLanguageMenuId = "transliteration-selector";
@@ -653,7 +658,7 @@
                 $("#hma-transliteration-selector-div").css("display", "none");
             }
 			*/
-            if ($("#neural-xel-opt")[0].selected) 
+            if ($("#checkbox-nested-7")[0].checked) 
             {
                 $("#neural-xel-selector-div").css("display", "inline");
 				additionalLanguageMenuId = "neural-xel-selector";
@@ -666,7 +671,11 @@
 			{
 				var e = document.getElementById(additionalLanguageMenuId);
 				optionalLanguageArg = e.options[e.selectedIndex].innerHTML;
+				if(optionalLanguageArg.length ==0)
+					optionalLanguageArg = null
+				
 			}
+			
             filterSampleSentences(optionalLanguageArg);
             
         
@@ -677,9 +686,10 @@
 			externalAnnotatorServers.forEach(function (url, i) {
 				document.getElementById("loader-ex-" + i).style.visibility = "visible";
 			});
+
 			var pipelineViews = getAllActiveViews();
 			var text = $("#viz-text").val();
-			pipelineViews = getSelectedAnnotationValues();
+			
 			//console.log("Submit event: ");
 			//console.log(text);
 			//console.log($("#viz-text"));

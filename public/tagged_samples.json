@@ -94,7 +94,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"QUANTITIES",
-			"NER_CONLL",
+			"NER",
 			"TIMEX3",
 			"TRANSLITERATION"
 		],
@@ -275,7 +275,8 @@
 			"LEMMA",
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
-			"XEL"
+			"XEL",
+			"TRANSLITERATION"
 		],
 		"language":"German"
 
@@ -286,7 +287,8 @@
 			"LEMMA",
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
-			"XEL"
+			"XEL",
+			"TRANSLITERATION"
 		],
 		"language":"Spanish"
 
@@ -297,7 +299,8 @@
 			"LEMMA",
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
-			"XEL"
+			"XEL",
+			"TRANSLITERATION"
 		],
 		"language":"French"
 
@@ -308,7 +311,8 @@
 			"LEMMA",
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
-			"XEL"
+			"XEL",
+			"TRANSLITERATION"
 		],
 		"language":"Italian"
 
@@ -319,7 +323,8 @@
 			"LEMMA",
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
-			"XEL"
+			"XEL",
+			"TRANSLITERATION"
 		],
 		"language":"Chinese"
 
