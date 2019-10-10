@@ -80,19 +80,19 @@
 			<div class="col-md-9">
 				<h2>Checkbox nested in label</h2>
 				<label for="checkbox-nested-1">POS
-				  <input class ="checkbox-nested" type="checkbox" name="POS" id="checkbox-nested-1">
+				  <input checked class ="checkbox-nested" type="checkbox" name="POS" id="checkbox-nested-1">
 				</label>
 				<label for="checkbox-nested-2">Lemma
-				  <input class ="checkbox-nested" type="checkbox" name="Lemma" id="checkbox-nested-2">
+				  <input class ="checkbox-nested" type="checkbox" name="LEMMA" id="checkbox-nested-2">
 				</label>
 				<label for="checkbox-nested-3">Shallow Parse
-				  <input class="checkbox-nested" type="checkbox" name="Shallow Parse" id="checkbox-nested-3">
+				  <input class="checkbox-nested" type="checkbox" name="SHALLOW_PARSE" id="checkbox-nested-3">
 				</label>
 				<label for="checkbox-nested-4">Mention Detection
-				  <input class ="checkbox-nested" type="checkbox" name="Mention Detection" id="checkbox-nested-4">
+				  <input class ="checkbox-nested" type="checkbox" name="MENTION" id="checkbox-nested-4">
 				</label>
 				<label for="checkbox-nested-5">Relation Extraction
-				  <input class ="checkbox-nested" type="checkbox" name="Relation Extraction" id="checkbox-nested-5">
+				  <input class ="checkbox-nested" type="checkbox" name="RELATION" id="checkbox-nested-5">
 				</label>
 				<label for="checkbox-nested-6">NER
 				  <input class ="checkbox-nested" type="checkbox" name="NER" id="checkbox-nested-6">
@@ -105,19 +105,19 @@
 				  <input class ="checkbox-nested" type="checkbox" name="XEL" id="checkbox-nested-7">
 				</label>
 				<label for="checkbox-nested-8">Transliteration
-				  <input class ="checkbox-nested" type="checkbox" name="Transliteration" id="checkbox-nested-8">
+				  <input class ="checkbox-nested" type="checkbox" name="TRANSLITERATION" id="checkbox-nested-8">
 				</label>
 				<label for="checkbox-nested-9">Temporal Normalizer
-				  <input class ="checkbox-nested" type="checkbox" name="Temporal Normalizer" id="checkbox-nested-9">
+				  <input class ="checkbox-nested" type="checkbox" name="TIMEX3" id="checkbox-nested-9">
 				</label>
 				<label for="checkbox-nested-10">Question Type
-				  <input class ="checkbox-nested" type="checkbox" name="Question Type" id="checkbox-nested-10">
+				  <input class ="checkbox-nested" type="checkbox" name="QUESTION_TYPE" id="checkbox-nested-10">
 				</label>
 				<label for="checkbox-nested-11">SRL
 				  <input class ="checkbox-nested" type="checkbox" name="SRL" id="checkbox-nested-11">
 				</label>
 				<label for="checkbox-nested-12">Quantities
-				  <input class ="checkbox-nested" type="checkbox" name="Quantities" id="checkbox-nested-12">
+				  <input class ="checkbox-nested" type="checkbox" name="QUANTITIES" id="checkbox-nested-12">
 				</label>
 			</div>
 		</div>
@@ -125,11 +125,12 @@
 			<div class="row">
 				<div class="col-md-8">
 					<label for="checkbox-nested-13">Dependency Tree
-					  <input class ="checkbox-nested" type="checkbox" name="Dependency Tree" id="checkbox-nested-13">
+					  <input class ="checkbox-nested" type="checkbox" name="DEPENDENCY" id="checkbox-nested-13">
 					</label>
 					<label for="checkbox-nested-14">Stanford
-					  <input class ="checkbox-nested" type="checkbox" name="Stanford" id="checkbox-nested-14">
+					  <input class ="checkbox-nested" type="checkbox" name="STANFORD" id="checkbox-nested-14">
 					</label>
+					<!--
 					<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
 					data-header="Select at least one annotator" multiple>
 						<option value="LEMMA">LEMMA</option>
@@ -157,6 +158,7 @@
 						<option value="STANFORD_RELATIONS">Relations (Stanford)</option>
 						<option value="STANFORD_OPENIE">Open IE (Stanford)</option>
 					</select>
+					-->
 					<div id="transliteration-selector-div" style="display: none">
 						<select class="selectpicker" id="transliteration-selector" data-actions-box="true" data-live-search="true"
 							data-header="Transliteration Language: ">
@@ -513,21 +515,16 @@
 		
         function filterSampleSentences(language)
 		{
-			
-			var allTags = document.getElementById('view-selector'), tag, i;
+			var selected_buttons_text = getSelectedButtons();
+			var i;
 			var tagArrays = [];
 			sampleSentences = allSentences;
-			for(i = 0; i < allTags.length; i++) 
+			for(i = 0; i < selected_buttons_text.length; i++) 
 			{
-				tag = allTags[i];
-				
-				if (tag.selected) 
-				{
-					var value = tagDict[tag.value];
-					if(value==null)
-						value = [];
-					tagArrays.push(value);
-				}
+				var value = tagDict[selected_buttons_text[i]];
+				if(value==null)
+					value = [];
+				tagArrays.push(value);
 			}
 			
 			if(language!= null)
@@ -537,9 +534,10 @@
 					value = [];
 				tagArrays.push(value);
 			}
-			console.log(tagArrays);
+			//console.log(tagArrays);
 			if(tagArrays.length>0)
 				sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
+			//console.log(sampleSentences);
 			updateSampleSentencesDropDown(sampleSentences);
 		}
 		
@@ -580,7 +578,8 @@
         }
         
         
-        $('.selectpicker').on('change', changeAnnotations);
+        //$('.selectpicker').on('change', changeAnnotations);
+		$('.checkbox-nested').on('click', changeAnnotations);
         
         updateSampleSentencesDropDown(allSentences);
 		//sets the default text in the text area to be the first example
@@ -615,7 +614,7 @@
 		function getDynamicLink() 
 		{
 			console.log("dynamic link!!!");
-			var views = getAllActiveViews().join();
+			var views = getSelectedAnnotationValues().join();
 			var text = $("#viz-text").val();
 			return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
 		}
@@ -680,7 +679,7 @@
 			});
 			var pipelineViews = getAllActiveViews();
 			var text = $("#viz-text").val();
-			getSelectedButtons();
+			pipelineViews = getSelectedAnnotationValues();
 			//console.log("Submit event: ");
 			//console.log(text);
 			//console.log($("#viz-text"));
@@ -871,7 +870,7 @@
 			for(var i = 0; i<checkbox_buttons.length;i++)
 			{
 				var checkbox_button = checkbox_buttons[i];
-				console.log(checkbox_button);
+				//console.log(checkbox_button);
 				if(checkbox_button.checked)
 				{
 					var text_of_button = checkbox_button.name;
@@ -881,52 +880,35 @@
 			}
 			return selected_buttons_text;
 		}
-		function getSelectedButtons()
-		{
-			//console.log("getSelectedButtons called");
-			var selected_buttons_text = [];
-			var checkbox_buttons = document.getElementsByClassName('checkbox-nested');
-			//console.log(checkbox_buttons);
-			//console.log(checkbox_buttons.length);
-			for(var i = 0; i<checkbox_buttons.length;i++)
-			{
-				var checkbox_button = checkbox_buttons[i];
-				console.log(checkbox_button);
-				if(checkbox_button.checked)
-				{
-					var text_of_button = checkbox_button.name;
-					//console.log(text_of_button);
-					selected_buttons_text.push(text_of_button);
-				}
-			}
-			return selected_buttons_text;
-		}
+
 		function getSelectedAnnotationValues()
 		{
 			var selected_buttons_text = getSelectedButtons();
 			var values = [];
 			var dict = {
-				  "LEMMA": ["LEMMA"],
-				  "POS": ["POS"],
-				  "SHALLOW PARSE": ["SHALLOW_PARSE"],
-				  "MENTION DETECTION": ["MENTION"],
-				  "RELATION EXTRACTION": ["RELATION"],
 				  "NER": ["NER_CONLL","NER_ONTONOTES"],
 				  "XEL": ["NEURAL_XEL"],
 				  "TRANSLITERATION": ["HMA_TRANSLIT","TRANSLITERATION"],
-				  "TEMPORAL NORMALIZER": ["TIMEX3"],
-				  "QUESTION TYPE": ["QUESTION_TYPE"],
 				  "SRL": ["SRL_NOM","SRL_VERB","PATH_LSTM_SRL","SRL_PREP","SRL_COMMA"],
-				  "QUANTITIES": ["QUANTITIES"],
-				  "DEPENDENCY TREE": ["DEPENDENCY"],
 				  "STANFORD": ["DEPENDENCY_STANFORD","STANFORD_COREF","STANFORD_RELATIONS","STANFORD_OPENIE"]
 				};
 				
 			for(var i =0;i<selected_buttons_text.length;i++)
 			{
+				
 				var key = selected_buttons_text[i].toUpperCase();
-				values.push(dict[key]);
+				if(key in dict)
+				{
+					//values.push(dict[key]);
+					Array.prototype.push.apply(values, dict[key]);
+					//console.log(dict[key]);
+				}
+				else
+					values.push(key);
+					
+					//console.log(key);
 			}
+			//console.log(values);
 			return values;
 		}
 		
