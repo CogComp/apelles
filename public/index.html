@@ -18,16 +18,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="/apelles.js" type="text/javascript"></script>
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
-  
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-  $( function() {
-    $( ".checkbox-nested" ).checkboxradio();
-  } );
-  </script>
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	  $( function() {
+		$( ".checkbox-nested" ).checkboxradio();
+	  } );
+	</script>
+	
     <!--for code highlighting -->
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -70,49 +69,13 @@
     }
 }</style>
     <div class="container">
-      <div class="jumbotron" style="position: relative">
-        <div style="float: right">
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=star&count=true&size=large"
-            frameborder="0" scrolling="0" width="160px" height="30px" style="margin-right: -20px"></iframe>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=CogComp&repo=cogcomp-nlp&type=fork&count=true&size=large"
-            frameborder="0" scrolling="0" width="158px" height="30px" style="margin-right: -20px"></iframe>
-        </div>
-        <h1><a href="/" style="text-decoration: none">CogComp-NLP</a></h1>
-        <p>
-          CogComp-NLP provides a suite of state-of-the-art Natural Language Processing (NLP) tools
-          that allows you to annotate plain text inputs.
-          <div class="wrap">
-            <p>
-              <img src="java.png" style="height: 40px"/>
-              Java user? We have a JVM API!
-              <button type="button" data-toggle="collapse" data-target="#collapse1"
-                      class="btn btn-success btn-xs">More</button>
-            </p>
-            <p>
-              <img src="python.png" style="height: 40px"/>
-              Python user? We have a Python API!
-              <button type="button" data-toggle="collapse" data-target="#collapse2"
-                      class="btn btn-success btn-xs" onClick="document.getElementById('bottom').scrollIntoView();" >More</button>
-            </p>
-            <ul class="list-group" style="position: absolute; right: 80px; top: 245px; width: 260px">
-              <li class="list-group-item">
-                <span class="badge" id="pipeline-version"></span>
-                Pipeline version in this demo
-              </li>
-            </ul>
-            <div style="clear: both;"></div>
-	  </div>
-	</p>
-	<div id="loader_container" style="height: 30px; margin-left: 50%">
-          <div class="loader" id="loader-main"></div>
-	</div>
-      </div>
+
       <div id="main-content" style="overflow: visible;">
 	  Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
           sample document:
-		
+		<div id="loader_container" style="height: 30px; margin-left: 50%">
+			  <div class="loader" id="loader-main"></div>
+		</div>
 		<div class="row">
 			<div class="col-md-9">
 				<h2>Checkbox nested in label</h2>
@@ -158,18 +121,15 @@
 				</label>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-8">
-				<label for="checkbox-nested-13">Dependency Tree
-				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-13" id="checkbox-nested-13">
-				</label>
-				<label for="checkbox-nested-14">Stanford
-				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-14" id="checkbox-nested-14">
-				</label>
-			</div>
-		</div>
+		
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-8">
+					<label for="checkbox-nested-13">Dependency Tree
+					  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-13" id="checkbox-nested-13">
+					</label>
+					<label for="checkbox-nested-14">Stanford
+					  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-14" id="checkbox-nested-14">
+					</label>
 					<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
 					data-header="Select at least one annotator" multiple>
 						<option value="LEMMA">LEMMA</option>
@@ -321,7 +281,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-8 text-right">
+				<div class="col-md-4 text-right">
 					
 					
 					<div class="dropdown">
@@ -360,83 +320,12 @@
 	Servers unresponsive. Come back later!
 	<div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
       </div>
-      <div class="alert alert-danger" id="warning" style="text-align: center; display: none" role="alert">
-	Warning: external-annotations server is off Ugh.
-      </div>
+
       <textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
 
       <div class="panel-group" id="accordion">
-	<div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Calling the pipeline from Java</a>
-            </h4>
-          </div>
-          <div id="collapse1" class="panel-collapse collapse">
-            <div class="panel-body">
-              First you have to add it as a dependency to your project. If this package is used in maven, please add the following dependencies with proper repositories.
-              <pre>
-		<code class="xhtml" id="maven-snippet"></code></pre>
-              <br>
-              To process text input use the following pattern:
-              <pre><code class="java">import edu.illinois.cs.cogcomp.annotation.AnnotatorService;
-		  import edu.illinois.cs.cogcomp.core.datastructures.textannotation.TextAnnotation;
-		  import edu.illinois.cs.cogcomp.pipeline.main.PipelineFactory;
+	
 
-		  String docId = "APW-20140101.3018"; // arbitrary string identifier
-		  String textId = "body"; // arbitrary string identifier
-		  String text = "Hello, how are you. I am doing fine"; // contains plain text to be annotated
-
-		  AnnotatorService pipeline = PipelineFactory.buildPipeline(ViewNames.POS);
-		  TextAnnotation ta = pipeline.createAnnotatedTextAnnotation( docId, textId, text );
-		  System.out.println(ta.getAvailableViews()); // here you should see that the required views are added.
-		  System.out.println(ta.getView(ViewNames.POS).getConstituents()); // will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you) (. .) (PRP I) (VBP am) (VBG doing) (JJ fine)
-	      </code></pre>
-              <br>
-
-              The output of this will be a tokenized document. If you want to add more views, you have to specify them either as arguments of buildPipeline.
-              The method returns a `TextAnnotation` data structure , which contains a `View` corresponding to each annotation source. Each `View` contains a set of `Constituents` representing the annotator output. Here is how you can access views:
-              <pre><code class="java">import edu.illinois.cs.cogcomp.core.datastructures.ViewNames;
-
-		  System.out.println(ta.getAvailableViews()); // here you should see that the required views are added.
-		  System.out.println(ta.getView(ViewNames.POS).getConstituents()); // will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you) (. .) (PRP I) (VBP am) (VBG doing) (JJ fine)
-	      </code></pre>
-
-
-
-              Take a look at our documentations to see more details. <button type="button" onclick="location.href='http://cogcomp.github.io/cogcomp-nlp/pipeline/';"
-                                                                             class="btn btn-danger btn-xs">Read More</button>
-            </div>
-          </div>
-	</div>
-	<div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Calling the pipeline from Python</a>
-            </h4>
-          </div>
-          <div id="collapse2" class="panel-collapse collapse">
-            <div class="panel-body">
-              <div class="panel-body">First make sure you have "pip" on your system. Then install the package with "pip":
-                <pre><code class="bash">pip install cython
-		    pip install ccg_nlpy</code></pre>
-
-                <br>
-                Here is a sample usage showing how to run our system:
-                <pre><code class="python">from ccg_nlpy import remote_pipeline
-
-		    pipeline = remote_pipeline.RemotePipeline()
-		    doc = pipeline.doc("Hello, how are you. I am doing fine")
-		    print(doc.get_lemma) # will produce (hello Hello) (, ,) (how how) (be are) (you you) (. .) (i I) (be am) (do doing) (fine fine)
-		    print(doc.get_pos) # will produce (UH Hello) (, ,) (WRB how) (VBP are) (PRP you) (. .) (PRP I) (VBP am) (VBG doing) (JJ fine)
-		</code></pre>
-
-                Take a look at our documentations to see more details. <button type="button" onclick="location.href='https://cogcomp.github.io/cogcomp-nlpy/';"
-                                                                               class="btn btn-danger btn-xs">Read More</button>
-              </div>
-            </div>
-	  </div>
-	</div>
 	<br>
 	<div id="bottom"></div>
 	<div class="alert alert-warning" style="text-align: center" role="alert">
