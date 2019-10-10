@@ -7,7 +7,7 @@ var requireText = require('require-text');
 
 app.use(express.static(__dirname + '/public'));
 
-var PORT = process.env.PORT || 5000
+var PORT = 4006;
 app.listen(PORT);
 console.log('Listening at http://localhost:'+PORT);
 

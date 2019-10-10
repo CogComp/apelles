@@ -19,6 +19,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="/apelles.js" type="text/javascript"></script>
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( ".checkbox-nested" ).checkboxradio();
+  } );
+  </script>
     <!--for code highlighting -->
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -41,7 +50,6 @@
     <style>.github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
-
 @keyframes octocat-wave {
     0%, 100% {
         transform: rotate(0)
@@ -53,12 +61,10 @@
         transform: rotate(10deg)
     }
 }
-
 @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
         animation: none
     }
-
     .github-corner .octo-arm {
         animation: octocat-wave 560ms ease-in-out
     }
@@ -107,7 +113,61 @@
 	  Enter text to annotate below <span style="font-size: smaller">(1500 characters limit)</span>, or select a
           sample document:
 		
-		
+		<div class="row">
+			<div class="col-md-9">
+				<h2>Checkbox nested in label</h2>
+				<label for="checkbox-nested-1">POS
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-1" id="checkbox-nested-1">
+				</label>
+				<label for="checkbox-nested-2">Lemma
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-2" id="checkbox-nested-2">
+				</label>
+				<label for="checkbox-nested-3">Shallow Parse
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-3" id="checkbox-nested-3">
+				</label>
+				<label for="checkbox-nested-4">Mention Detection
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-4" id="checkbox-nested-4">
+				</label>
+				<label for="checkbox-nested-5">Relation Extraction
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-5" id="checkbox-nested-5">
+				</label>
+				<label for="checkbox-nested-6">NER
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-6" id="checkbox-nested-6">
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				<label for="checkbox-nested-7">XEL
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-7" id="checkbox-nested-7">
+				</label>
+				<label for="checkbox-nested-8">Transliteration
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-8" id="checkbox-nested-8">
+				</label>
+				<label for="checkbox-nested-9">Temporal Normalizer
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-9" id="checkbox-nested-9">
+				</label>
+				<label for="checkbox-nested-10">Question Type
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-10" id="checkbox-nested-10">
+				</label>
+				<label for="checkbox-nested-11">SRL
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-11" id="checkbox-nested-11">
+				</label>
+				<label for="checkbox-nested-12">Quantities
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-12" id="checkbox-nested-12">
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<label for="checkbox-nested-13">Dependency Tree
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-13" id="checkbox-nested-13">
+				</label>
+				<label for="checkbox-nested-14">Stanford
+				  <input class ="checkbox-nested" type="checkbox" name="checkbox-nested-14" id="checkbox-nested-14">
+				</label>
+			</div>
+		</div>
 			<div class="row">
 				<div class="col-md-4">
 					<select class="selectpicker" id="view-selector" multiple data-actions-box="true" data-live-search="true"
@@ -389,25 +449,21 @@
       <div id="render-views" style="visibility: hidden;">{{viewNames}}</div>
 
       <script type="text/javascript">
-
 	$(document).ready(function() {
             $('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
             });
 	});
-
 	var clipboard = new apelles.cb('.btn'); // copy to the clipboard initialization
 	clipboard.on('success', function (e) {
             e.clearSelection();
 	});
-
 	var page_rendered = true;
 	if ($("#render-info").text().includes("_content_rendered_")) {
             page_rendered = false;
 	}
     
 	
-
 	var pipelineServer = "http://macniece.seas.upenn.edu:4001/annotate";
 	var pipelineServerVersionAPI = "http://macniece.seas.upenn.edu:4001/version";
 	var externalAnnotatorServers = [
@@ -416,7 +472,6 @@
             "http://macniece.seas.upenn.edu:4003/annotate", // hma transliteration
             "http://localhost:5000/annotate" // for testing purposes with the python server wrapper
 	];
-
 	function httpGetAsync(theUrl, callback) {
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function() {
@@ -436,23 +491,18 @@
         &lt;url&gt;http://cogcomp.org/m2repo/&lt;/url&gt;
     &lt;/repository&gt;
 &lt;/repositories&gt;`;
-
                     $("#maven-snippet").html(mavenSnippet);
-
 		}
             };
             xmlHttp.open("GET", theUrl, true); // true for asynchronous
             xmlHttp.send(null);
 	}
-
 	httpGetAsync(pipelineServerVersionAPI);
-
 	// for each external annotator, add a loader
 	externalAnnotatorServers.forEach(function (item, i) {
             var loaderDiv = $("#loader_container");
             loaderDiv.append("<div class='loader' id='loader-ex-" + i + "'></div>");
 	});
-
 	// Return an array of the selected opion values
 	// select is an HTML select element
 	function getSelectValues(select) {
@@ -467,7 +517,6 @@
 		}
 		return result;
 	}
-
 	/**
 	 * @param select is the selector object
 	 * @param viewNames is a Set
@@ -487,14 +536,12 @@
 	}
     
     
-
 	fetch(pipelineServer)
     .then(function () {
         console.log("Connection works. ");
     }).catch(function () {
         document.getElementById("comeLater").style.display = "block";
     });
-
 	externalAnnotatorServers.forEach(function (url) {
             fetch(url)
 		.then(function () {
@@ -503,13 +550,10 @@
 		    document.getElementById("warning").style.display = "block";
 		});
 	});
-
 	var CHANGE_TEXTAREA = true;
 	head.ready(function () {
             console.log('Loading and rendering');
-
             const _ = apelles.lodash;
-
             const bratLocation = './brat_client';
             const brat_options = {
 		'brat_util': Util,
@@ -518,7 +562,6 @@
                     bratLocation + '/static/fonts/Liberation_Sans-Regular.ttf'
 		]
             };
-
         
         var area = $("#dropdownMenuArea1");    
 		var allSentences = [];
@@ -583,10 +626,7 @@
 		{
 			
 			var allTags = document.getElementById('view-selector'), tag, i;
-
-
 			var tagArrays = [];
-
 			sampleSentences = allSentences;
 			for(i = 0; i < allTags.length; i++) 
 			{
@@ -611,8 +651,6 @@
 			
 			if(tagArrays.length>0)
 				sampleSentences = tagArrays.reduce((a, b) => a.filter(c => b.includes(c)));
-
-
 			updateSampleSentencesDropDown(sampleSentences);
 		}
 		
@@ -668,29 +706,23 @@
 			setSelectValues(document.getElementById('view-selector'), new Set(viewNamesToCheck));
 			updatePage();
         }
-
 		function getAllActiveViews() {
 			var optionsMainpipeline = getSelectValues(document.getElementById('view-selector'));
 			console.log(optionsMainpipeline);
-
 			var optionsTransliteration = getSelectValues(document.getElementById('transliteration-selector'));
 			console.log(optionsTransliteration);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsTransliteration);
-
 			var optionsHMATransliteration = getSelectValues(document.getElementById('hma-transliteration-selector'));
 			console.log(optionsHMATransliteration);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsHMATransliteration);
-
 			var optionsXEL = getSelectValues(document.getElementById('neural-xel-selector'));
 			console.log(optionsXEL);
 			optionsMainpipeline = optionsMainpipeline.concat(optionsXEL);
-
 			return optionsMainpipeline;
 			/*.filter(function (e) {
 					 return e !== 'TRANSLITERATION'
 			 });*/
 		}
-
 		function getDynamicLink() 
 		{
 			console.log("dynamic link!!!");
@@ -698,7 +730,6 @@
 			var text = $("#viz-text").val();
 			return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
 		}
-
 		// set popover with links
 		$('[data-toggle="popover"]').popover();
 		var htmlContent = "Dymanic link: <input type='text' onfocus='this.select();' id='dynamic-link' onmouseup='return false;' style='width: 180pt'/>";
@@ -757,19 +788,16 @@
 				document.getElementById("loader-ex-" + i).style.visibility = "visible";
 			});
 			var pipelineViews = getAllActiveViews();
-
 			var text = $("#viz-text").val();
 			//console.log("Submit event: ");
 			//console.log(text);
 			//console.log($("#viz-text"));
 			//console.log("pipelineViews: ");
 			//console.log(pipelineViews);
-
 			function sendRequest(api, loaderId) {
 				var p = text ? Promise.resolve(text) : Promise.reject("Invalid Text");
 				p.then(function (text) {
 					$("#render-area").empty();
-
 //console.log("text: " + text);
 					//console.log("pipelineViews: " + pipelineViews);
 					return apelles.pipelineClient.annotateText({}, text, pipelineViews, api).then(function (jsonData) {
@@ -780,30 +808,21 @@
 						return [];
 					});
 				}).then(function (jsonData) {
-
 					var availableViews = apelles.getAvailableViews(jsonData);
 					var obj = availableViews[0]
 //console.log("availableViews: " + Object.keys(obj));
-
 					var viewInfos = _.filter(availableViews, function (viewInfo) {
 						return $.inArray(viewInfo.type, apelles.supportedTypes) !== -1 && viewInfo.name !== "TOKENS";
-
 					});
-
 					_.forEach(viewInfos, function (viewInfo) {
-
 						if (!pipelineViews.includes(viewInfo.name)) return;
-
-
 						//console.log("Rendering: " + viewInfo.name);
 						var divId = viewInfo.name;
 						var newDiv = createViewArea(divId, viewInfo.name, viewInfo.type);
-
 						//console.log(newDiv[0]);
 						//console.log(newDiv[0].nodeType); 
 						// target element that we will observe
 						const target = newDiv[0];
-
 						// config object
 						const config = {
 						  attributes: true,
@@ -813,7 +832,6 @@
 						  childList: true,
 						  subtree: true
 						};
-
 						// subscriber function
 						function subscriber(mutations) {
 						  mutations.forEach((mutation) => {
@@ -828,52 +846,35 @@
 							}
 						  });
 						}
-
 						// instantiating observer
 						const observer = new MutationObserver(subscriber);
-
 						// observing target
 						observer.observe(target, config);
 						$("#render-area").append(newDiv).ready(function () {
-
 						});
-
 //console.log("viewInfo " + Object.keys(viewInfo));
 						apelles.render(jsonData, divId, viewInfo, brat_options).then(function () {
-
 //console.log("after "+divId);
 //console.log("after render");
 						});
-
-
 					});
 					document.getElementById(loaderId).style.visibility = "hidden";
-
-
 					$("#render-info").text("_content_rendered_");
-
 				}, function (err) {
 					// do nothing
-
 				});
 			}
-
 			// main server
 			sendRequest(pipelineServer, "loader-main");
-
 			// external annotations server
 			externalAnnotatorServers.forEach(function (url, i) {
 				sendRequest(url, "loader-ex-" + i);
-
-
 			});
 		}
-
 		var createViewArea = function (renderDivId, viewName, viewType) {
 			var outerDiv = $("<div>").attr("class", "view-area");
 			//outerDiv.append("<p>yoyoyoyoy</p>");
 			var newblock = $("<div class='alert alert-success alert-success fade in visualization-block' role='alert'>").attr("id", renderDivId);
-
 			var viewTypeShort = viewType.split(".").pop();
 			var text = " <b> View Name: </b> " + viewName + ", <b>View Type: </b> " + viewTypeShort;
 			var dropup = "<div class='dropup' id='dropup'> " +
@@ -891,10 +892,8 @@
 			
 			//console.log("added");
 			//setTimeout(addPossibleLinks, 500);
-
 			return outerDiv;
 		};
-
 		$("#viz-submit").click(
 			function (eventData) {
 				updatePage()
@@ -916,14 +915,10 @@
 		);
 		
 	});
-
 		function sleep(time) {
-
 			return new Promise((resolve) => setTimeout(resolve, time));
 		}
-
 		var newLinksToCheck = true;
-
 		function setTextArea(id) {
 			var mySVG = $("#" + id)[0];
 			var text = mySVG.innerHTML;
@@ -933,55 +928,36 @@
 			console.log(text);
 			return false;
 		}
-
-
-
 		function addPossibleLinks() 
 		{
 			var toBeWrapped = document.getElementsByTagName("text");
 			//alert(toBeWrapped.length);
-
 			var wrappers = [];
-
-
 			if (toBeWrapped.length > 0) {
 				//alert("mutations");
 				if (newLinksToCheck == true) {
 					for (var index = 0; index < toBeWrapped.length; index++) {
 						if (!toBeWrapped[index].children || toBeWrapped[index].children.length == 0 && toBeWrapped[index].nextSibling && toBeWrapped[index].nextSibling.tagName == "path") {
 							var someText = toBeWrapped[index];
-
 							if (someText.innerHTML.includes("en.wikipedia.org")) {
 								someText.setAttribute("fill", "blue");
-
 								var node = toBeWrapped[index].previousSibling;
-
-
 								wrapper = document.createElement("a");
 								//alert(node.nodeName);
-
-
 								wrapper.href = "https://" + someText.innerHTML;
-
 								wrapper.target = "_blank";
 								
 								var oldparent = node.parentNode;
-
 								oldparent.insertBefore(wrapper, node);
-
-
 								oldparent.removeChild(node);
 								wrapper.appendChild(node)
 								//console.log(wrapper.nodeName);
 								//alert(node.nodeName);
-
 								var tmp = document.createElement("div");
 								tmp.appendChild(wrapper);
-
 								oldparent.innerHTML = tmp.innerHTML + oldparent.innerHTML;
 							}
 						}
-
 					}
 					//dont check anything until submit gets clicked again
 					newLinksToCheck = false;
