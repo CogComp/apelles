@@ -325,18 +325,19 @@
 		Servers unresponsive. Come back later!
 		<div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
       </div>
+
+      <textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
+	  <!--
       <div class="alert alert-danger" id="warning" style="text-align: center; display: none" role="alert">
 		Warning: external-annotations server is off Ugh.
       </div>
-      <textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
-
       <div class="panel-group" id="accordion">
 		<div id="bottom"></div>
 		<div class="alert alert-warning" style="text-align: center" role="alert">
 		  Problems? Use our <a href="https://github.com/CogComp/cogcomp-nlp/issues">issue tracker</a>.
 		</div>
       </div>
-	  
+	  -->
       <div id="render-info" style="visibility: hidden;">{{_content_rendered_}}</div>
       <div id="sample-sentence-data" style="visibility: hidden;">{{sampleSentences}}</div>
       <div id="render-text" style="visibility: hidden;">{{text}}</div>
@@ -441,7 +442,8 @@
 		.then(function () {
 		    console.log("Connection works. ");
 		}).catch(function () {
-		    document.getElementById("warning").style.display = "block";
+		    //document.getElementById("warning").style.display = "block";
+			console.log("Warning: external-annotations server is off Ugh.")
 		});
 	});
 	var CHANGE_TEXTAREA = true;
@@ -617,7 +619,7 @@
 		}
 		function getDynamicLink() 
 		{
-			console.log("dynamic link!!!");
+			//console.log("dynamic link!!!");
 			var views = getSelectedAnnotationValues().join();
 			var text = $("#viz-text").val();
 			return "http://nlp.cogcomp.org/render?text=" + text + "&viewNames=" + views;
