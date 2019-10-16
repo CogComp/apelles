@@ -587,9 +587,9 @@
         $('.selectpicker').on('change', changeAnnotations);
 		$('.checkbox-nested').on('click', changeAnnotations);
         
-        updateSampleSentencesDropDown(allSentences);
+        
 		//sets the default text in the text area to be the first example
-		$("#viz-text").val(allSentences[0]);
+		changeAnnotations();
 		
         if (page_rendered) 
 		{
@@ -639,7 +639,7 @@
 		{
 		
 			var additionalLanguageMenuId = null; 
-			var optionalLanguageArg = null; 
+			var optionalLanguageArg = "English"; 
 			
             if ($("#checkbox-nested-8")[0].checked) 
             {
