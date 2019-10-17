@@ -10,6 +10,26 @@
 		"language":"English"
 
 	},
+	"Barack Hussein Obama,  an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"MENTION",
+			"RELATION",
+			"NER",
+			"XEL",
+			"TRANSLITERATION",
+			"TIMEX3",
+			"QUESTION_TYPE",
+			"QUANTITIES",
+			"SRL",
+			"STANFORD"
+		],
+		"language":"English"
+
+	},
     "A squirrel is storing a lot of nuts to prepare for a seasonal change in the environment. ": {
 		"annotations":[
 			"POS",
