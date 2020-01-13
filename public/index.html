@@ -33,7 +33,15 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
+	
+	<script>
+		var x = location.href;
+		if (!x.includes("index.html") && !x.endsWith("/")) 
+		{
 
+			location.href = x+"/";
+		}
+	</script>
     <div class="container">
 
       <div id="main-content" style="overflow: visible;">
