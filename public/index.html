@@ -785,7 +785,7 @@
 				alert("clicked");
 				$.ajax({
 				  type: "POST",
-				  url: "/update_stats",
+				  url: location.href+"update_stats",
 				  data: {'data':getSelectedAnnotationValues().toString()}
 				});
 			}
