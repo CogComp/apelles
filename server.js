@@ -3,9 +3,12 @@ var express = require('express');
 var app = express();
 var path = require("path");
 var hogan = require('hogan.js');
+const bodyParser = require('body-parser');
 var requireText = require('require-text');
+var fs = require('fs');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 var PORT = 4006;
 app.listen(PORT);
@@ -33,4 +36,38 @@ app.get('/render', function (req, res) {
     res.send(output);
 });
 
+app.post('/update_stats', function (req, res) {
+    
+	//console.log("posting");
+	var selected_buttons_from_client = req.body.data;
+	
+	var file_path = "client_stats.json"
+	
+	var stats_map = {};
+	
+	try 
+	{
+		if (fs.existsSync(file_path)) 
+		{
+			stats_map = JSON.parse(fs.readFileSync(file_path, 'utf8'));
+		}
+	} catch(err) {
+	  
+	  //console.error(err)
+	  
+	}
+	
+	selected_buttons_from_client = selected_buttons_from_client.split(",");
+	selected_buttons_from_client.forEach( function(item) 
+	{
+		if(stats_map.hasOwnProperty(item))
+			stats_map[item]+=1;
+		else
+			stats_map[item]=1;
+	});
+	
+	//console.log(JSON.stringify(stats_map));
+	
+	fs.writeFileSync(file_path, JSON.stringify(stats_map));
 
+});
