@@ -322,15 +322,23 @@
 	if ($("#render-info").text().includes("_content_rendered_")) {
             page_rendered = false;
 	}
-    
-	
-	var pipelineServer = "http://macniece.seas.upenn.edu:4001/annotate";
+    //old stuff
+	/*
+		var pipelineServer = "https://macniece.seas.upenn.edu:4001/annotate";
 	var pipelineServerVersionAPI = "http://macniece.seas.upenn.edu:4001/version";
 	var externalAnnotatorServers = [
             "http://bronte.cs.illinois.edu:1503/annotate", // stanford
             "http://bronte.cs.illinois.edu:8009/annotate", // neural-xel
             "http://macniece.seas.upenn.edu:4003/annotate", // hma transliteration
             "http://localhost:5000/annotate" // for testing purposes with the python server wrapper
+	];
+	*/
+	var pipelineServer = "https://cogcomp.seas.upenn.edu/mn4001/annotate";
+	var pipelineServerVersionAPI = "https://cogcomp.seas.upenn.edu/mn4001/version";
+	var externalAnnotatorServers = [
+            
+            "https://cogcomp.seas.upenn.edu/mn4003/annotate", // hma transliteration
+            "https://cogcomp.seas.upenn.edu/mn5000/annotate" // for testing purposes with the python server wrapper
 	];
 	function httpGetAsync(theUrl, callback) {
             var xmlHttp = new XMLHttpRequest();
