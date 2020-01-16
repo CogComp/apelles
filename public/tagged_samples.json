@@ -296,6 +296,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"XEL",
+			"NER",
 			"TRANSLITERATION"
 		],
 		"language":"German"
@@ -308,6 +309,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"XEL",
+			"NER",
 			"TRANSLITERATION"
 		],
 		"language":"Spanish"
@@ -320,6 +322,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"XEL",
+			"NER",
 			"TRANSLITERATION"
 		],
 		"language":"French"
@@ -332,6 +335,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"XEL",
+			"NER",
 			"TRANSLITERATION"
 		],
 		"language":"Italian"
@@ -344,6 +348,7 @@
 			"DEPENDENCY",
 			"SHALLOW_PARSE",
 			"XEL",
+			"NER",
 			"TRANSLITERATION"
 		],
 		"language":"Chinese"
