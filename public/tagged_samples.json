@@ -10,7 +10,7 @@
 		"language":"English"
 
 	},
-	"Barack Hussein Obama,  an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review.": {
+	"Barack Hussein Obama, an American politician serving as the 44th President of the United States, graduated from Columbia University and Harvard Law School, where he served as president of the Harvard Law Review.": {
 		"annotations":[
 			"POS",
 			"LEMMA",
@@ -352,6 +352,594 @@
 			"TRANSLITERATION"
 		],
 		"language":"Chinese"
+
+	},
+    "Barack Hussein Obama, 'n Amerikaanse politikus wat dien as die 44ste president van die Verenigde State, studeer aan die Universiteit van Columbia en Harvard Law School, waar hy as president van die Harvard Law Review gedien het.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Afrikaans"
+
+	},
+    "Barack Hussein Obama, një politikan amerikan që shërben si Presidenti i 44-të i Shteteve të Bashkuara, u diplomua në Universitetin Columbia dhe Shkollën Juridike të Harvardit, ku ai shërbeu si president i Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Albanian"
+
+	},
+    "تخرج باراك حسين أوباما ، وهو سياسي أمريكي يشغل منصب الرئيس الرابع والأربعين للولايات المتحدة ، من جامعة كولومبيا وكلية الحقوق بجامعة هارفارد ، حيث شغل منصب رئيس مجلة هارفارد للقانون.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Arabic"
+
+	},
+    "Բարաք Հուսեյն Օբաման, ամերիկացի քաղաքական գործիչ, որը ծառայում էր որպես Միացյալ Նահանգների 44-րդ նախագահ, ավարտեց Կոլումբիայի համալսարանը և Հարվարդի իրավաբանական դպրոցը, որտեղ նա ծառայում էր որպես Հարվարդի իրավաբանների վերանայման նախագահ:": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Armenian"
+
+	},
+    "Barack Hussein Obama, Estatu Batuetako 44. lehendakari estatubatuar politikaria, Columbia Unibertsitatean eta Harvard Law School-ean graduatu zen, Harvard Law Review-eko lehendakari gisa.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Basque"
+
+	},
+    "Барак Хусейн Абама, амерыканскі палітык, які займае пасаду 44-га прэзідэнта ЗША, скончыў Калумбійскі ўніверсітэт і Гарвардскі юрыдычны факультэт, дзе займаў пасаду прэзідэнта Гарвардскага закона па аглядзе.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Belarusian"
+
+	},
+    "Барак Хюсеин Обама, американски политик, който изпълнява функциите на 44-ия президент на Съединените щати, е завършил Колумбийския университет и Харвардския юридически факултет, където е бил президент на Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Bulgarian"
+
+	},
+    "Barack Hussein Obama, americký politik sloužící jako 44. prezident Spojených států, absolvoval Columbia University a Harvard Law School, kde působil jako prezident Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Czech"
+
+	},
+    "Barack Hussein Obama, en amerikansk politiker, der tjente som den 44. præsident for De Forenede Stater, tog eksamen fra Columbia University og Harvard Law School, hvor han fungerede som præsident for Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Danish"
+
+	},
+    "Barack Hussein Obama, usona politikisto servanta kiel la 44-a Prezidanto de Usono, studentiĝis ĉe Universitato Kolumbio kaj Harvard Law School, kie li funkciis kiel prezidanto de la Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Esperanto"
+
+	},
+    "Ameerika Ühendriikide 44. presidendina töötanud ameeriklasest poliitik Barack Hussein Obama on lõpetanud Columbia ülikooli ja Harvardi õiguskooli, kus ta oli Harvardi seaduseülevaate president.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Estonian"
+
+	},
+    "Yhdysvaltain 44. presidenttinä toiminut amerikkalainen poliitikko Barack Hussein Obama valmistui Columbian yliopistosta ja Harvard Law Schoolista, jossa hän toimi Harvard Law Review'n presidenttinä.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Finnish"
+
+	},
+    "Barack Hussein Obama, político estadounidense que ocupou o 44º presidente dos Estados Unidos, graduouse na Universidade de Columbia e na Harvard Law School, onde exerceu como presidente da Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Galician"
+
+	},
+    "ბარაკ ჰუსეინ ობამა, ამერიკელი პოლიტიკოსი, რომელიც მუშაობდა შეერთებული შტატების 44-ე პრეზიდენტად, დაამთავრა კოლუმბიის უნივერსიტეტი და ჰარვარდის სამართლის სკოლა, სადაც ის ჰარვარდის სამართლის მიმოხილვის პრეზიდენტად მუშაობდა.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Georgian"
+
+	},
+    "Barack Hussein Obama, yon politisyen Ameriken k ap sèvi kòm 44yèm Prezidan nan Etazini, gradye nan Columbia University ak Harvard Law School, kote li te sèvi kòm prezidan nan Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Haitian"
+
+	},
+    "ברק חוסין אובמה, פוליטיקאי אמריקני שכיהן כנשיא 44 של ארצות הברית, סיים את לימודיו באוניברסיטת קולומביה ובבית הספר למשפטים בהרווארד, שם שימש כנשיא ביקורת החוק של הרווארד.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Hebrew"
+
+	},
+    "Barack Hussein Obama, az Egyesült Államok 44. elnökeként szolgáló amerikai politikus, a Columbia Egyetemen és a Harvard Law School-ban végzett, ahol a Harvard Law Review elnöke volt.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Hungarian"
+
+	},
+    "Barack Hussein Obama, bandarískur stjórnmálamaður sem starfaði sem 44. forseti Bandaríkjanna, lauk prófi frá Columbia háskólanum og Harvard Law School, þar sem hann gegndi starfi forseta Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Icelandic"
+
+	},
+    "Barack Hussein Obama, seorang politisi Amerika yang menjabat sebagai Presiden Amerika Serikat ke-44, lulus dari Columbia University dan Harvard Law School, di mana ia menjabat sebagai presiden Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Indonesian"
+
+	},
+    "Barack Hussein Obama, politisi Amerika sing dadi Presiden nomer 44 ing Amerika Serikat, lulus saka Universitas Columbia lan Sekolah Hukum Harvard, lan dheweke dadi presiden Review Harvard Law.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Javanese"
+
+	},
+    "Барак Хусейн Обама, Америка Құрама Штаттарының 44-ші Президенті ретінде қызмет ететін американдық саясаткер, Колумбия университеті мен Гарвард заң мектебін бітіріп, Гарвард заңын қараудың президенті болды.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Kazakh"
+
+	},
+    "Barack Huseyîn Obama, siyasetmedarê Amerîkî ku wek serokê 44-ê yê Dewletên Yekbûyî xizmet dike, ji Zanîngeha Columbia û Dibistana Hiqûqê ya Harvardê mezûn bû, li wir jî wî wekî serokê rexneya hiqûqê ya Harvardê xebitî.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Kurdish"
+
+	},
+    "Baracum Obama Hussein, an American publica servientes sicut 44th Praeses Civitatum Foederatarum Americae, lectus a Harvard Columbia University and Law School, ubi servivit ut Praesidem de Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Latin"
+
+	},
+    "Baraks Huseins Obama, amerikāņu politiķis, kas pilda Amerikas Savienoto Valstu 44. prezidenta pienākumus, ir beidzis Kolumbijas universitāti un Hārvarda Juridisko skolu, kur viņš bija Harvarda likuma pārskata prezidents.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Latvian"
+
+	},
+    "Barackas Husseinas Obama, amerikiečių politikas, einantis 44-ąjį JAV prezidentą, baigė Kolumbijos universitetą ir Harvardo teisės mokyklą, kur ėjo Harvardo įstatymo apžvalgos prezidento pareigas.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Lithuanian"
+
+	},
+    "De Barack Hussein Obama, en amerikanesche Politiker deen als 44te President vun den USA gedéngt huet, huet op der Columbia University an der Harvard Law School ofgeschloss, wou hien als President vun der Harvard Law Review gedéngt huet.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Luxembourgish"
+
+	},
+    "Барак Хусеин Обама, американски политичар кој служеше како 44-ти претседател на Соединетите држави, дипломираше на Универзитетот Колумбија и на Факултетот за правда на Харвард, каде што работел како претседател на прегледот на законот за Харвард.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Macedonian"
+
+	},
+    "Barack Hussein Obama, mpanao politika amerikana miasa ho Filoham-pirenena faha-44 any Etazonia, nahazo diplaoma tao amin'ny University University any Columbia ary Harvard Law School izay niasa ho filohan'ny Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Malagasy"
+
+	},
+    "Barack Hussein Obama, seorang ahli politik Amerika berkhidmat sebagai Presiden ke-44 Amerika Syarikat, lulus dari Columbia University dan Harvard Law School, di mana beliau berkhidmat sebagai presiden Kajian Hukum Harvard.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Malay"
+
+	},
+    "АНУ-ын 44 дэх Ерөнхийлөгчөөр ажиллаж байсан Америкийн улс төрч Барак Хуссейн Обама Колумбийн их сургууль, Харвардын хуулийн сургуулийг төгссөн бөгөөд Харвардын хуулийн тоймын ерөнхийлөгчөөр ажиллаж байжээ.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Mongolian"
+
+	},
+    "باراک حسین اوباما ، یک سیاستمدار آمریکایی که به عنوان رئیس جمهور 44 ایالات متحده خدمت می کرد ، از دانشگاه کلمبیا و دانشکده حقوق دانشگاه هاروارد فارغ التحصیل شد ، جایی که به عنوان رئیس جمهور در بررسی حقوق هاروارد خدمت کرد.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Persian"
+
+	},
+    "Barack Hussein Obama, amerykański polityk pełniący funkcję 44. prezydenta Stanów Zjednoczonych, ukończył Columbia University i Harvard Law School, gdzie pełnił funkcję prezesa Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Polish"
+
+	},
+    "Barack Hussein Obama, um político americano que atua como 44º presidente dos Estados Unidos, se formou na Universidade de Columbia e na Harvard Law School, onde atuou como presidente da Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Portuguese"
+
+	},
+    "Barack Hussein Obama, un politician american care ocupă locul 44 de președinte al Statelor Unite, a absolvit Universitatea Columbia și Harvard Law School, unde a ocupat funcția de președinte al Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Romanian"
+
+	},
+    "Барак Хуссейн Обама, американский политик, работавший в качестве 44-го президента Соединенных Штатов, окончил Колумбийский университет и Гарвардскую юридическую школу, где он занимал пост президента журнала Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Russian"
+
+	},
+    "Cheumnaich Barack Hussein Obama, neach-poilitigs Ameireaganach a bha na 44mh Ceann-suidhe nan Stàitean Aonaichte, bho Oilthigh Columbia agus Sgoil Lagha Harvard, far an robh e na cheann-suidhe air Lèirmheas Lagh Harvard.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Scots"
+
+	},
+    "Барацк Хуссеин Обама, амерички политичар који је био 44. предсједник Сједињених Држава, дипломирао је на Цолумбиа Университи и Харвард Лав Сцхоол, гдје је био предсједник Харвард Лав Ревиев.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Serbian"
+
+	},
+    "Barack Hussein Obama, americký politik pôsobiaci ako 44. prezident Spojených štátov, absolvoval Columbia University a Harvard Law School, kde pôsobil ako prezident Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Slovak"
+
+	},
+    "Barack Hussein Obama, ameriški politik, ki je bil 44. predsednik ZDA, je diplomiral na univerzi Columbia in na Harvard Law School, kjer je opravljal funkcijo predsednika Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Slovenian"
+
+	},
+    "Barack Hussein Obama, oo ah siyaasi Mareykan ah oo noqdey Madaxweynihii 44aad ee Mareykanka, wuxuu ka qalin jabiyay Jaamacadda Columbia iyo Dugsiga Sare ee Harvard, halkaas oo uu ka soo noqday madaxweynaha Dib-u-eegista Sharciga Harvard.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Somali"
+
+	},
+    "Barack Hussein Obama, saurang politikus Amérika anu ngajabat salaku Présidén ka-44 Amérika Serikat, lulus ti Universitas Columbia sareng Hukum Hukum Harvard, dimana anjeunna janten presiden Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Sundanese"
+
+	},
+    "Barack Hussein Obama, mwanasiasa wa Amerika anayehudumu kama Rais wa 44 wa Merika, alihitimu kutoka Chuo Kikuu cha Columbia na Shule ya Sheria ya Harvard, ambapo alihudumu kama Rais wa Mapitio ya Sheria ya Harvard.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Swahili"
+
+	},
+    "Barack Hussein Obama, en amerikansk politiker som tjänade som USA: s 44: e president, tog examen från Columbia University och Harvard Law School, där han tjänade som president för Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Swedish"
+
+	},
+    "Барак Ҳусейн Обама, як сиёсатмадори амрикоӣ, ки ҳамчун президенти 44-уми Иёлоти Муттаҳида хидмат мекунад, Донишгоҳи Колумбия ва Мактаби ҳуқуқии Ҳарвардро хатм кардааст, ки дар он ҷо президенти Дафтари Ҳуқуқи Ҳарвард буд.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Tajik"
+
+	},
+    "ABD'nin 44. Başkanı olarak görev yapan Amerikalı bir politikacı olan Barack Hussein Obama, Columbia Üniversitesi ve Harvard Hukuk Fakültesi'nden mezun oldu.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Turkish"
+
+	},
+    "Барак Хусейн Обама, американський політик, який займає посаду 44-го президента США, закінчив Колумбійський університет та Гарвардський юридичний факультет, де він обіймав посаду президента Гарвардського юридичного огляду.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Ukrainian"
+
+	},
+    "Barak Xusseyn Obama, AQShning 44-Prezidenti sifatida xizmat qilayotgan amerikalik siyosatchi, Kolumbiya universitetini va Garvard yuridik maktabini tamomlagan, u erda Garvard qonun sharhining prezidenti bo'lgan.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Uzbek"
+
+	},
+    "Barack Hussein Obama, một chính trị gia người Mỹ phục vụ với tư cách là Tổng thống thứ 44 của Hoa Kỳ, tốt nghiệp Đại học Columbia và Trường Luật Harvard, nơi ông từng là chủ tịch của Tạp chí Luật Harvard.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Vietnamese"
+
+	},
+    "Barack Hussein Obama, אַן אמעריקאנער פּאָליטיקער וואָס האָט געדינט ווי דער 44 סטער פרעזידענט פון די פארייניקטע שטאטן, האָט גראַדויִרט פון קאָלאָמביע אוניווערסיטעט און Harvard Law School, וווּ ער האָט געדינט אלס פרעזידענט פון Harvard Law Review.": {
+		"annotations":[
+			"POS",
+			"LEMMA",
+			"DEPENDENCY",
+			"SHALLOW_PARSE",
+			"NER",
+			"TRANSLITERATION"
+		],
+		"language":"Yiddish"
 
 	}
 }
