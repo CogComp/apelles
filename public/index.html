@@ -388,7 +388,7 @@
 	$(document).ready(function () {
             console.log('Loading and rendering');
             const _ = apelles.lodash;
-            const bratLocation = './brat_client';
+            const bratLocation = '/brat_client';
             const brat_options = {
 		'brat_util': Util,
 		'brat_webFontURLs': [
@@ -745,7 +745,7 @@
 				//alert("clicked");
 				$.ajax({
 				  type: "POST",
-				  url: location.href+"update_stats",
+				  url: "/update_stats",
 				  data: {'data':getSelectedAnnotationValues().toString()}
 				});
 			}

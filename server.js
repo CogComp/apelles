@@ -10,9 +10,6 @@ var fs = require('fs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.set('views', __dirname + '/public');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
 
 var PORT = 4006;
 app.listen(PORT);
