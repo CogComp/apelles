@@ -894,7 +894,8 @@
 				}
 			}
 			checkboxes[0].checked = true;
-			console.log(default_value +" is not a currently available annotation label");
+			if(default_value!=null)
+				console.log(default_value +" is not a currently available annotation label");
 		}
 		var url = new URL(location.href);
 		var default_annotation = url.searchParams.get("default_annotation");
