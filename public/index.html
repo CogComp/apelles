@@ -6,9 +6,6 @@
 
     <link rel="stylesheet" type="text/css" href="./brat_client/static/style-vis.css"/>
     <link rel="stylesheet" type="text/css" href="./main.css"/>
-	<link rel="stylesheet" type="text/css" href="../brat_client/static/style-vis.css"/>
-    <link rel="stylesheet" type="text/css" href="../main.css"/>
-	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css"/>
@@ -21,7 +18,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="./apelles.js" type="text/javascript"></script>
-	<script src="../apelles.js" type="text/javascript"></script>
 	
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -29,6 +25,8 @@
 	  $( function() {
 		$( ".checkbox-nested" ).checkboxradio();
 	  } );
+	 
+
 	</script>
 	
     <!--for code highlighting -->
@@ -42,6 +40,7 @@
 		var x = location.href;
 		if (!x.includes("index.html") && !x.endsWith("/")) 
 		{
+
 			location.href = x+"/";
 		}
 	</script>
@@ -257,7 +256,7 @@
     </div>
       <div class="alert alert-danger" id="comeLater" style="text-align: center; display: none" role="alert">
 		Servers unresponsive. Come back later!
-		<div><img src="/why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
+		<div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
       </div>
 
       <textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
@@ -392,7 +391,7 @@
 	$(document).ready(function () {
             console.log('Loading and rendering');
             const _ = apelles.lodash;
-            const bratLocation = '/brat_client';
+            const bratLocation = './brat_client';
             const brat_options = {
 		'brat_util': Util,
 		'brat_webFontURLs': [
@@ -749,7 +748,7 @@
 				//alert("clicked");
 				$.ajax({
 				  type: "POST",
-				  url: "/update_stats",
+				  url: location.href+"update_stats",
 				  data: {'data':getSelectedAnnotationValues().toString()}
 				});
 			}
@@ -873,31 +872,34 @@
 			//console.log(values);
 			return values;
 		}
-		</script>
-		<script>
-		var annonation_checkboxes = document.getElementsByClassName("checkbox-nested");
-		
-		var url_args = location.href.split("/");
-		
-		var default_arg = url_args[url_args.length-2];
-		
-		var nothing_checked = true;
-		for(var i =0;i<annonation_checkboxes.length;i++)
+		function checkDefaultOption(default_value)
 		{
-			
-			var checkbox = annonation_checkboxes[i];
-			if(checkbox.name.toUpperCase() == default_arg.toUpperCase())
+			var checkboxes = document.getElementsByClassName("checkbox-nested");
+			if(default_value!=null)
 			{
-				checkbox.checked = true;
-				nothing_checked = false;
+				default_value = default_value.toUpperCase().substr(0,default_value.length-1);
+				for(var i = 0;i<checkboxes.length;i++)
+				{
+					
+					var checkbox = checkboxes[i];
+					//dont check invisible checkboxes
+					if(checkbox.offsetParent == null)
+						continue;
+				
+					if(checkbox.name.toUpperCase() == default_value)
+					{
+						checkbox.checked = true;
+						return;
+					}
+				}
 			}
-				//console.log(key);
+			checkboxes[0].checked = true;
+			console.log(default_value +" is not a currently available annotation label");
 		}
-		if(nothing_checked)
-		{
-			document.getElementById("checkbox-nested-1").checked = true;
-		}
-		</script>
+		var url = new URL(location.href);
+		var default_annotation = url.searchParams.get("default_annotation").toString();
+		
+		checkDefaultOption(default_annotation);
 	</script>
   </body>
 </html>

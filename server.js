@@ -38,7 +38,7 @@ app.get('/render', function (req, res) {
 });
 
 app.get('/:default_annotation', function (req, res) {
-    res.sendFile( __dirname + '/public/index.html')
+	res.redirect('/?default_annotation=' + req.params.default_annotation);
 });
 
 app.post('/update_stats', function (req, res) {
