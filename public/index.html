@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>CogComp-NLP demo</title>
 
-    <link rel="stylesheet" type="text/css" href="./brat_client/static/style-vis.css"/>
-    <link rel="stylesheet" type="text/css" href="./main.css"/>
+    <link rel="stylesheet" type="text/css" href="/brat_client/static/style-vis.css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css"/>
@@ -17,7 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="./apelles.js" type="text/javascript"></script>
+    <script src="/apelles.js" type="text/javascript"></script>
 	
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -38,7 +38,6 @@
 		var x = location.href;
 		if (!x.includes("index.html") && !x.endsWith("/")) 
 		{
-
 			location.href = x+"/";
 		}
 	</script>
@@ -52,7 +51,7 @@
 		<p>
 				<h3>Select desired Annotations</h3>
 				<label for="checkbox-nested-1">POS
-				  <input checked class ="checkbox-nested" type="checkbox" name="POS" id="checkbox-nested-1">
+				  <input class ="checkbox-nested" type="checkbox" name="POS" id="checkbox-nested-1">
 				</label>
 				<label for="checkbox-nested-2">Lemma
 				  <input class ="checkbox-nested" type="checkbox" name="LEMMA" id="checkbox-nested-2">
@@ -254,7 +253,7 @@
     </div>
       <div class="alert alert-danger" id="comeLater" style="text-align: center; display: none" role="alert">
 		Servers unresponsive. Come back later!
-		<div><img src="why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
+		<div><img src="/why3.png" alt="Why....." style="height: 200px; margin-top: 10px"></div>
       </div>
 
       <textarea id="svg-code" style="height: 0.0cm; opacity: 0.0"></textarea>
@@ -870,7 +869,31 @@
 			//console.log(values);
 			return values;
 		}
+		</script>
+		<script>
+		var annonation_checkboxes = document.getElementsByClassName("checkbox-nested");
 		
+		var url_args = location.href.split("/");
+		
+		var default_arg = url_args[url_args.length-2];
+		
+		var nothing_checked = true;
+		for(var i =0;i<annonation_checkboxes.length;i++)
+		{
+			
+			var checkbox = annonation_checkboxes[i];
+			if(checkbox.name.toUpperCase() == default_arg.toUpperCase())
+			{
+				checkbox.checked = true;
+				nothing_checked = false;
+			}
+				//console.log(key);
+		}
+		if(nothing_checked)
+		{
+			document.getElementById("checkbox-nested-1").checked = true;
+		}
+		</script>
 	</script>
   </body>
 </html>

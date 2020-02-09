@@ -19,12 +19,13 @@
     "express": "^4.14.0"
   },
   "dependencies": {
-	"express": "4.16.2",
     "brat-client": "^0.0.2",
-	"browserify-middleware": "7.1.0",
+    "browserify-middleware": "7.1.0",
     "clipboard": "1.7.1",
     "d3-color": "^1.0.3",
     "d3-scale": "^1.0.5",
+    "ejs": "^3.0.1",
+    "express": "4.16.2",
     "fs-readdir-recursive": "^1.1.0",
     "hogan": "1.0.2",
     "jquery": "^3.1.1",
@@ -32,6 +33,5 @@
     "package.json": "^2.0.1",
     "randomcolor": "^0.4.4",
     "require-text": "0.0.1"
-	
   }
 }

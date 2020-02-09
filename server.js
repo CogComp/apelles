@@ -10,6 +10,10 @@ var fs = require('fs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set('views', __dirname + '/public');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 var PORT = 4006;
 app.listen(PORT);
 console.log('Listening at http://localhost:'+PORT);
@@ -34,6 +38,10 @@ app.get('/render', function (req, res) {
     var output = template.render(context, partial);
 
     res.send(output);
+});
+
+app.get('/:default_annotation', function (req, res) {
+    res.sendFile( __dirname + '/public/index.html')
 });
 
 app.post('/update_stats', function (req, res) {
