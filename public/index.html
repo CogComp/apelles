@@ -877,7 +877,7 @@
 			var checkboxes = document.getElementsByClassName("checkbox-nested");
 			if(default_value!=null)
 			{
-				default_value = default_value.toUpperCase().substr(0,default_value.length-1);
+				default_value = default_value.toString().toUpperCase().substr(0,default_value.length-1);
 				for(var i = 0;i<checkboxes.length;i++)
 				{
 					
@@ -897,7 +897,7 @@
 			console.log(default_value +" is not a currently available annotation label");
 		}
 		var url = new URL(location.href);
-		var default_annotation = url.searchParams.get("default_annotation").toString();
+		var default_annotation = url.searchParams.get("default_annotation");
 		
 		checkDefaultOption(default_annotation);
 	</script>
