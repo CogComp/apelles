@@ -38,11 +38,7 @@ app.get('/render', function (req, res) {
 });
 
 app.get('/:default_annotation', function (req, res) {
-	 var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-	 console.log("fullUrl is "+fullUrl);
-	 console.log("req.get('host') is "+req.get('host'));
-	 console.log("req.originalUrl is "+req.originalUrl);
-	  console.log("req.url is "+req.url);
+
 	res.redirect('/?default_annotation=' + req.params.default_annotation);
 });
 
