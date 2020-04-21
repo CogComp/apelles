@@ -74,9 +74,9 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-5 col-xs-6">
-                <span class="col-xs-12">Maximum number of sentences to display:</span>
-                <select class="selectpicker col-md-8 col-xs-12" id="sentences-limit-selector" data-actions-box="true">
+            <div class="col-md-3 col-xs-6">
+                <span class="col-xs-12">Maximum number of sentences:</span>
+                <select class="selectpicker col-xs-12" id="sentences-limit-selector" data-actions-box="true">
                     <option value="-1">Unlimited</option>
                     <option data-divider="true"></option>
                     <option value="10">10</option>
@@ -90,6 +90,11 @@
                     <option value="5000">5000</option>
                     <option value="10000">10000</option>
                 </select>
+            </div>
+            <div class="col-md-2 col-xs-12">
+                <input class="form-check-input" type="checkbox" value="" id="split-sentence-checkbox">
+                <span class="form-check-label" for="split-sentence-checkbox">Align sentences</span>
+                <p>Span labels and relations across sentence boundaries will be discarded.</p>
             </div>
             <div class="col-md-5 col-xs-12">
                 <span class="col-xs-12">Choose to stack multiple views into a single one:</span>
@@ -183,8 +188,8 @@
             return div;
         }
 
-        function renderView(dataOfOneView, viewInfo, renderArea) {
-            var div = createDiv(renderArea, {
+        function createBlockDiv(renderArea, viewInfo) {
+            return createDiv(renderArea, {
                 'class': 'alert alert-success visualization-block',
                 role: 'alert',
                 text: _.escape(viewInfo.name) + " // " + _.escape(_.last(viewInfo.type.split('.')))
@@ -192,8 +197,6 @@
                 'class': 'pull-right',
                 text: _.escape(viewInfo.file)
             }));
-
-            apelles.render(dataOfOneView.jsonData, div.attr('id'), viewInfo, BRAT_OPTIONS);
         }
 
         // Set the bootstrap column class for render area so that
@@ -221,6 +224,7 @@
             var selectedViews = getSelectValues($('#view-selector'));
             var selectedMultiViews = getSelectValues($('#multi-view-selector'));
             var sentencesLimit = parseInt(getSelectValues($('#sentences-limit-selector'))[0]);
+            var alignSentence = $("#split-sentence-checkbox").is(":checked");
 
             loadAnnotation(selectedAnnotations, sentencesLimit).then(function (fetchedData) {
                 var stackedViews = [];
@@ -256,16 +260,34 @@
                 }));
 
                 _.forEach(comparisonResultData, function (dataOfOneViewType) {
-                    var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
-                    var renderColumnDivs = _.map(fetchedData.folders, function (folder) {
-                        return createDiv(renderRowDiv, { 'class': columnClass });
-                    });
+                    if (alignSentence) {
+                        var blockDiv = createBlockDiv($("#render-area"), dataOfOneViewType.viewInfo);
 
-                    _.forEach(dataOfOneViewType.data, function (dataOfOneView) {
-                        // The view from some files can be missing, so must find the correct column to render this view
-                        var renderColumnDiv = renderColumnDivs[folderToColumnMap[dataOfOneView.folder]];
-                        renderView(dataOfOneView, dataOfOneViewType.viewInfo, renderColumnDiv);
-                    });
+                        var sentencesOfOneViewType = _.map(dataOfOneViewType.data, apelles.comparator.splitBySentence);
+                        _.forEach(_.spread(_.zip)(sentencesOfOneViewType), function (sentenceOfOneViewType) {
+                            var renderRowDiv = createDiv(blockDiv, { 'class': 'row' });
+                            var renderColumnDivs = _.map(fetchedData.folders, function (folder) {
+                                return createDiv(renderRowDiv, { 'class': columnClass });
+                            });
+
+                            _.forEach(sentenceOfOneViewType, function (sentenceOfOneView) {
+                                var renderColumnDiv = renderColumnDivs[folderToColumnMap[sentenceOfOneView.folder]];
+                                apelles.render(sentenceOfOneView.jsonData, renderColumnDiv.attr('id'), dataOfOneViewType.viewInfo, BRAT_OPTIONS);
+                            });
+                        });
+                    } else {
+                        var renderRowDiv = createDiv($("#render-area"), { 'class': 'row' });
+                        var renderColumnDivs = _.map(fetchedData.folders, function (folder) {
+                            return createDiv(renderRowDiv, { 'class': columnClass });
+                        });
+
+                        _.forEach(dataOfOneViewType.data, function (dataOfOneView) {
+                            // The view from some files can be missing, so must find the correct column to render this view
+                            var renderColumnDiv = renderColumnDivs[folderToColumnMap[dataOfOneView.folder]];
+                            var blockDiv = createBlockDiv(renderColumnDiv, dataOfOneViewType.viewInfo);
+                            apelles.render(dataOfOneView.jsonData, blockDiv.attr('id'), dataOfOneViewType.viewInfo, BRAT_OPTIONS);
+                        });
+                    }
                 });
             }, function (err) {
                 console.log(err);
